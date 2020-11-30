@@ -8,7 +8,9 @@ import sunshineicon from './images/sunshineicon.PNG'
 
 let flags = {
     name: "default",
-    research: ""
+    research: "",
+    ncogoal: "",
+    activity: ""
 }
 
 let nodeoof = {
@@ -442,9 +444,125 @@ let nodel18 = {
         next: "L13"
     }]
 }
+
+let nodel20 = {
+    index: "L20",
+    img: (<img />),
+    text: "How do you want to set goals with the NCOs?",
+    option: [
+    {
+        text: "Tell the NCOs what goals they should try to achieve.",
+        next: "L21",
+        fx: () => flags.ncogoal = "by VIs"
+    },
+    {
+        text: "Facilitate the NCOs in setting their own goals for the VIA.",
+        next: "L22"
+    }]
+}
+
+let nodel21 = {
+    index: "L21",
+    img: (<img />),
+    text: "Some of the NCOs looked very bored after you told them that they should aim to put in their best as well as learn more from the storeis of the residents...",
+    option: [
+    {
+        text: "Proceed on",
+        next: "P1"
+    }]
+}
+
+let nodel22 = {
+    index: "L22",
+    img: (<img />),
+    text: "A NCO sets this goal for himself. Should you intervene?",
+    option: [
+    {
+        text: "Yes",
+        next: "L23",
+        fx: () => flags.ncogoal = "by NCOs"
+    },
+    {
+        text: "No",
+        next: "P1",
+        fx: () => flags.ncogoal = "not specific"
+    }]
+}
+
+let nodel23 = {
+    index: "L23",
+    img: (<img />),
+    text: "What do you want to prompt the NCO?",
+    option: [
+    {
+        text: "This is not specific enough, you need to set another goal.",
+        next: "L24"
+    },
+    {
+        text: "That's a good start, let's try to use 3W1H to make this goal more specific!",
+        next: "L25"
+    }]
+}
+
+let nodel24 = {
+    index: "L24",
+    img: (<img />),
+    text: "The NCO looks a bid sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
+    option: [
+    {
+        text: "Proceed on",
+        next: "P1"
+    }]
+}
+
+let nodel25 = {
+    index: "L25",
+    img: (<img />),
+    text: "The NCO thinks about it and enthusiastically responds that by the end of the VIA, he wants to learn how to appropriately delegate manpower based on need.",
+    option: [
+    {
+        text: "Sounds great!",
+        next: "P1"
+    }]
+}
+
+let nodep1 = {
+    index: "P1",
+    img: (<img />),
+    text: "Time to get some planning done - here are some activities that your NCOs have proposed! Pick one to encourage your NCOs to conduct -",
+    option: [
+    {
+        text: "Among Us!",
+        next: "P3",
+        fx: () => flags.activity = "Among Us"
+    },
+    {
+        text: "Sing Songs",
+        next: "P4"
+    },
+    {
+        text: "Book Reading",
+        next: "P2"
+    },
+    {
+        text: "Play soccer",
+        next: "P3",
+        fx: () => flags.activity = "Soccer"
+    },
+    {
+        text: "Chit Chat",
+        next: "P3",
+        fx: () => flags.activity = "Chit Chat"
+    },
+    {
+        text: "Bring PS5 and Switch to play games",
+        next: "P6"
+    }]
+}
+        
     
 
-let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9, nodel10, nodel11, nodel12, nodel13, nodel14, nodel15, nodel16, nodel17, nodel18]
+let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9, nodel10, nodel11, nodel12, nodel13, nodel14, nodel15, nodel16, nodel17, nodel18, nodep1]
 
 export function getNode(i) {
     //alert(flags.name)
