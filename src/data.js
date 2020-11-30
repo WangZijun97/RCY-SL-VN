@@ -277,9 +277,174 @@ let nodel9 = {
         next: "L12"
     }]
 }
+
+let nodel10 = {
+    index: "L10",
+    img: (<img />),
+    text: "I think the kids like to play soccer.",
+    option: [
+    {
+        text: "Proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel11 = {
+    index: "L11",
+    img: (<img />),
+    text: "There is a TV playing Just for Laughs Gags",
+    option: [
+    {
+        text: "Proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel12 = {
+    index: "L12",
+    img: (<img />),
+    text: "There is no Wi-Fi",
+    option: [
+    {
+        text: "Proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel13 = {
+    index: "L13",
+    img: (<img />),
+    text: "You have arrived at the home! You can speak to any of the children or the Home Director. Who would you like to speak to?",
+    option: [
+    {
+        text: "Speak to Home Director, Mr Scrooge",
+        next: "L14"
+    },
+    {
+        text: "Speak to 16 year old Jonathan",
+        next: "L15"
+    },
+    {
+        text: "Speak to 14 year old Allam",
+        next: "L16"
+    },
+    {
+        text: "Speak to 10 year old Emily",
+        next: "L17"
+    },
+    {
+        text: "Speak to 9 year old Carmen",
+        next: "L18"
+    },
+    {
+        text: "I'm done, let's proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel14 = {
+    index: "L14",
+    img: (<img />),
+    text: nodel9.text,
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel15 = {
+    index: "L15",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Jonathan tells you the following:</p>
+        <ol>
+            <li>I go to Khairuddin Secondary School</li>
+            <li>I'm usually very tired in school, school is so boring</li>
+            <li>I don't have money for recess/lunch sometimes, often all I can buy is rice and one simple vegetable, Sometimes, I can't even afford that and just have to go hungry...</li>
+            <li>My grades aren't really very good... Maybe it's because of how tired and hungry that I am all the time</li>
+            <li>To earn money for food, I work to distribute newspapers very early in the morning</li>
+            <li>I wonder what will happen to me once I have to leave the home once I am too old to stay here, there's no way I can afford a place to stay and have food...</li>
+            <li>I wish I could become a chef so that I can cook my own great food!</li>
+            <li>In my little free time, I love playing soccer! Oh I also like to do kite fighting, if you know what that is hehe</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel16 = {
+    index: "L16",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Allam tells you the following:</p>
+        <ol>
+            <li>I don't go to school - got like 130 or something for PSLE then dropped out of Secondary School.</li>
+            <li>I work part-time at several shops for some small amount to settle food</li>
+            <li>How do I get hired while being so young? Don't tell anyone, but it's all sneaky sneaky. If anyone asks, I'm 16.</li>
+            <li>Rap music is the best! I first heard some of the popular rap songs while at work and really like them. I can really feel the meaning in the words for these songs!</li>
+            <li>I hope that one that I can become a rapper too, they are soooo cool.</li>
+            <li>Football? Go Chelsea!! I'm not really good at playing football, but it's still pretty fun. I like kite fighting too!</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel17 = {
+    index: "L17",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Emily tells you the following:</p>
+        <ol>
+            <li>I go to Chai Chee Primary School.</li>
+            <li>School's great, I think I'm doing pretty ok :D</li>
+            <li>I have a few friends in school. Not really in with the cool kids but not bullied or anything, schools fine.</li>
+            <li>I love reading! Sadly it's so dark here with all the lights off that it's difficult to be able to read properly, but I still try.</li>
+            <li>My favourite series is Harry Potter!</li>
+            <li>The others... they aren't that cool, seems like they usually spend their time earning money and doing chores. What a waste of time, they could be reading instead!</li>
+            <li>I don't really enjoy soccer, but kite-fighting is definitely ten out of ten fun!</li>
+            <li>It's great fun to chit chat! Even if my life isn't very exactly to talk about. Come back to talk to me again!</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel18 = {
+    index: "L18",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Carmen tells you the following:</p>
+        <ol>
+            <li>School? I go to Chai Chee Primary.</li>
+            <li>Yea I'm doing OK, not first place but don't think I'm doing too bad.</li>
+            <li>Oh yes my uniform is pretty nasty looking, it's all dirty and patched from all the times those nasty P6 kids tear them.</li>
+            <li>I wish I could be like Emily, she's doing so well in school like a queen.</li>
+            <li>My favourite show is We Bare Bears! Oh my just look at Icebear he's sooooooo cute and his story is soooooo sad but beautiful.</li>
+            <li>Cars is a great movie. I used to have a toy car that looks just like the red one in the movie, but someone threw it away one day. How dare they :(</li>
+            <li>We all have to play a part in doing housework, so I do mine as best as I can, but sometimes I get injured especially in our really slippery kitchen. So I don't really like doing that.</li>
+            <li>Football and kite-fighting are great fun!</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
     
 
-let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9]
+let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9, nodel10, nodel11, nodel12, nodel13, nodel14, nodel15, nodel16, nodel17, nodel18]
 
 export function getNode(i) {
     //alert(flags.name)
