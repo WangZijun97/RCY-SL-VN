@@ -14,8 +14,8 @@ export class Node extends React.Component {
     handleClick(opt) {
         if ("fx" in opt) {
             return () => {
-                this.props.trigger(opt.next)
-                opt.fx()
+                this.props.trigger(opt.next);
+                this.props.dispatch(opt.fx);
             }
         }
         return () => this.props.trigger(opt.next)
@@ -23,7 +23,7 @@ export class Node extends React.Component {
 
     imggen(obj) {
         if (obj instanceof Function) {
-            return obj();
+            return obj(this.props.flags);
         } else if (obj === undefined) {
             return <React.Fragment />;
         } else return obj;
@@ -31,7 +31,7 @@ export class Node extends React.Component {
     
     textgen(txt) {
         if (txt instanceof Function) {
-            return txt()
+            return txt(this.props.flags);
         } else {
             return (<p>{txt}</p>)
         }
@@ -39,7 +39,7 @@ export class Node extends React.Component {
     
     buttongen(opt) {
         if ("condition" in opt) {
-            if (!opt.condition()) {
+            if (!opt.condition(this.props.flags)) {
                 return
             }
         }
