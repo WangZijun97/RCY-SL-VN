@@ -15,7 +15,13 @@ import justForLaughs from './images/just-for-laughs.png'
 
 let flags = {
     name: "default",
-    research: "",
+    research: {
+        call: false,
+        freeTime: false,
+        recce: false,
+        brochure: false,
+        email: false
+    },
     ncogoal: "",
     activity: ""
 }
@@ -29,7 +35,11 @@ let nodeoof = {
 
 const consts = {
     SESAME: "Sesame Street Children's Orphanage",
-    SUNSHINE: "Sunshine Children's Home"
+    SUNSHINE: "Sunshine Children's Home",
+    AMONG_US: "Among Us",
+    SOCCER: "Soccer",
+    CHIT_CHAT: "Chit Chat",
+    KITE: "Kite Fighting",
 };
 
 let node0 = {
@@ -126,7 +136,7 @@ const nodes = {
 
     "L1": {
         index: "L1",
-        text: () => {return "Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at " + flags.name + ". Should you intervene?"},
+        text: () => `Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at ${flags.name}. Should you intervene?`,
         option: [
             {
                 text: "Yes",
@@ -158,27 +168,34 @@ const nodes = {
 
     "L2": {
         index: "L2",
-        text: "What would you like your NCOs to do?",
+        text: () => (<div>
+            <p>What would you like your NCOs to do?</p>
+            {flags.research.call && <p><em>[You have already called the home.]</em></p>}
+            {flags.research.recce && <p><em>[You have already visited the home physically.]</em></p>}
+            {flags.research.email && <p><em>[Unfortunately, due to the 2 week delay, you are no longer able to conduct a reccee]</em></p>}
+        </div>),
         option: [
             {
                 text: "Do more research on the home via the internet",
                 next: "L3",
-                fx: () => flags.research = "Internet"
+                fx: () => { flags.research.brochure = true },
             },
             {
                 text: "Email the home to ask questions",
                 next: "L4",
+                condition: () => !flags.research.email
             },
             {
                 text: "Call the home to ask questions",
                 next: "L8",
-                condition: () => !["Scrooge", "Call", "Recee"].includes(flags.research)
+                condition: () => !(flags.research.call || flags.research.recce),
+                fx: () => { flags.research.call = true },
             },
             {
                 text: "Physically visit the home for a recce",
                 next: "L13",
-                fx: () => flags.research = "Recee",
-                condition: () => flags.research !== "Recce",
+                fx: () => { flags.research.recce = true },
+                condition: () => !(flags.research.email || flags.research.recce),
             }]
     },
 
@@ -209,7 +226,8 @@ const nodes = {
         option: [
             {
                 text: "Continue waiting for a reply.",
-                next: "L5"
+                next: "L5",
+                fx: () => { flags.research.email = true; }
             },
             {
                 text: "Go back to other research options.",
@@ -228,7 +246,7 @@ const nodes = {
             },
             {
                 text: "Go back to other research options.",
-                next: "L7"
+                next: "L101"
             }]
     },
 
@@ -266,7 +284,6 @@ const nodes = {
             {
                 text: "Speak to Mr Scrooge",
                 next: "L9",
-                fx: () => flags.research = "Call",
             }]
     },
 
@@ -281,7 +298,7 @@ const nodes = {
             {
                 text: "What do the kids like to do in their free time?",
                 next: "L10",
-                fx: () => flags.research = "Scrooge"
+                fx: () => { flags.research.freeTime = true },
             },
             {
                 text: "What facilities are there at the home?",
@@ -558,7 +575,7 @@ const nodes = {
             {
                 text: "Among Us!",
                 next: "P3",
-                fx: () => flags.activity = "Among Us"
+                fx: () => { flags.activity = consts.AMONG_US },
             },
             {
                 text: "Sing Songs",
@@ -571,18 +588,25 @@ const nodes = {
             {
                 text: "Play soccer",
                 next: "P3",
-                fx: () => flags.activity = "Soccer",
-                condition: () => ["Scrooge", "Internet", "Recee"].includes(flags.research)
+                fx: () => { flags.activity = consts.SOCCER },
+                condition: () => flags.research.internet || flags.research.freeTime || flags.research.soccer,
             },
             {
                 text: "Chit Chat",
                 next: "P3",
-                fx: () => flags.activity = "Chit Chat"
+                fx: () => { flags.activity = consts.CHIT_CHAT }
             },
             {
                 text: "Bring PS5 and Switch to play games",
                 next: "P6"
-            }]
+            },
+            {
+                text: "Kite Fighting",
+                next: "P3",
+                fx: () => { flags.activity = consts.KITE },
+                condition: () => flags.research.recce,
+            }
+        ]
     },
 
     "P2": {
