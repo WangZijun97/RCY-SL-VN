@@ -57,3 +57,41 @@ button {
 a {
     color: #7fffff;
 }
+
+.dialogue-container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    margin: 0 10%;
+    padding: 0.4rem 0;
+}
+
+.dialogue-container > div {
+    margin: 0.4rem 0;
+}
+
+.self-speech {
+    align-self: flex-end;
+    color: #aaa;
+    width: 67%;
+    text-align: right;
+    border-right: 0.3rem solid #aaa;
+    padding-right: 1rem;
+}
+
+.other-speech {
+    align-self: flex-start;
+    width: 67%;
+    text-align: left;
+    border-left: 0.3rem solid;
+    padding-left: 1rem;
+}
+
+.scrooge-speech {
+    color: #90f;
+    border-color: #90f;
+}
+
+.dialogue-prompt {
+    margin-top: 1rem;
+}
