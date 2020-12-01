@@ -8,7 +8,9 @@ import sunshineicon from './images/sunshineicon.PNG'
 
 let flags = {
     name: "default",
-    research: ""
+    research: "",
+    ncogoal: "",
+    activity: ""
 }
 
 let nodeoof = {
@@ -277,9 +279,403 @@ let nodel9 = {
         next: "L12"
     }]
 }
+
+let nodel10 = {
+    index: "L10",
+    img: (<img />),
+    text: "I think the kids like to play soccer.",
+    option: [
+    {
+        text: "Proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel11 = {
+    index: "L11",
+    img: (<img />),
+    text: "There is a TV playing Just for Laughs Gags",
+    option: [
+    {
+        text: "Proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel12 = {
+    index: "L12",
+    img: (<img />),
+    text: "There is no Wi-Fi",
+    option: [
+    {
+        text: "Proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel13 = {
+    index: "L13",
+    img: (<img />),
+    text: "You have arrived at the home! You can speak to any of the children or the Home Director. Who would you like to speak to?",
+    option: [
+    {
+        text: "Speak to Home Director, Mr Scrooge",
+        next: "L14"
+    },
+    {
+        text: "Speak to 16 year old Jonathan",
+        next: "L15"
+    },
+    {
+        text: "Speak to 14 year old Allam",
+        next: "L16"
+    },
+    {
+        text: "Speak to 10 year old Emily",
+        next: "L17"
+    },
+    {
+        text: "Speak to 9 year old Carmen",
+        next: "L18"
+    },
+    {
+        text: "I'm done, let's proceed on",
+        next: "L101"
+    }]
+}
+
+let nodel14 = {
+    index: "L14",
+    img: (<img />),
+    text: nodel9.text,
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel15 = {
+    index: "L15",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Jonathan tells you the following:</p>
+        <ol>
+            <li>I go to Khairuddin Secondary School</li>
+            <li>I'm usually very tired in school, school is so boring</li>
+            <li>I don't have money for recess/lunch sometimes, often all I can buy is rice and one simple vegetable, Sometimes, I can't even afford that and just have to go hungry...</li>
+            <li>My grades aren't really very good... Maybe it's because of how tired and hungry that I am all the time</li>
+            <li>To earn money for food, I work to distribute newspapers very early in the morning</li>
+            <li>I wonder what will happen to me once I have to leave the home once I am too old to stay here, there's no way I can afford a place to stay and have food...</li>
+            <li>I wish I could become a chef so that I can cook my own great food!</li>
+            <li>In my little free time, I love playing soccer! Oh I also like to do kite fighting, if you know what that is hehe</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel16 = {
+    index: "L16",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Allam tells you the following:</p>
+        <ol>
+            <li>I don't go to school - got like 130 or something for PSLE then dropped out of Secondary School.</li>
+            <li>I work part-time at several shops for some small amount to settle food</li>
+            <li>How do I get hired while being so young? Don't tell anyone, but it's all sneaky sneaky. If anyone asks, I'm 16.</li>
+            <li>Rap music is the best! I first heard some of the popular rap songs while at work and really like them. I can really feel the meaning in the words for these songs!</li>
+            <li>I hope that one that I can become a rapper too, they are soooo cool.</li>
+            <li>Football? Go Chelsea!! I'm not really good at playing football, but it's still pretty fun. I like kite fighting too!</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel17 = {
+    index: "L17",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Emily tells you the following:</p>
+        <ol>
+            <li>I go to Chai Chee Primary School.</li>
+            <li>School's great, I think I'm doing pretty ok :D</li>
+            <li>I have a few friends in school. Not really in with the cool kids but not bullied or anything, schools fine.</li>
+            <li>I love reading! Sadly it's so dark here with all the lights off that it's difficult to be able to read properly, but I still try.</li>
+            <li>My favourite series is Harry Potter!</li>
+            <li>The others... they aren't that cool, seems like they usually spend their time earning money and doing chores. What a waste of time, they could be reading instead!</li>
+            <li>I don't really enjoy soccer, but kite-fighting is definitely ten out of ten fun!</li>
+            <li>It's great fun to chit chat! Even if my life isn't very exactly to talk about. Come back to talk to me again!</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel18 = {
+    index: "L18",
+    img: (<img />),
+    text: () => {return (<div>
+        <p>Carmen tells you the following:</p>
+        <ol>
+            <li>School? I go to Chai Chee Primary.</li>
+            <li>Yea I'm doing OK, not first place but don't think I'm doing too bad.</li>
+            <li>Oh yes my uniform is pretty nasty looking, it's all dirty and patched from all the times those nasty P6 kids tear them.</li>
+            <li>I wish I could be like Emily, she's doing so well in school like a queen.</li>
+            <li>My favourite show is We Bare Bears! Oh my just look at Icebear he's sooooooo cute and his story is soooooo sad but beautiful.</li>
+            <li>Cars is a great movie. I used to have a toy car that looks just like the red one in the movie, but someone threw it away one day. How dare they :(</li>
+            <li>We all have to play a part in doing housework, so I do mine as best as I can, but sometimes I get injured especially in our really slippery kitchen. So I don't really like doing that.</li>
+            <li>Football and kite-fighting are great fun!</li>
+        </ol>
+    </div>)},
+    option: [
+    {
+        text: "Go back to talk to the others",
+        next: "L13"
+    }]
+}
+
+let nodel20 = {
+    index: "L20",
+    img: (<img />),
+    text: "How do you want to set goals with the NCOs?",
+    option: [
+    {
+        text: "Tell the NCOs what goals they should try to achieve.",
+        next: "L21",
+        fx: () => flags.ncogoal = "by VIs"
+    },
+    {
+        text: "Facilitate the NCOs in setting their own goals for the VIA.",
+        next: "L22"
+    }]
+}
+
+let nodel21 = {
+    index: "L21",
+    img: (<img />),
+    text: "Some of the NCOs looked very bored after you told them that they should aim to put in their best as well as learn more from the storeis of the residents...",
+    option: [
+    {
+        text: "Proceed on",
+        next: "P1"
+    }]
+}
+
+let nodel22 = {
+    index: "L22",
+    img: (<img />),
+    text: "A NCO sets this goal for himself. Should you intervene?",
+    option: [
+    {
+        text: "Yes",
+        next: "L23",
+        fx: () => flags.ncogoal = "by NCOs"
+    },
+    {
+        text: "No",
+        next: "P1",
+        fx: () => flags.ncogoal = "not specific"
+    }]
+}
+
+let nodel23 = {
+    index: "L23",
+    img: (<img />),
+    text: "What do you want to prompt the NCO?",
+    option: [
+    {
+        text: "This is not specific enough, you need to set another goal.",
+        next: "L24"
+    },
+    {
+        text: "That's a good start, let's try to use 3W1H to make this goal more specific!",
+        next: "L25"
+    }]
+}
+
+let nodel24 = {
+    index: "L24",
+    img: (<img />),
+    text: "The NCO looks a bid sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
+    option: [
+    {
+        text: "Proceed on",
+        next: "P1"
+    }]
+}
+
+let nodel25 = {
+    index: "L25",
+    img: (<img />),
+    text: "The NCO thinks about it and enthusiastically responds that by the end of the VIA, he wants to learn how to appropriately delegate manpower based on need.",
+    option: [
+    {
+        text: "Sounds great!",
+        next: "P1"
+    }]
+}
+
+let nodep1 = {
+    index: "P1",
+    img: (<img />),
+    text: "Time to get some planning done - here are some activities that your NCOs have proposed! Pick one to encourage your NCOs to conduct -",
+    option: [
+    {
+        text: "Among Us!",
+        next: "P3",
+        fx: () => flags.activity = "Among Us"
+    },
+    {
+        text: "Sing Songs",
+        next: "P4"
+    },
+    {
+        text: "Book Reading",
+        next: "P2"
+    },
+    {
+        text: "Play soccer",
+        next: "P3",
+        fx: () => flags.activity = "Soccer",
+        condition: () => ["Scrooge", "Internet", "Recee"].includes(flags.research)
+    },
+    {
+        text: "Chit Chat",
+        next: "P3",
+        fx: () => flags.activity = "Chit Chat"
+    },
+    {
+        text: "Bring PS5 and Switch to play games",
+        next: "P6"
+    }]
+}
+
+let nodep2 = {
+    index: "P2",
+    img: (<img />),
+    text: "What books should the NCOs bring? They have time for two books:",
+    option: [
+    {
+        text: "Snow White + Three Little Pigs",
+        next: "P3",
+        fx: () => flags.activity = "Snow White"
+    },
+    {
+        text: "Geronimo Stilton + Enid Blyton",
+        next: "P3",
+        fx: () => flags.activity = "Geronimo"
+    },
+    {
+        text: "Harry Potter + Percy Jackson",
+        next: "P3",
+        fx: () => flags.activity = "Harry Potter"
+    },
+    {
+        text: "Hard Truths to Keep Singapore Going (this book is thick enough on its own)",
+        next: "P3",
+        fx: () => flags.activity = "Hard Truths"
+    }]
+}
+
+let nodep4 = {
+    index: "P4",
+    img: (<img />),
+    text: "The NCOs wonder what type of songs to sing. What will you suggest?",
+    option: [
+    {
+        text: "K-pop",
+        next: "P3",
+        fx: () => flags.activity = "K-pop"
+    },
+    {
+        text: "National Day songs",
+        next: "P3",
+        fx: () => flags.activity = "NDP"
+    },
+    {
+        text: "School Song + Red Cross Song",
+        next: "P3",
+        fx: () => flags.activity = "School Song"
+    },
+    {
+        text: "English Rap",
+        next: "P3",
+        fx: () => flags.activity = "Rap"
+    },
+    {
+        text: "Songs from the 80s",
+        next: "P3",
+        fx: () => flags.activity = "80s Songs"
+    }]
+}
+
+let nodep3 = {
+    index: "P3",
+    img: (<img />),
+    text: "How many sessions should the cadets go?",
+    option: [
+    {
+        text: "1x6h visit",
+        next: "P5",
+        fx: () => flags.sessions = "1"
+    },
+    {
+        text: "2x3h visits in the same month",
+        next: "P5",
+        fx: () => flags.sessions = "2 in a month"
+    },
+    {
+        text: "2x3h visits, one in March, one in June",
+        next: "P5",
+        fx: () => flags.sessions = "2 spread out"
+    },
+    {
+        text: "4x2h visits, one in each term",
+        next: "P5",
+        fx: () => flags.sessions = "4"
+    },
+    {
+        text: "0x8h visit",
+        next: "P7"
+    }]
+}
+
+let nodep6 = {
+    index: "P6",
+    img: (<img />),
+    text: "That's neat, but you don't have enough budget to buy those things (Besides, it's already a miracle if you even manage to find these in stock)",
+    option: [
+    {
+        text: "Aww (choose something else)",
+        next: "P1"
+    }]
+}
+
+let nodep7 = {
+    index: "P7",
+    img: (<img />),
+    text: "Haha very funny - by not having the VIA, your unit's EUA dropped from Gold to Silver :( Your unit is very sad.",
+    option: [
+    {
+        text: "Let's not do that (choose something else)",
+        next: "P3"
+    }]
+}
+        
     
 
-let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9]
+let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9, nodel10, nodel11, nodel12, nodel13, nodel14, nodel15, nodel16, nodel17, nodel18, nodep1, nodep2, nodep3, nodep4, nodep6, nodep7]
 
 export function getNode(i) {
     //alert(flags.name)

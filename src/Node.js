@@ -7,6 +7,8 @@ export class Node extends React.Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this)
+        this.textgen = this.textgen.bind(this)
+        this.buttongen = this.buttongen.bind(this)
     }
     
     handleClick(opt) {
@@ -19,21 +21,30 @@ export class Node extends React.Component {
         return () => this.props.trigger(opt.next)
     }
     
-    render() {
-        
-        function textgen(txt) {
-            if (txt instanceof Function) {
-                return txt()
-            } else {
-                return (<p>{txt}</p>)
+    textgen(txt) {
+        if (txt instanceof Function) {
+            return txt()
+        } else {
+            return (<p>{txt}</p>)
+        }
+    }
+    
+    buttongen(opt) {
+        if ("condition" in opt) {
+            if (!opt.condition()) {
+                return
             }
         }
+        return (<button onClick={this.handleClick(opt)}>{this.textgen(opt.text)}</button>)
+    }
+    
+    render() {
         
         return (
             <div className="Node">
                 {this.props.data.img}
-                {textgen(this.props.data.text)}
-                <div class="btn-container">{this.props.data.option.map(opt => {return (<button onClick={this.handleClick(opt)}>{textgen(opt.text)}</button>)})}</div>
+                {this.textgen(this.props.data.text)}
+                <div class="btn-container">{this.props.data.option.map(opt => this.buttongen(opt))}</div>
             </div>)
     }
 }
