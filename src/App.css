@@ -52,10 +52,11 @@ button {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    margin-top: 0.67rem;
 }
 
 a {
-    color: #7fffff;
+    color: #7ff;
 }
 
 .dialogue-container {
@@ -98,6 +99,16 @@ a {
 .allam-speech {
     color: #d44;
     border-color: #d44;
+}
+
+.emily-speech {
+    color: #6cf;
+    border-color: #6cf;
+}
+
+.carmen-speech {
+    color: #ff3;
+    border-color: #ff3;
 }
 
 .dialogue-prompt {

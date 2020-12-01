@@ -31,7 +31,7 @@ const Dialogue = (props) => {
                 <div class={combinedSpeakerClass}>{ans}</div>
             ))}
         </React.Fragment>))}
-        <div className="button-container">
+        <div className="btn-container">
             {availableQns.map((qnIndex) => <button key={qnIndex} onClick={createButtonHandler(qnIndex)}>
             {convos[qnIndex].q}
             </button>)}

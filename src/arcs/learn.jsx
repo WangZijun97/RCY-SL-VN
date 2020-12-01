@@ -10,6 +10,8 @@ import Dialogue from '../convo/Dialogue'
 import scroogeConvos from '../convo/scrooge'
 import jonConvos from '../convo/jonathan'
 import allamConvos from '../convo/allam'
+import emilyConvos from '../convo/emily'
+import carmenConvos from '../convo/carmen'
 
 const nodes = {
     "L1": {
@@ -262,7 +264,7 @@ const nodes = {
     "L15": {
         index: "L15",
         img: (<img />),
-        text: (flags) => (<Dialogue 
+        text: () => (<Dialogue 
             startOfConvo="Hi... I'm Jonathan, and I'm 16 years old."
             speakerClass="jon-speech"
             convos={jonConvos}
@@ -278,7 +280,7 @@ const nodes = {
     "L16": {
         index: "L16",
         img: (<img />),
-        text: (flags) => (<Dialogue 
+        text: () => (<Dialogue 
             startOfConvo="Sup. I'm Allam, and I'm 14."
             speakerClass="allam-speech"
             convos={allamConvos}
@@ -294,19 +296,12 @@ const nodes = {
     "L17": {
         index: "L17",
         img: (<img />),
-        text: (flags) => {return (<div>
-            <p>Emily tells you the following:</p>
-            <ol>
-            <li>I go to Chai Chee Primary School.</li>
-            <li>School's great, I think I'm doing pretty ok :D</li>
-            <li>I have a few friends in school. Not really in with the cool kids but not bullied or anything, schools fine.</li>
-            <li>I love reading! Sadly it's so dark here with all the lights off that it's difficult to be able to read properly, but I still try.</li>
-            <li>My favourite series is Harry Potter!</li>
-            <li>The others... they aren't that cool, seems like they usually spend their time earning money and doing chores. What a waste of time, they could be reading instead!</li>
-            <li>I don't really enjoy soccer, but kite-fighting is definitely ten out of ten fun!</li>
-            <li>It's great fun to chit chat! Even if my life isn't very exactly to talk about. Come back to talk to me again!</li>
-            </ol>
-            </div>)},
+        text: () => (<Dialogue 
+            startOfConvo="Umm... hello! I'm Emily!"
+            speakerClass="emily-speech"
+            convos={emilyConvos}
+            name="Emily"
+            />),
         option: [
             {
                 text: "Go back to talk to the others",
@@ -317,19 +312,12 @@ const nodes = {
     "L18": {
         index: "L18",
         img: (<img />),
-        text: (flags) => {return (<div>
-            <p>Carmen tells you the following:</p>
-            <ol>
-            <li>School? I go to Chai Chee Primary.</li>
-            <li>Yea I'm doing OK, not first place but don't think I'm doing too bad.</li>
-            <li>Oh yes my uniform is pretty nasty looking, it's all dirty and patched from all the times those nasty P6 kids tear them.</li>
-            <li>I wish I could be like Emily, she's doing so well in school like a queen.</li>
-            <li>My favourite show is We Bare Bears! Oh my just look at Icebear he's sooooooo cute and his story is soooooo sad but beautiful.</li>
-            <li>Cars is a great movie. I used to have a toy car that looks just like the red one in the movie, but someone threw it away one day. How dare they :(</li>
-                <li>We all have to play a part in doing housework, so I do mine as best as I can, but sometimes I get injured especially in our really slippery kitchen. So I don't really like doing that.</li>
-                <li>Football and kite-fighting are great fun!</li>
-                </ol>
-                </div>)},
+        text: () => (<Dialogue 
+            startOfConvo="I'm Carmen..."
+            speakerClass="carmen-speech"
+            convos={carmenConvos}
+            name="Carmen"
+            />),
         option: [
             {
                 text: "Go back to talk to the others",
