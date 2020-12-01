@@ -349,7 +349,7 @@ const nodes = {
     "L14": {
         index: "L14",
         img: (<img />),
-        text: () => nodes["L9"].text,
+        text: () => nodes["L9"].text(),
         option: [
             {
                 text: "Go back to talk to the others",
