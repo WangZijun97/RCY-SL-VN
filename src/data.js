@@ -5,6 +5,8 @@ import school from './images/school.jpg'
 import pepecry from './images/pepecry.png'
 import sschicon from './images/sesamestreeticon.PNG'
 import sunshineicon from './images/sunshineicon.PNG'
+import qrSesame from './images/qr-sesame.png'
+import qrSunshine from './images/qr-sunshine.png'
 
 let flags = {
     name: "default",
@@ -19,6 +21,11 @@ let nodeoof = {
     text: "Still under development UwU. Please refresh page.",
     option: []
 }
+
+const consts = {
+    SESAME: "Sesame Street Children's Orphanage",
+    SUNSHINE: "Sunshine Children's Home"
+};
 
 let node0 = {
     index: 0,
@@ -101,20 +108,19 @@ const nodes = {
         text: "Your teacher has identified 2 possible beneficiaries for your home visit. The first is Sesame Street Children's Orphanage that your unit has visited before in 2018 and 2019. The second option is Sunshine Children's Home, which your unit has never visited before, but is nearer to your school. Which beneficiary would you recommend?",
         option: [
             {
-                text: "Sesame Street Children's Orphanage",
+                text: consts.SESAME,
                 next: "L1",
-                fx: () => flags.name = "Sesame Street Children's Orphanage"
+                fx: () => flags.name = consts.SESAME
             },
             {
-                text: "Sunshine Children's Home",
+                text: consts.SUNSHINE,
                 next: "L1",
-                fx: () => flags.name = "Sunshine Children's Home"
+                fx: () => flags.name = consts.SUNSHINE
             }]
     },
 
     "L1": {
         index: "L1",
-        img: (<img />),
         text: () => {return "Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at " + flags.name + ". Should you intervene?"},
         option: [
             {
@@ -129,7 +135,6 @@ const nodes = {
 
     "L101": {
         index: "L101",
-        img: (<img />),
         text: "How do you want to intervene?",
         option: [
             {
@@ -173,8 +178,17 @@ const nodes = {
 
     "L3": {
         index: "L3",
-        img: (<img />),
-        text: "You managed to find the website of the home and have found the following brochure.",
+        img: () => <img src={flags.name === consts.SESAME ? qrSesame : qrSunshine} />,
+        text: () => (
+            <p>
+                You managed to find the website of the home and have found a brochure. <br/>
+                <a target="_blank" href={
+                    flags.name === consts.SESAME?
+                        "https://drive.google.com/file/d/1y9t6LN6cBId0RCxE4M-7f3DOcUal8K3X/view?usp=sharing" :
+                        "https://drive.google.com/file/d/1gesm8PTUZaWnSfcy_KiPKF6H4oT86KGA/view?usp=sharing"}>
+                    Link to brochure
+                </a>
+            </p>),
         option: [
             {
                 text: "Proceed on",
