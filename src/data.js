@@ -7,6 +7,11 @@ import sschicon from './images/sesamestreeticon.PNG'
 import sunshineicon from './images/sunshineicon.PNG'
 import qrSesame from './images/qr-sesame.png'
 import qrSunshine from './images/qr-sunshine.png'
+import oneWeekLater from './images/one-week-later.jpg'
+import wgt from './images/wgt.jpg'
+import scrooge from './images/scrooge.jpg'
+import soccer from './images/soccer.png'
+import justForLaughs from './images/just-for-laughs.png'
 
 let flags = {
     name: "default",
@@ -153,7 +158,6 @@ const nodes = {
 
     "L2": {
         index: "L2",
-        img: (<img />),
         text: "What would you like your NCOs to do?",
         option: [
             {
@@ -167,12 +171,14 @@ const nodes = {
             },
             {
                 text: "Call the home to ask questions",
-                next: "L8"
+                next: "L8",
+                condition: () => !["Scrooge", "Call", "Recee"].includes(flags.research)
             },
             {
                 text: "Physically visit the home for a recce",
                 next: "L13",
-                fx: () => flags.research = "Recee"
+                fx: () => flags.research = "Recee",
+                condition: () => flags.research !== "Recce",
             }]
     },
 
@@ -198,7 +204,7 @@ const nodes = {
 
     "L4": {
         index: "L4",
-        img: (<img />),
+        img: (<img src={oneWeekLater} width="40%" />),
         text: "It's been one week but the home hasn't replied you yet. What do you want to do?",
         option: [
             {
@@ -213,7 +219,7 @@ const nodes = {
 
     "L5": {
         index: "L5",
-        img: (<img />),
+        img: (<iframe src="https://giphy.com/embed/3o6Ztke2ogPyvyhPXO" frameBorder="0"></iframe>),
         text: "It's been another week but the home still hasn't replied you. What do you want to do?",
         option: [
             {
@@ -228,7 +234,7 @@ const nodes = {
 
     "L6": {
         index: "L6",
-        img: (<img />),
+        img: (<img src={wgt} />),
         text: "WHERE GOT TIME TO WAIT??",
         option: [
             {
@@ -239,7 +245,6 @@ const nodes = {
 
     "L7": {
         index: "L7",
-        img: (<img />),
         text: (<span>What would you like your NCOs to do? <br/><em>[Unfortunately, due to the 2 week delay, you are no longer able to conduct a reccee]</em></span>),
         option: [
             {
@@ -255,29 +260,21 @@ const nodes = {
 
     "L8": {
         index: "L8",
-        img: (<img />),
+        img: (<img src={scrooge} />),
         text: "Upon calling the home, you were able to speak to the Home Director, Mr Scrooge.",
         option: [
             {
                 text: "Speak to Mr Scrooge",
-                next: "L9"
+                next: "L9",
+                fx: () => flags.research = "Call",
             }]
     },
 
     "L9": {
         index: "L9",
-        img: (<img />),
+        img: (<img src={scrooge} />),
         text: () => {return (<div>
-            <p>Mr Scrooge tells you the following: </p>
-            <ol>
-            <li>My number one worry is the budget. We don't have enough donations, so we really cannot afford to overspend!</li>
-            <li>I really rather receive money than volunteers, we have barely enough for the lights.</li>
-            <li>I live here too and the conditions are really... ugh</li>
-            <li>I really hope that the children will get adopted so that the budget can be spread less thinly.</li>
-            <li>It's quite sad that they have to live in such poor conditions, I really feel bad for them, they deserve better lives than this...</li>
-            <li>Hope that someone would come along to help him with managing the home too, there's too much to do for one person.</li>
-            <li>TV shows? Don't tell anyone, but I love those romance series.</li>
-            </ol>
+            {nodes["L14"].text()}
             <p>You have time for one last question as well! What would you like to ask?</p>
             </div>)},
         option: [
@@ -298,7 +295,7 @@ const nodes = {
 
     "L10": {
         index: "L10",
-        img: (<img />),
+        img: (<img src={soccer} />),
         text: "I think the kids like to play soccer.",
         option: [
             {
@@ -309,8 +306,8 @@ const nodes = {
 
     "L11": {
         index: "L11",
-        img: (<img />),
-        text: "There is a TV playing Just for Laughs Gags",
+        img: (<img src={justForLaughs} />),
+        text: "We have a TV, a phone and a kitchen. Nothing really interesting plays on TV though... it's usually Just for Laugh Gags",
         option: [
             {
                 text: "Proceed on",
@@ -362,8 +359,19 @@ const nodes = {
 
     "L14": {
         index: "L14",
-        img: (<img />),
-        text: () => nodes["L9"].text(),
+        img: (<img src={scrooge} />),
+        text: () => (<div>
+            <p>Mr Scrooge tells you the following: </p>
+            <ol>
+            <li>My number one worry is the budget. We don't have enough donations, so we really cannot afford to overspend!</li>
+            <li>I really rather receive money than volunteers, we have barely enough for the lights.</li>
+            <li>I live here too and the conditions are really... ugh</li>
+            <li>I really hope that the children will get adopted so that the budget can be spread less thinly.</li>
+            <li>It's quite sad that they have to live in such poor conditions, I really feel bad for them, they deserve better lives than this...</li>
+            <li>Hope that someone would come along to help him with managing the home too, there's too much to do for one person.</li>
+            <li>TV shows? Don't tell anyone, but I love those romance series.</li>
+            </ol>
+            </div>) ,
         option: [
             {
                 text: "Go back to talk to the others",
