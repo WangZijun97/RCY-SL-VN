@@ -674,6 +674,57 @@ const nodes = {
                 next: "P3"
             }]
     },
+    
+    "P5": {
+        index: "P5",
+        img: (<img />),
+        text: "The NCOs are spending a lot of time on setting roles and goals. Should you intervene?",
+        option: [
+            {
+                text: "Nah, tey are doing fine.",
+                next: "P9",
+            },
+            {
+                text: "Yes",
+                next: "P8"
+            }
+        ]
+    },
+
+    "P8": {
+        index: "P8",
+        img: () => nodes["P5"].img,
+        text: "What will you do?",
+        option: [
+            {
+                text: "Tell them to stop wasting time and instead focus on making the activity as exciting as possible",
+                next: "P11",
+            },
+            {
+                text: "Give them roles and goals from last year's proposal and just ask them to copy it.",
+                next: "P11"
+            },
+            {
+                text: "Tell the OIC and O2ICs to set for the rest of the committee",
+                next: "P9",
+            },
+            {
+                text: "Actually, none of these",
+                next: "P9",
+            }
+        ]
+    },
+
+    "P11": {
+        index: "P11",
+        img: (<img />),
+        text: "Well that got them to move on, but they don't seen too happy about it...",
+        option: [{
+            text: "Continue",
+            next: "P12",
+        }]
+    }
+    
 }   
 
 export function getNode(i) {
