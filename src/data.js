@@ -1,5 +1,6 @@
 import homeArcNodes from './arcs/home'
 import learnArcNodes from './arcs/learn'
+import askArcNodes from './arcs/ask'
 import consts from './consts'
 import bridge from './images/bridge.jpg'
 import skull from './images/skull.png'
@@ -17,6 +18,7 @@ let nodeoof = {
 const nodes = {
     ...homeArcNodes,
     ...learnArcNodes,
+    ...askArcNodes,
 
     "P1": {
         index: "P1",
