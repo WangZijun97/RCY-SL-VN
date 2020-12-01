@@ -33,7 +33,7 @@ export class Node extends React.Component {
             <div className="Node">
                 {this.props.data.img}
                 {textgen(this.props.data.text)}
-                <div>{this.props.data.option.map(opt => {return (<button onClick={this.handleClick(opt)}>{textgen(opt.text)}</button>)})}</div>
+                <div class="btn-container">{this.props.data.option.map(opt => {return (<button onClick={this.handleClick(opt)}>{textgen(opt.text)}</button>)})}</div>
             </div>)
     }
 }
