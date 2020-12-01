@@ -6,6 +6,8 @@ import scrooge from '../images/scrooge.jpg'
 import soccer from '../images/soccer.png'
 import justForLaughs from '../images/just-for-laughs.png'
 import consts from '../consts'
+import Dialogue from '../convo/Dialogue'
+import scroogeConvos from '../convo/scrooge'
 
 const nodes = {
     "L1": {
@@ -135,21 +137,6 @@ const nodes = {
             }]
     },
 
-    "L7": {
-        index: "L7",
-        text: (<span>What would you like your NCOs to do? <br/><em>[Unfortunately, due to the 2 week delay, you are no longer able to conduct a reccee]</em></span>),
-        option: [
-            {
-                text: "Do more research on the home via the Internet",
-                next: "L3",
-                fx: (flags) => flags.research = "Internet"
-            },
-            {
-                text: "Call the home to ask questions",
-                next: "L8"
-            }]
-    },
-
     "L8": {
         index: "L8",
         img: (<img src={scrooge} />),
@@ -164,10 +151,19 @@ const nodes = {
     "L9": {
         index: "L9",
         img: (<img src={scrooge} />),
-        text: (flags) => {return (<div>
-            {nodes["L14"].text(flags)}
-            <p>You have time for one last question as well! What would you like to ask?</p>
-            </div>)},
+        text: (flags) => nodes["L14"].text(flags),
+        option: [
+            {
+                text: "Continue",
+                next: "L201",
+            }
+        ]
+    },
+
+    "L201": {
+        index: "L201",
+        img: (<img src={scrooge} />),
+        text: "You have time for one last question! What would you like to ask?",
         option: [
             {
                 text: "What do the kids like to do in their free time?",
@@ -198,7 +194,7 @@ const nodes = {
     "L11": {
         index: "L11",
         img: (<img src={justForLaughs} />),
-        text: "We have a TV, a phone and a kitchen. Nothing really interesting plays on TV though... it's usually Just for Laugh Gags",
+        text: "We have a TV, a phone and a kitchen. Nothing really interesting plays on TV though... it's usually Just for Laugh Gags.",
         option: [
             {
                 text: "Proceed on",
@@ -208,8 +204,7 @@ const nodes = {
 
     "L12": {
         index: "L12",
-        img: (<img />),
-        text: "There is no Wi-Fi",
+        text: "There is no Wi-Fi at the home.",
         option: [
             {
                 text: "Proceed on",
@@ -219,7 +214,6 @@ const nodes = {
 
     "L13": {
         index: "L13",
-        img: (<img />),
         text: "You have arrived at the home! You can speak to any of the children or the Home Director. Who would you like to speak to?",
         option: [
             {
@@ -251,18 +245,11 @@ const nodes = {
     "L14": {
         index: "L14",
         img: (<img src={scrooge} />),
-        text: (flags) => (<div>
-            <p>Mr Scrooge tells you the following: </p>
-            <ol>
-            <li>My number one worry is the budget. We don't have enough donations, so we really cannot afford to overspend!</li>
-            <li>I really rather receive money than volunteers, we have barely enough for the lights.</li>
-            <li>I live here too and the conditions are really... ugh</li>
-            <li>I really hope that the children will get adopted so that the budget can be spread less thinly.</li>
-            <li>It's quite sad that they have to live in such poor conditions, I really feel bad for them, they deserve better lives than this...</li>
-            <li>Hope that someone would come along to help him with managing the home too, there's too much to do for one person.</li>
-            <li>TV shows? Don't tell anyone, but I love those romance series.</li>
-            </ol>
-            </div>) ,
+        text: (flags) => (<Dialogue
+            startOfConvo={`Welcome to ${flags.name}! I am Ebenzer Scrooge, the Home Director. Feel free to ask me anything about the home!`}
+            speakerClass="scrooge-speech"
+            convos={scroogeConvos}
+            name="Mr. Scrooge" />) ,
         option: [
             {
                 text: "Go back to talk to the others",
