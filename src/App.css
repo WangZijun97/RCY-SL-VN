@@ -45,6 +45,7 @@ button {
     display: inline-flex;
     align-items: center;
     margin: 2px 4px;
+    cursor: pointer;
 }
 
 .btn-container {
