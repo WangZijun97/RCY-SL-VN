@@ -703,7 +703,7 @@ const nodes = {
         text: "The NCOs are spending a lot of time on setting roles and goals. Should you intervene?",
         option: [
             {
-                text: "Nah, tey are doing fine.",
+                text: "Nah, they are doing fine.",
                 next: "P9",
             },
             {
@@ -720,7 +720,7 @@ const nodes = {
         option: [
             {
                 text: "Tell them to stop wasting time and instead focus on making the activity as exciting as possible",
-                next: "P11",
+                next: "P11"
             },
             {
                 text: "Give them roles and goals from last year's proposal and just ask them to copy it.",
@@ -728,11 +728,11 @@ const nodes = {
             },
             {
                 text: "Tell the OIC and O2ICs to set for the rest of the committee",
-                next: "P9",
+                next: "P9"
             },
             {
                 text: "Actually, none of these",
-                next: "P9",
+                next: "P9"
             }
         ]
     },
@@ -745,12 +745,104 @@ const nodes = {
             text: "Continue",
             next: "P12",
         }]
+    },
+    
+    "P12": {
+        index: "P12",
+        img: (<img />),
+        text: "OIC John complains to you that th rest of the NCOs are slacking off. What will you do?",
+        option: [
+            {
+                text: "Assemble the rest of the NCOs and scold them",
+                next: "P14",
+                fx: () => flags.rolesandgoals = "Scold"
+            },
+            {
+                text: "Tell them off to the YO, this is getting out of your hands!",
+                next: "P121",
+                fx: () => flags.rolesandgoals = "YO Scold"
+            },
+            {
+                text: "Tell John to handle it himself - he is the OIC after all. At most get the chairperson Meiling to help him out.",
+                next: "P122",
+                fx: () => flags.rolesandgoals = "Nothing"
+            },
+            {
+                text: "Ask the rest of the NCOs: What's going on?",
+                next: "P13",
+                fx: () => flags.rolesandgoals = "Check on them"
+            }
+        ]
+    },
+    
+    "P13": {
+        index: "P13",
+        img: (<img />),
+        text: "NCOs: Our jobs aren't really what we want to do or what we thought they would be like...",
+        option: [
+            {
+                text: "Well, RnRs are always set like this and have worked previous years, so let's better just stick to it.",
+                next: "P14",
+                fx: () => flags.rolesandgoals =  "Tradition"
+            },
+            {
+                text: "Oh if you really want, feel free to swap roles...",
+                next: "P9"
+            },
+            {
+                text: "Ok let's go back to setting your own roles and goals",
+                next: "P9"
+            }
+        ]
+    },
+    
+    "P9": {
+        index: "P9",
+        img: (<img />),
+        text: "The NCOs ask: What margin width should we use for our proposal?",
+        option: [
+            {
+                text: "Default, of course",
+                next: "P10"
+            },
+            {
+                text: "Narrow to save some trees",
+                next: "P10"
+            },
+            {
+                text: "Exactly 0.75\" just because",
+                next: "P10"
+            },
+            {
+                text: "Figure it out yourselves",
+                next: "P10"
+            }
+        ]
+    },
+    
+    "P10": {
+        index: "P10",
+        img: (<img />),
+        text: "Alright! Your NCOs have created a beautiful proposal which the teacher approves, with just a week to spare! All seems to be going well :D",
+        option: [{
+            text: "Nice ^__^",
+            next: "A1"
+        }]
+    },
+    
+    "P14": {
+        index: "P14",
+        img: (<img />),
+        text: "Your NCOs have finally finished off the proposal two nights before the VIA. It's not the best, but at least it's before the VIA. Let's hope the teacher find's this OK...",
+        option: [{
+            text: "Fingers crossed...",
+            next: "A1"
+        }]
     }
     
 }   
 
 export function getNode(i) {
-    //alert(flags.name)
     let node = nodes[i];
     if (node === undefined) {
         return nodeoof
