@@ -8,6 +8,8 @@ import justForLaughs from '../images/just-for-laughs.png'
 import consts from '../consts'
 import Dialogue from '../convo/Dialogue'
 import scroogeConvos from '../convo/scrooge'
+import jonConvos from '../convo/jonathan'
+import allamConvos from '../convo/allam'
 
 const nodes = {
     "L1": {
@@ -260,19 +262,12 @@ const nodes = {
     "L15": {
         index: "L15",
         img: (<img />),
-        text: (flags) => {return (<div>
-            <p>Jonathan tells you the following:</p>
-            <ol>
-            <li>I go to Khairuddin Secondary School</li>
-            <li>I'm usually very tired in school, school is so boring</li>
-            <li>I don't have money for recess/lunch sometimes, often all I can buy is rice and one simple vegetable, Sometimes, I can't even afford that and just have to go hungry...</li>
-            <li>My grades aren't really very good... Maybe it's because of how tired and hungry that I am all the time</li>
-            <li>To earn money for food, I work to distribute newspapers very early in the morning</li>
-            <li>I wonder what will happen to me once I have to leave the home once I am too old to stay here, there's no way I can afford a place to stay and have food...</li>
-            <li>I wish I could become a chef so that I can cook my own great food!</li>
-            <li>In my little free time, I love playing soccer! Oh I also like to do kite fighting, if you know what that is hehe</li>
-            </ol>
-            </div>)},
+        text: (flags) => (<Dialogue 
+            startOfConvo="Hi... I'm Jonathan, and I'm 16 years old."
+            speakerClass="jon-speech"
+            convos={jonConvos}
+            name="Jonathan"
+            />),
         option: [
             {
                 text: "Go back to talk to the others",
@@ -283,17 +278,12 @@ const nodes = {
     "L16": {
         index: "L16",
         img: (<img />),
-        text: (flags) => {return (<div>
-            <p>Allam tells you the following:</p>
-            <ol>
-            <li>I don't go to school - got like 130 or something for PSLE then dropped out of Secondary School.</li>
-            <li>I work part-time at several shops for some small amount to settle food</li>
-            <li>How do I get hired while being so young? Don't tell anyone, but it's all sneaky sneaky. If anyone asks, I'm 16.</li>
-            <li>Rap music is the best! I first heard some of the popular rap songs while at work and really like them. I can really feel the meaning in the words for these songs!</li>
-            <li>I hope that one that I can become a rapper too, they are soooo cool.</li>
-            <li>Football? Go Chelsea!! I'm not really good at playing football, but it's still pretty fun. I like kite fighting too!</li>
-            </ol>
-            </div>)},
+        text: (flags) => (<Dialogue 
+            startOfConvo="Sup. I'm Allam, and I'm 14."
+            speakerClass="allam-speech"
+            convos={allamConvos}
+            name="Allam"
+            />),
         option: [
             {
                 text: "Go back to talk to the others",

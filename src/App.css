@@ -66,10 +66,6 @@ a {
     padding: 0.4rem 0;
 }
 
-.dialogue-container > div {
-    margin: 0.4rem 0;
-}
-
 .self-speech {
     align-self: flex-end;
     color: #aaa;
@@ -77,6 +73,7 @@ a {
     text-align: right;
     border-right: 0.3rem solid #aaa;
     padding-right: 1rem;
+    margin: 0.6rem 0;
 }
 
 .other-speech {
@@ -85,11 +82,22 @@ a {
     text-align: left;
     border-left: 0.3rem solid;
     padding-left: 1rem;
+    margin: 0.2rem 0;
 }
 
 .scrooge-speech {
     color: #90f;
     border-color: #90f;
+}
+
+.jon-speech {
+    color: #5b5;
+    border-color: #5b5;
+}
+
+.allam-speech {
+    color: #d44;
+    border-color: #d44;
 }
 
 .dialogue-prompt {
