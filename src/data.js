@@ -547,7 +547,8 @@ let nodep1 = {
     {
         text: "Play soccer",
         next: "P3",
-        fx: () => flags.activity = "Soccer"
+        fx: () => flags.activity = "Soccer",
+        condition: () => ["Scrooge", "Internet", "Recee"].includes(flags.research)
     },
     {
         text: "Chit Chat",
@@ -559,10 +560,122 @@ let nodep1 = {
         next: "P6"
     }]
 }
+
+let nodep2 = {
+    index: "P2",
+    img: (<img />),
+    text: "What books should the NCOs bring? They have time for two books:",
+    option: [
+    {
+        text: "Snow White + Three Little Pigs",
+        next: "P3",
+        fx: () => flags.activity = "Snow White"
+    },
+    {
+        text: "Geronimo Stilton + Enid Blyton",
+        next: "P3",
+        fx: () => flags.activity = "Geronimo"
+    },
+    {
+        text: "Harry Potter + Percy Jackson",
+        next: "P3",
+        fx: () => flags.activity = "Harry Potter"
+    },
+    {
+        text: "Hard Truths to Keep Singapore Going (this book is thick enough on its own)",
+        next: "P3",
+        fx: () => flags.activity = "Hard Truths"
+    }]
+}
+
+let nodep4 = {
+    index: "P4",
+    img: (<img />),
+    text: "The NCOs wonder what type of songs to sing. What will you suggest?",
+    option: [
+    {
+        text: "K-pop",
+        next: "P3",
+        fx: () => flags.activity = "K-pop"
+    },
+    {
+        text: "National Day songs",
+        next: "P3",
+        fx: () => flags.activity = "NDP"
+    },
+    {
+        text: "School Song + Red Cross Song",
+        next: "P3",
+        fx: () => flags.activity = "School Song"
+    },
+    {
+        text: "English Rap",
+        next: "P3",
+        fx: () => flags.activity = "Rap"
+    },
+    {
+        text: "Songs from the 80s",
+        next: "P3",
+        fx: () => flags.activity = "80s Songs"
+    }]
+}
+
+let nodep3 = {
+    index: "P3",
+    img: (<img />),
+    text: "How many sessions should the cadets go?",
+    option: [
+    {
+        text: "1x6h visit",
+        next: "P5",
+        fx: () => flags.sessions = "1"
+    },
+    {
+        text: "2x3h visits in the same month",
+        next: "P5",
+        fx: () => flags.sessions = "2 in a month"
+    },
+    {
+        text: "2x3h visits, one in March, one in June",
+        next: "P5",
+        fx: () => flags.sessions = "2 spread out"
+    },
+    {
+        text: "4x2h visits, one in each term",
+        next: "P5",
+        fx: () => flags.sessions = "4"
+    },
+    {
+        text: "0x8h visit",
+        next: "P7"
+    }]
+}
+
+let nodep6 = {
+    index: "P6",
+    img: (<img />),
+    text: "That's neat, but you don't have enough budget to buy those things (Besides, it's already a miracle if you even manage to find these in stock)",
+    option: [
+    {
+        text: "Aww (choose something else)",
+        next: "P1"
+    }]
+}
+
+let nodep7 = {
+    index: "P7",
+    img: (<img />),
+    text: "Haha very funny - by not having the VIA, your unit's EUA dropped from Gold to Silver :( Your unit is very sad.",
+    option: [
+    {
+        text: "Let's not do that (choose something else)",
+        next: "P3"
+    }]
+}
         
     
 
-let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9, nodel10, nodel11, nodel12, nodel13, nodel14, nodel15, nodel16, nodel17, nodel18, nodep1]
+let allNodes = [nodeoof, node0, node1, node2, nodeh1, nodeh2, nodeh3, nodel1, nodel101, nodel2, nodel3, nodel4, nodel5, nodel6, nodel7, nodel8, nodel9, nodel10, nodel11, nodel12, nodel13, nodel14, nodel15, nodel16, nodel17, nodel18, nodep1, nodep2, nodep3, nodep4, nodep6, nodep7]
 
 export function getNode(i) {
     //alert(flags.name)
