@@ -37,13 +37,6 @@ export class Node extends React.Component {
         }
     }
     
-    imggen(img) {
-        if (img instanceof Function) {
-            return img()
-        }
-        return img
-    }
-    
     buttongen(opt) {
         if ("condition" in opt) {
             if (!opt.condition()) {
