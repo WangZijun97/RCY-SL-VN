@@ -20,6 +20,14 @@ export class Node extends React.Component {
         }
         return () => this.props.trigger(opt.next)
     }
+
+    imggen(obj) {
+        if (obj instanceof Function) {
+            return obj();
+        } else if (obj === undefined) {
+            return <React.Fragment />;
+        } else return obj;
+    }
     
     textgen(txt) {
         if (txt instanceof Function) {
@@ -42,7 +50,7 @@ export class Node extends React.Component {
         
         return (
             <div className="Node">
-                {this.props.data.img}
+                {this.imggen(this.props.data.img)}
                 {this.textgen(this.props.data.text)}
                 <div class="btn-container">{this.props.data.option.map(opt => this.buttongen(opt))}</div>
             </div>)
