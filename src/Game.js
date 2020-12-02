@@ -10,7 +10,7 @@ const initialFlags = {
         freeTime: false,
         recce: false,
         brochure: false,
-        email: false
+        email: 0,
     },
     ncogoal: "",
     activity: "",

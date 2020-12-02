@@ -97,8 +97,8 @@ a {
 }
 
 .allam-speech {
-    color: #d44;
-    border-color: #d44;
+    color: #a22;
+    border-color: #a22;
 }
 
 .emily-speech {
@@ -135,4 +135,9 @@ a {
         max-width: 80%;
         height: auto;
     }
+}
+
+.nco-speech {
+    color: #e88;
+    border-color: #e88;
 }
