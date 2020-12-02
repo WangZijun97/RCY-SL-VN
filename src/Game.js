@@ -24,7 +24,7 @@ const reducer = (state, action) => {
 }
 
 const Game = () => {
-    const [node, setNode] = React.useState("H1");
+    const [node, setNode] = React.useState("H0");
     const [flags, flagDispatch] = React.useReducer(reducer, initialFlags);
 
     return <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} />;
