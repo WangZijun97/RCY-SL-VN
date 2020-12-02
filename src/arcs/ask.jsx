@@ -3,9 +3,9 @@ import consts from '../consts'
 import timeline from '../images/timeline.png'
 import footdrill from '../images/footdrill.png'
 import notlikeduck from '../images/NotLikeDuck.png'
+import sunset from '../images/sunset.jpg'
 
 const askArcNodes = {
-    
     "A1": {
         index: "A1",
         img: (<img src={timeline} alt="Timeline. 1400-1430 Reporting Parade; 1430-1515 Briefing for VIA; 1515-1600 Buffer; 1600-1630 Dismissal Parade" />),
@@ -144,7 +144,7 @@ const askArcNodes = {
     
     "A8": {
         index: "A8",
-        img: (<img />),
+        img: (<img src={sunset} alt="sunset" />),
         text: "The training has ended and the cadets are clear of what will be happening during the VIA. However, the cadets looked quite bored when the NCOs tell them what their goal for the VIA should be...",
         option: [{
             text: "Continue",
@@ -154,7 +154,7 @@ const askArcNodes = {
     
     "A9": {
         index: "A9",
-        img: (<img />),
+        img: (<img src={sunset} alt="sunset" />),
         text: "The training has ended and the cadets are clear of what will be happening during the VIA. Everyone is very excited!",
         option: [{
             text: "Let's hope the VIA goes well too!",
@@ -164,7 +164,7 @@ const askArcNodes = {
     
     "A10": {
         index: "A10",
-        img: (<img />),
+        img: (<img src={sunset} alt="sunset" />),
         text: "The training has ended and the cadets are clear of what will be happening during the VIA.",
         option: [{
             text: "Continue",
