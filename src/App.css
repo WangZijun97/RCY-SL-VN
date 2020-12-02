@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 1rem 10%;
 }
 
 .App-logo {
@@ -22,24 +25,28 @@
 }
 
 .Node {
-    margin: 1rem 10%;
     font-size: .875rem;
+    flex-grow: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (max-width: 960px) {
-    .Node {
-        margin: 1rem 24px;
+    .App {
+        padding: 1rem 24px;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .Node {
-        margin: 1rem 16px;
+    .App {
+        padding: 1rem 16px;
     }
 }
 
 img {
-    max-width: 80%;
+    max-width: 50%;
 }
 
 button {
