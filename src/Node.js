@@ -47,7 +47,7 @@ export class Node extends React.Component {
                 return
             }
         }
-        return (<button onClick={this.handleClick(opt)}>{this.textgen(opt.text)}</button>)
+        return (<button onClick={this.handleClick(opt)}>{opt.text instanceof Function ? opt.text(this.prop.flags) : opt.text}</button>)
     }
     
     render() {

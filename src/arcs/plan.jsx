@@ -1,5 +1,15 @@
 import consts from '../consts'
 
+import singing from '../images/singing.png'
+import snowWhite from '../images/snow-white.jpg'
+import threeLittlePigs from '../images/three-little-pigs.jpg'
+import geronimo from '../images/geronimo-stilton.jpg'
+import enidBlyton from '../images/enid-blyton.jpg'
+import harryPotter from '../images/harry-potter.jpg'
+import percyJackson from '../images/percy-jackson.jpg'
+import hardTruths from '../images/hard-truths.jpg'
+import timeFlies from '../images/time-flies.jpg'
+
 const planArcNodes = {
     "P1": {
         index: "P1",
@@ -45,7 +55,15 @@ const planArcNodes = {
 
     "P2": {
         index: "P2",
-        img: (<img />),
+        img: () => (<div className="book-catalogue">
+            <img src={snowWhite} alt="Snow White"/>
+            <img src={threeLittlePigs} alt="Three Little Pigs"/>
+            <img src={geronimo} alt="Geronimo Stilton"/>
+            <img src={enidBlyton} alt="Enid Blyton"/>
+            <img src={harryPotter} alt="Harry Potter"/>
+            <img src={percyJackson} alt="Percy Jackson"/>
+            <img src={hardTruths} alt="Hard Truths"/>
+            </div>),
         text: "What books should the NCOs bring? They have time for two books:",
         option: [
             {
@@ -67,12 +85,17 @@ const planArcNodes = {
                 text: "Hard Truths to Keep Singapore Going (this book is thick enough on its own)",
                 next: "P3",
                 fx: (flags) => { flags.activity = consts.books.HARD_TRUTHS }
-            }]
+            },
+            {
+                text: "I don't like any of these choices (Back)",
+                next: "P1",
+            }
+        ]
     },
 
     "P4": {
         index: "P4",
-        img: (<img />),
+        img: (<img src={singing} alt="" />),
         text: "The NCOs wonder what type of songs to sing. What will you suggest?",
         option: [
             {
@@ -99,12 +122,16 @@ const planArcNodes = {
                 text: "Songs from the 80s",
                 next: "P3",
                 fx: (flags) => { flags.activity = consts.songs.OLD }
-            }]
+            },
+            {
+                text: "I don't like any of these choices (Back)",
+                next: "P1"
+            }
+        ]
     },
 
     "P3": {
         index: "P3",
-        img: (<img />),
         text: "How many sessions should the cadets go?",
         option: [
             {
@@ -135,7 +162,7 @@ const planArcNodes = {
 
     "P6": {
         index: "P6",
-        img: (<img />),
+        img: (<img src="https://i.kym-cdn.com/photos/images/original/001/861/224/330.jpg" alt="ps5 duck" />),
         text: "That's neat, but you don't have enough budget to buy those things (Besides, it's already a miracle if you even manage to find these in stock)",
         option: [
             {
@@ -146,7 +173,7 @@ const planArcNodes = {
 
     "P7": {
         index: "P7",
-        img: (<img />),
+        img: (<img src="https://i.kym-cdn.com/photos/images/original/001/779/895/752.jpg" alt="not stonks" />),
         text: "Haha very funny - by not having the VIA, your unit's EUA dropped from Gold to Silver :( Your unit is very sad.",
         option: [
             {
@@ -157,7 +184,7 @@ const planArcNodes = {
     
     "P5": {
         index: "P5",
-        img: (<img />),
+        img: (<img src={timeFlies} alt="Time flies" />),
         text: "The NCOs are spending a lot of time on setting roles and goals. Should you intervene?",
         option: [
             {
@@ -197,7 +224,7 @@ const planArcNodes = {
 
     "P11": {
         index: "P11",
-        img: (<img />),
+        img: (<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/thinking-face_1f914.png" alt="Thinking emoji"/>),
         text: "Well that got them to move on, but they don't seen too happy about it...",
         option: [{
             text: "Continue",
@@ -207,8 +234,8 @@ const planArcNodes = {
     
     "P12": {
         index: "P12",
-        img: (<img />),
-        text: "OIC John complains to you that th rest of the NCOs are slacking off. What will you do?",
+        img: (<iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>),
+        text: "OIC John complains to you that the rest of the NCOs are slacking off. What will you do?",
         option: [
             {
                 text: "Assemble the rest of the NCOs and scold them",
