@@ -51,22 +51,22 @@ const planArcNodes = {
             {
                 text: "Snow White + Three Little Pigs",
                 next: "P3",
-                fx: (flags) => { flags.activity = "Snow White" }
+                fx: (flags) => { flags.activity = consts.books.SNOW_WHITE }
             },
             {
                 text: "Geronimo Stilton + Enid Blyton",
                 next: "P3",
-                fx: (flags) => { flags.activity = "Geronimo" }
+                fx: (flags) => { flags.activity = consts.books.GERONIMO }
             },
             {
                 text: "Harry Potter + Percy Jackson",
                 next: "P3",
-                fx: (flags) => { flags.activity = "Harry Potter" }
+                fx: (flags) => { flags.activity = consts.books.HARRY_POTTER }
             },
             {
                 text: "Hard Truths to Keep Singapore Going (this book is thick enough on its own)",
                 next: "P3",
-                fx: (flags) => { flags.activity = "Hard Truths" }
+                fx: (flags) => { flags.activity = consts.books.HARD_TRUTHS }
             }]
     },
 
@@ -78,27 +78,27 @@ const planArcNodes = {
             {
                 text: "K-pop",
                 next: "P3",
-                fx: (flags) => { flags.activity = "K-pop" }
+                fx: (flags) => { flags.activity = consts.songs.K_POP }
             },
             {
                 text: "National Day songs",
                 next: "P3",
-                fx: (flags) => { flags.activity = "NDP" }
+                fx: (flags) => { flags.activity = consts.songs.NDP }
             },
             {
                 text: "School Song + Red Cross Song",
                 next: "P3",
-                fx: (flags) => { flags.activity = "School Song" }
+                fx: (flags) => { flags.activity = consts.songs.SCHOOL_SONG }
             },
             {
                 text: "English Rap",
                 next: "P3",
-                fx: (flags) => { flags.activity = "Rap" }
+                fx: (flags) => { flags.activity = consts.songs.RAP }
             },
             {
                 text: "Songs from the 80s",
                 next: "P3",
-                fx: (flags) => { flags.activity = "80s Songs" }
+                fx: (flags) => { flags.activity = consts.songs.OLD }
             }]
     },
 

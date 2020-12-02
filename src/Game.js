@@ -14,7 +14,8 @@ const initialFlags = {
     },
     ncogoal: "",
     activity: "",
-    cadetgoal: ""
+    cadetgoal: "",
+    result: ""
 };
 
 const reducer = (state, action) => {
