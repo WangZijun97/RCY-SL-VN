@@ -12,13 +12,17 @@ export class Node extends React.Component {
     }
     
     handleClick(opt) {
+        let next = opt.next
+        if (opt.next instanceof Function) {
+            next = opt.next(this.props.flags)
+        }
         if ("fx" in opt) {
             return () => {
-                this.props.trigger(opt.next);
+                this.props.trigger(next);
                 this.props.dispatch(opt.fx);
             }
         }
-        return () => this.props.trigger(opt.next)
+        return () => this.props.trigger(next)
     }
 
     imggen(obj) {

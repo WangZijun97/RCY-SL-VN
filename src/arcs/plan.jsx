@@ -1,3 +1,4 @@
+import consts from '../consts'
 
 const planArcNodes = {
     "P1": {
@@ -172,7 +173,7 @@ const planArcNodes = {
 
     "P8": {
         index: "P8",
-        img: () => nodes["P5"].img,
+        img: () => planArcNodes["P5"].img,
         text: "What will you do?",
         option: [
             {

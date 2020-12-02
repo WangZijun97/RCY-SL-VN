@@ -5,6 +5,12 @@ const consts = {
     SOCCER: "Soccer",
     CHIT_CHAT: "Chit Chat",
     KITE: "Kite Fighting",
+    cadetgoal: {
+        NCO: "Set by NCOs",
+        CADET: "Set by cadets",
+        BAD: "Set by cadets but bad",
+        GOOD: "Set by cadets well"
+    }
 };
 
 export default consts;

@@ -13,7 +13,8 @@ const initialFlags = {
         email: false
     },
     ncogoal: "",
-    activity: ""
+    activity: "",
+    cadetgoal: ""
 };
 
 const reducer = (state, action) => {
