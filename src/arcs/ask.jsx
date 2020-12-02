@@ -1,14 +1,22 @@
 import consts from '../consts'
 
+import timeline from '../images/timeline.png'
+import footdrill from '../images/footdrill.png'
+import notlikeduck from '../images/NotLikeDuck.png'
+
 const askArcNodes = {
     
     "A1": {
         index: "A1",
-        img: (<img />),
+        img: (<img src={timeline} alt="Timeline. 1400-1430 Reporting Parade; 1430-1515 Briefing for VIA; 1515-1600 Buffer; 1600-1630 Dismissal Parade" />),
         text: "The home visit is soon approaching. You have requested your NCOs to prepare the unit for the VIA. This is their plan for the training right before the VIA. What feedback do you have for the training plan?",
         option: [
             {
                 text: "It's very good, carry on.",
+                next: "A3"
+            },
+            {
+                text: "Reduce the time for the parades and give them to the briefing",
                 next: "A3"
             },
             {
@@ -48,43 +56,35 @@ const askArcNodes = {
     
     "A3": {
         index: "A3",
-        img: (<img />),
+        img: (<img src={footdrill} />),
         text: "It is the day of the training. During reporting parade, the NCOs observed that the cadets' foot drill standards are very bad and they want to spend the whole training revising foot drill. Should you intervene?",
         option: [
             {
                 text: "Let the NCOs go ahead with the foot drill lesson",
                 next: "A4"
             },
-            {
-                text: "Let them spend 15 minutes on foot drill before carrying on with the original plan",
+            ...["Let them spend 15 minutes on foot drill before carrying on with the original plan", "Rush them through reporting parade"].map((text) => ({
+                text,
                 next: (flags) => {
-                    if (flags.cadetgoal == consts.cadetgoal.CADET) {
-                        return "A5"
-                    } else if (flags.cadetgoal == consts.cadetgoal.NCO) {
-                        return "A7"
+                    switch (flags.cadetgoal) {
+                        case consts.cadetgoal.CADET: 
+                            return "A5";
+                        case consts.cadetgoal.NCO: 
+                            return "A7";
+                        default:
+                            return "A9";
                     }
-                    return "A9"
                 }
-            },
-            {
-                text: "Rush them through reporting parade",
-                next: (flags) => {
-                    if (flags.cadetgoal == consts.cadetgoal.CADET) {
-                        return "A5"
-                    } else if (flags.cadetgoal == consts.cadetgoal.NCO) {
-                        return "A7"
-                    }
-                    return "A9"
-                }
-            }]
+            })),
+        ]
     },
     
     "A4": {
         index: "A4",
-        img: (<img />),
-        text: "Your cadets don't know anything about the VIA and it fails apectacularly",
+        img: (<img src={notlikeduck} alt="notlikeduck" />),
+        text: "Your cadets are woefully unprepared for the VIA and it fails spectacularly.",
         option: [{
-            text: "Let's not do that...",
+            text: "Let's not do that... (Back)",
             next: "A3"
         }]
     },
@@ -96,12 +96,14 @@ const askArcNodes = {
         option: [{
             text: "Continue",
             next: (flags) => {
-                if (flags.cadetgoal == consts.cadetgoal.CADET) {
-                    return "A6"
-                } else if (flags.cadetgoal == consts.cadetgoal.NCO) {
-                    return "A8"
+                switch (flags.cadetgoal) {
+                    case consts.cadetgoal.CADET:
+                        return "A6"
+                    case consts.cadetgoal.NCO:
+                        return "A8"
+                    default:
+                        return "A10"
                 }
-                return "A10"
             }
         }]
     },
@@ -119,7 +121,8 @@ const askArcNodes = {
                 text: "No",
                 next: "A10",
                 fx: (flags) => flags.cadetgoal = consts.cadetgoal.BAD
-            }]
+            }
+        ]
     },
     
     "A7": {
