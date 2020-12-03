@@ -4,7 +4,6 @@ import NodeImg from '../NodeImg';
 
 const homeArcNodes = {
     "H0": {
-        index: "H0",
         img: <NodeImg src="sl-gold.png" alt="SL badge" width="200" />,
         text: () => (<React.Fragment>
             <p>Welcome to the Service Learning VIA Adventure! This is a Choose Your Own Adventure-style of game.
@@ -23,7 +22,6 @@ const homeArcNodes = {
         ]
     },
     "H1": {
-        index: "H1",
         img: <NodeImg src="school.jpg" alt="Chai Chee Secondary School" />,
         text: "You are a VI attached to Chai Chee Secondary School. It is July 2021, and you unit needs to conduct one more VIA to fulfill the requirements for SL badges. Your teacher has asked you to recommend a VIA project for the unit to do.",
         option: [
@@ -38,7 +36,6 @@ const homeArcNodes = {
     },
 
     "H2": {
-        index: "H2",
         img: <NodeImg src="pepecry.png" />,
         text: "Unfortunately, due to COVID, the event got cancelled :(",
         option: [
@@ -49,7 +46,6 @@ const homeArcNodes = {
     },
 
     "H3": {
-        index: "H3",
         img: (<div className="img-group-h3">
             <NodeImg src="sesamestreeticon.PNG" alt="Sesame Street logo" />
             <NodeImg src="sunshineicon.PNG" alt="Sunshine logo" />
