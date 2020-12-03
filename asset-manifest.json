@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/RCY-SL-VN/static/css/main.ce476e01.chunk.css",
-    "main.js": "/RCY-SL-VN/static/js/main.cb5f3fce.chunk.js",
-    "main.js.map": "/RCY-SL-VN/static/js/main.cb5f3fce.chunk.js.map",
+    "main.js": "/RCY-SL-VN/static/js/main.9bf2252d.chunk.js",
+    "main.js.map": "/RCY-SL-VN/static/js/main.9bf2252d.chunk.js.map",
     "runtime-main.js": "/RCY-SL-VN/static/js/runtime-main.2babe940.js",
     "runtime-main.js.map": "/RCY-SL-VN/static/js/runtime-main.2babe940.js.map",
     "static/js/2.439ba840.chunk.js": "/RCY-SL-VN/static/js/2.439ba840.chunk.js",
@@ -14,34 +14,17 @@
     "static/js/2.439ba840.chunk.js.LICENSE.txt": "/RCY-SL-VN/static/js/2.439ba840.chunk.js.LICENSE.txt",
     "static/media/NotLikeDuck.6c872f74.png": "/RCY-SL-VN/static/media/NotLikeDuck.6c872f74.png",
     "static/media/bridge.28f88af6.jpg": "/RCY-SL-VN/static/media/bridge.28f88af6.jpg",
-    "static/media/emergency-meeting.13a877fe.png": "/RCY-SL-VN/static/media/emergency-meeting.13a877fe.png",
-    "static/media/enid-blyton.c4c1a692.jpg": "/RCY-SL-VN/static/media/enid-blyton.c4c1a692.jpg",
     "static/media/footdrill.115dac5f.png": "/RCY-SL-VN/static/media/footdrill.115dac5f.png",
-    "static/media/geronimo-stilton.aa519912.jpg": "/RCY-SL-VN/static/media/geronimo-stilton.aa519912.jpg",
-    "static/media/hard-truths.c76e99be.jpg": "/RCY-SL-VN/static/media/hard-truths.c76e99be.jpg",
-    "static/media/harry-potter.eecebf26.jpg": "/RCY-SL-VN/static/media/harry-potter.eecebf26.jpg",
-    "static/media/just-for-laughs.0c0e0f5b.png": "/RCY-SL-VN/static/media/just-for-laughs.0c0e0f5b.png",
     "static/media/logo.6ce24c58.svg": "/RCY-SL-VN/static/media/logo.6ce24c58.svg",
-    "static/media/one-week-later.1b3d0941.jpg": "/RCY-SL-VN/static/media/one-week-later.1b3d0941.jpg",
-    "static/media/percy-jackson.f22816b4.jpg": "/RCY-SL-VN/static/media/percy-jackson.f22816b4.jpg",
-    "static/media/plan.d9044d47.jpg": "/RCY-SL-VN/static/media/plan.d9044d47.jpg",
-    "static/media/school.7ff66d3c.jpg": "/RCY-SL-VN/static/media/school.7ff66d3c.jpg",
-    "static/media/sesamestreeticon.abf2e9ef.PNG": "/RCY-SL-VN/static/media/sesamestreeticon.abf2e9ef.PNG",
-    "static/media/singing.5b01f500.png": "/RCY-SL-VN/static/media/singing.5b01f500.png",
     "static/media/skull.36df91e1.png": "/RCY-SL-VN/static/media/skull.36df91e1.png",
     "static/media/smiley.a426812c.png": "/RCY-SL-VN/static/media/smiley.a426812c.png",
-    "static/media/snow-white.51159fa1.jpg": "/RCY-SL-VN/static/media/snow-white.51159fa1.jpg",
-    "static/media/soccer.26a451f1.png": "/RCY-SL-VN/static/media/soccer.26a451f1.png",
     "static/media/sunset.0ffe2017.jpg": "/RCY-SL-VN/static/media/sunset.0ffe2017.jpg",
-    "static/media/sunshineicon.289b3e9d.PNG": "/RCY-SL-VN/static/media/sunshineicon.289b3e9d.PNG",
-    "static/media/three-little-pigs.54d4cc92.jpg": "/RCY-SL-VN/static/media/three-little-pigs.54d4cc92.jpg",
-    "static/media/time-flies.c912e0ef.jpg": "/RCY-SL-VN/static/media/time-flies.c912e0ef.jpg",
     "static/media/timeline.4d343ec9.png": "/RCY-SL-VN/static/media/timeline.4d343ec9.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2babe940.js",
     "static/js/2.439ba840.chunk.js",
     "static/css/main.ce476e01.chunk.css",
-    "static/js/main.cb5f3fce.chunk.js"
+    "static/js/main.9bf2252d.chunk.js"
   ]
 }
