@@ -47,8 +47,8 @@ const homeArcNodes = {
 
     "H3": {
         img: (<div className="img-group-h3">
-            <NodeImg src="sesamestreeticon.PNG" alt="Sesame Street logo" />
-            <NodeImg src="sunshineicon.PNG" alt="Sunshine logo" />
+            <NodeImg src="sesamestreeticon.png" alt="Sesame Street logo" />
+            <NodeImg src="sunshineicon.png" alt="Sunshine logo" />
             </div>),
         text: "Your teacher has identified 2 possible beneficiaries for your home visit. The first is Sesame Street Children's Orphanage that your unit has visited before in 2018 and 2019. The second option is Sunshine Children's Home, which your unit has never visited before, but is nearer to your school. Which beneficiary would you recommend?",
         option: [
