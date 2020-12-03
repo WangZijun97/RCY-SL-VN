@@ -1,14 +1,20 @@
-import consts from '../consts'
-import pepecry from '../images/pepecry.png'
-import school from '../images/school.jpg'
-import sschicon from '../images/sesamestreeticon.PNG'
-import sunshineicon from '../images/sunshineicon.PNG'
+import React from 'react';
+
+import consts from '../consts';
+import pepecry from '../images/pepecry.png';
+import school from '../images/school.jpg';
+import sschicon from '../images/sesamestreeticon.PNG';
+import sunshineicon from '../images/sunshineicon.PNG';
 
 const homeArcNodes = {
     "H0": {
         index: "H0",
         img: (<img src={`${process.env.PUBLIC_URL}/sl-gold.png` } width="200" alt="SL badge"/>),
-        text: "Welcome to the Service Learning VIA Adventure! Press any button below to start.",
+        text: () => (<React.Fragment>
+            <p>Welcome to the Service Learning VIA Adventure! This is a Choose Your Own Adventure-style of game.
+            Be prepared to make a lot of choices -- some of these will matter, some of these won't.</p>
+            <p>Press either button below to start.</p>
+            </React.Fragment>),
         option: [
             {
                 text: "Start",
@@ -22,7 +28,7 @@ const homeArcNodes = {
     },
     "H1": {
         index: "H1",
-        img: (<img src={school} width="266" height="200" alt="Chai Chee Secondary School" />),
+        img: (<img src={school} alt="Chai Chee Secondary School" />),
         text: "You are a VI attached to Chai Chee Secondary School. It is July 2021, and you unit needs to conduct one more VIA to fulfill the requirements for SL badges. Your teacher has asked you to recommend a VIA project for the unit to do.",
         option: [
             {
@@ -37,7 +43,7 @@ const homeArcNodes = {
 
     "H2": {
         index: "H2",
-        img: (<img src={pepecry} width="200" height="200" alt="" />),
+        img: (<img src={pepecry}  alt="" />),
         text: "Unfortunately, due to COVID, the event got cancelled :(",
         option: [
             {
