@@ -1,5 +1,6 @@
 import React from 'react';
 
+import emergencyButton from '../images/emergency-button.jpg';
 import emergencyMeeting from '../images/emergency-meeting.png';
 import qrSesame from '../images/qr-sesame.png';
 import qrSunshine from '../images/qr-sunshine.png';
@@ -8,7 +9,6 @@ import wgt from '../images/wgt.jpg';
 import scrooge from '../images/scrooge.jpg';
 import soccer from '../images/soccer.png';
 import justForLaughs from '../images/just-for-laughs.png';
-import pepecry from '../images/pepecry.png';
 
 import consts from '../consts';
 import Dialogue from '../convo/Dialogue';
@@ -17,11 +17,12 @@ import jonConvos from '../convo/jonathan';
 import allamConvos from '../convo/allam';
 import emilyConvos from '../convo/emily';
 import carmenConvos from '../convo/carmen';
+import NodeImg from '../NodeImg';
 
 const nodes = {
     "L1": {
         index: "L1",
-        img: <img src={emergencyMeeting} alt="Emergency Meeting" />,
+        img: <img src={emergencyButton} alt="Emergency Button" />,
         text: (flags) => `Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at ${flags.name}. Should you intervene?`,
         option: [
             {
@@ -435,8 +436,8 @@ const nodes = {
 
     "L24": {
         index: "L24",
-        img: (<img src={pepecry} alt="" />),
-        text: "The NCO looks a bid sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
+        img: <NodeImg src="pepecry.png" />,
+        text: "The NCO looks a bit sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
         option: [
             {
                 text: "Proceed on",
