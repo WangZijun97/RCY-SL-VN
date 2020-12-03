@@ -63,7 +63,19 @@ const devNodes = {
                 text: "Change email",
                 next: "dev1",
                 fx: (flags) => flags.research.email = (flags.research.email + 1) % 3
-            },  
+            },
+            {
+                text: "Change sessions",
+                next: "dev1",
+                fx: (flags) => {
+                    const allVals = Object.values(consts.sessions)
+                    if (allVals.includes(flags.sessions)) {
+                        flags.sessions = allVals[(allVals.indexOf(flags.sessions) + 1) % allVals.length]
+                    } else {
+                        flags.sessions = allVals[0]
+                    }
+                }
+            },
             {
                 text: "Change activity",
                 next: "dev1",

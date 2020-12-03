@@ -30,6 +30,12 @@ const consts = {
         OK: "meh",
         GOOD: "good",
         EXCELLENT: "excellent"
+    },
+    sessions: {
+        ONE: "1",
+        TWO_TGT: "2 in a month",
+        TWO_SPREAD: "2 spread out",
+        FOUR: "4"
     }
 };
 

@@ -130,22 +130,22 @@ const planArcNodes = {
             {
                 text: "1x6h visit",
                 next: "P5",
-                fx: (flags) => { flags.sessions = "1" }
+                fx: (flags) => { flags.sessions = consts.sessions.ONE }
             },
             {
                 text: "2x3h visits in the same month",
                 next: "P5",
-                fx: (flags) => { flags.sessions = "2 in a month" }
+                fx: (flags) => { flags.sessions = consts.sessions.TWO_TGT }
             },
             {
                 text: "2x3h visits, one in March, one in June",
                 next: "P5",
-                fx: (flags) => { flags.sessions = "2 spread out" }
+                fx: (flags) => { flags.sessions = consts.sessions.TWO_SPREAD }
             },
             {
                 text: "4x2h visits, one in each term",
                 next: "P5",
-                fx: (flags) => { flags.sessions = "4" }
+                fx: (flags) => { flags.sessions = consts.sessions.FOUR }
             },
             {
                 text: "0x8h visit",
