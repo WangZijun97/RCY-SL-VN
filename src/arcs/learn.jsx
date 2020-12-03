@@ -1,23 +1,27 @@
 import React from 'react';
-import qrSesame from '../images/qr-sesame.png'
-import qrSunshine from '../images/qr-sunshine.png'
-import oneWeekLater from '../images/one-week-later.jpg'
-import wgt from '../images/wgt.jpg'
-import scrooge from '../images/scrooge.jpg'
-import soccer from '../images/soccer.png'
-import justForLaughs from '../images/just-for-laughs.png'
-import pepecry from '../images/pepecry.png'
-import consts from '../consts'
-import Dialogue from '../convo/Dialogue'
-import scroogeConvos from '../convo/scrooge'
-import jonConvos from '../convo/jonathan'
-import allamConvos from '../convo/allam'
-import emilyConvos from '../convo/emily'
-import carmenConvos from '../convo/carmen'
+
+import emergencyMeeting from '../images/emergency-meeting.png';
+import qrSesame from '../images/qr-sesame.png';
+import qrSunshine from '../images/qr-sunshine.png';
+import oneWeekLater from '../images/one-week-later.jpg';
+import wgt from '../images/wgt.jpg';
+import scrooge from '../images/scrooge.jpg';
+import soccer from '../images/soccer.png';
+import justForLaughs from '../images/just-for-laughs.png';
+import pepecry from '../images/pepecry.png';
+
+import consts from '../consts';
+import Dialogue from '../convo/Dialogue';
+import scroogeConvos from '../convo/scrooge';
+import jonConvos from '../convo/jonathan';
+import allamConvos from '../convo/allam';
+import emilyConvos from '../convo/emily';
+import carmenConvos from '../convo/carmen';
 
 const nodes = {
     "L1": {
         index: "L1",
+        img: <img src={emergencyMeeting} alt="Emergency Meeting" />,
         text: (flags) => `Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at ${flags.name}. Should you intervene?`,
         option: [
             {
@@ -32,10 +36,11 @@ const nodes = {
 
     "L101": {
         index: "L101",
+        img: <img src={emergencyMeeting} alt="Emergency Meeting" />,
         text: (flags) => (
             <div>
                 <p>How would you like to intervene?</p>
-                {flags.ncogoal !== "" && <p><em>[You have already set goals for the NCOs.]</em></p>}
+                {flags.ncogoal !== "" && <p class="informative">[You have already set goals for the NCOs.]</p>}
             </div>
         ),
         option: [
@@ -58,10 +63,10 @@ const nodes = {
         index: "L2",
         text: (flags) => (<div>
             <p>What would you like your NCOs to do?</p>
-            {flags.research.call && <p><em>[You have already called the home.]</em></p>}
-            {flags.research.recce && <p><em>[You have already visited the home physically.]</em></p>}
-            {flags.research.email === 1 && <p><em>[You have already waited 1 week for a reply to your email.]</em></p>}
-            {flags.research.email === 2 && <p><em>[Unfortunately, due to the 2 week delay, you don't have time to conduct a reccee.]</em></p>}
+            {flags.research.call && <p class="informative">[You have already called the home.]</p>}
+            {flags.research.recce && <p class="informative">[You have already visited the home physically.]</p>}
+            {flags.research.email === 1 && <p class="informative">[You have already waited 1 week for a reply to your email.]</p>}
+            {flags.research.email === 2 && <p class="informative">[Unfortunately, due to the 2 week delay, you don't have time to conduct a reccee.]</p>}
         </div>),
         option: [
             {

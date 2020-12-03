@@ -1,20 +1,27 @@
-import consts from '../consts'
+import React from 'react';
+import consts from '../consts';
 
-import singing from '../images/singing.png'
-import snowWhite from '../images/snow-white.jpg'
-import threeLittlePigs from '../images/three-little-pigs.jpg'
-import geronimo from '../images/geronimo-stilton.jpg'
-import enidBlyton from '../images/enid-blyton.jpg'
-import harryPotter from '../images/harry-potter.jpg'
-import percyJackson from '../images/percy-jackson.jpg'
-import hardTruths from '../images/hard-truths.jpg'
-import timeFlies from '../images/time-flies.jpg'
+import planning from '../images/plan.jpg';
+import singing from '../images/singing.png';
+import snowWhite from '../images/snow-white.jpg';
+import threeLittlePigs from '../images/three-little-pigs.jpg';
+import geronimo from '../images/geronimo-stilton.jpg';
+import enidBlyton from '../images/enid-blyton.jpg';
+import harryPotter from '../images/harry-potter.jpg';
+import percyJackson from '../images/percy-jackson.jpg';
+import hardTruths from '../images/hard-truths.jpg';
+import timeFlies from '../images/time-flies.jpg';
+import Dialogue from '../convo/Dialogue';
 
 const planArcNodes = {
     "P1": {
         index: "P1",
-        img: (<img />),
-        text: "Time to get some planning done - here are some activities that your NCOs have proposed! Pick one to encourage your NCOs to conduct -",
+        img: (<img src={planning} alt="" />),
+        text: (flags) => (<React.Fragment>
+            <p>Time to get some planning done - here are some activities that your NCOs have proposed! They are seeking your opinion -- which one should they focus on?</p>
+            {(flags.research.internet || flags.research.freeTime || flags.research.soccer) && <p class="informative">[You have unlocked additional options because of your NCOs' research.]</p>}
+            {(flags.research.recce) && <p class="informative">[You have unlocked additional options because of your NCOs' physical recce to the home.]</p>}
+            </React.Fragment>),
         option: [
             {
                 text: "Among Us!",
@@ -33,7 +40,7 @@ const planArcNodes = {
                 text: "Play soccer",
                 next: "P3",
                 fx: (flags) => { flags.activity = consts.SOCCER },
-                condition: (flags) => flags.research.internet || flags.research.freeTime || flags.research.soccer,
+                condition: (flags) => flags.research.internet || flags.research.freeTime || flags.research.soccer || flags.research.recce,
             },
             {
                 text: "Chit Chat",
@@ -234,7 +241,7 @@ const planArcNodes = {
     
     "P12": {
         index: "P12",
-        img: (<iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>),
+        img: (<iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen title="capoo sleeping" />),
         text: "OIC John complains to you that the rest of the NCOs are slacking off. What will you do?",
         option: [
             {
@@ -262,8 +269,14 @@ const planArcNodes = {
     
     "P13": {
         index: "P13",
-        img: (<img />),
-        text: "NCOs: Our jobs aren't really what we want to do or what we thought they would be like...",
+        text: () => (<React.Fragment><Dialogue
+            startOfConvo="Our jobs aren't really what we want to do or what we thought they would be like..."
+            speakerClass="nco-speech"
+            convos={[]}
+            name="the NCOs"
+        />
+            <p>How do you want to respond to them?</p>
+            </React.Fragment>),
         option: [
             {
                 text: "Well, RnRs are always set like this and have worked previous years, so let's better just stick to it.",
@@ -283,7 +296,6 @@ const planArcNodes = {
     
     "P9": {
         index: "P9",
-        img: (<img />),
         text: "The NCOs ask: What margin width should we use for our proposal?",
         option: [
             {
@@ -307,7 +319,6 @@ const planArcNodes = {
     
     "P10": {
         index: "P10",
-        img: (<img />),
         text: "Alright! Your NCOs have created a beautiful proposal which the teacher approves, with just a week to spare! All seems to be going well :D",
         option: [{
             text: "Nice ^__^",
@@ -317,7 +328,6 @@ const planArcNodes = {
     
     "P14": {
         index: "P14",
-        img: (<img />),
         text: "Your NCOs have finally finished off the proposal two nights before the VIA. It's not the best, but at least it's before the VIA. Let's hope the teacher find's this OK...",
         option: [{
             text: "Fingers crossed...",
