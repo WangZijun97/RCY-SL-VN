@@ -93,7 +93,7 @@ const nodes = {
                 condition: (flags) => flags.research.email < 2 && !flags.research.recce,
             },
             {
-                text: "Never mind, they're doing good (Back)",
+                text: "Never mind, my NCOs are doing good (Back)",
                 next: "L101"
             }
         ]

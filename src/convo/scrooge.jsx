@@ -5,11 +5,14 @@ const scroogeConvos = [
     },
     {
         q: "What do you think about volunteering?",
-        a: ["I would rather receive money than volunteers; we barely have enough to keep the lights on."],
+        a: [
+            "I would appreciate any volunteers who come and keep the children company. Especially those who can commit long-term in helping us with our programs!", 
+            "But, honestly, I would rather receive money than volunteers; we barely have enough to keep the lights on."
+        ],
     },
     {
         q: "How is the condition of the home?",
-        a: ["I live here too and the conditions are really... ugh.... It's not a topic for polite conversation."],
+        a: ["I live here too and the conditions are really... ugh.... I don't want to talk about it."],
     },
     {
         q: "What are your hopes for the children?",
@@ -24,7 +27,7 @@ const scroogeConvos = [
     },
     {
         q: "What are your hobbies?",
-        a: ["Hmm... Watching TV? Don't tell anyone, but I love romance series. It's just a shame that those don't come on Channel 5 often..."]
+        a: ["Hmm... Watching TV? Don't tell anyone, but I love romance series. Maybe if we have the budget one day, I'll get a Netflix subscription for the entire home..."]
     }
 ]
 
