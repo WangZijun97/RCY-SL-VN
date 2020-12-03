@@ -3,10 +3,8 @@ import consts from '../consts';
 import Dialogue from '../convo/Dialogue';
 import NodeImg from '../NodeImg';
 
-
 const planArcNodes = {
     "P1": {
-        index: "P1",
         img: <NodeImg src="plan.jpg" alt="" />,
         text: (flags) => (<React.Fragment>
             <p>Time to get some planning done - here are some activities that your NCOs have proposed! They are seeking your opinion -- which one should they focus on?</p>
@@ -52,7 +50,6 @@ const planArcNodes = {
     },
 
     "P2": {
-        index: "P2",
         img: () => (<div className="book-catalogue">
             <NodeImg src="snow-white.jpg" alt="Snow White"/>
             <NodeImg src="three-little-pigs.jpg" alt="Three Little Pigs"/>
@@ -92,7 +89,6 @@ const planArcNodes = {
     },
 
     "P4": {
-        index: "P4",
         img: <NodeImg src="singing.png" alt="" />,
         text: "The NCOs wonder what type of songs to sing. What will you suggest?",
         option: [
@@ -129,7 +125,6 @@ const planArcNodes = {
     },
 
     "P3": {
-        index: "P3",
         text: "How many sessions should the cadets go?",
         option: [
             {
@@ -159,7 +154,6 @@ const planArcNodes = {
     },
 
     "P6": {
-        index: "P6",
         img: <NodeImg ext="https://i.kym-cdn.com/photos/images/original/001/861/224/330.jpg" alt="ps5 duck" />,
         text: "That's neat, but you don't have enough budget to buy those things (Besides, it's already a miracle if you even manage to find these in stock)",
         option: [
@@ -170,7 +164,6 @@ const planArcNodes = {
     },
 
     "P7": {
-        index: "P7",
         img: <NodeImg ext="https://i.kym-cdn.com/photos/images/original/001/779/895/752.jpg" alt="not stonks" />,
         text: "Haha very funny - by not having the VIA, your unit's EUA dropped from Gold to Silver :( Your unit is very sad.",
         option: [
@@ -181,7 +174,6 @@ const planArcNodes = {
     },
     
     "P5": {
-        index: "P5",
         img: <NodeImg src="time-flies.jpg" alt="Time flies" />,
         text: "The NCOs are spending a lot of time on setting roles and goals. Should you intervene?",
         option: [
@@ -197,7 +189,6 @@ const planArcNodes = {
     },
 
     "P8": {
-        index: "P8",
         img: () => planArcNodes["P5"].img,
         text: "What will you do?",
         option: [
@@ -221,7 +212,6 @@ const planArcNodes = {
     },
 
     "P11": {
-        index: "P11",
         img: <NodeImg ext="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/thinking-face_1f914.png" alt="Thinking emoji"/>,
         text: "Well that got them to move on, but they don't seen too happy about it...",
         option: [{
@@ -231,7 +221,6 @@ const planArcNodes = {
     },
     
     "P12": {
-        index: "P12",
         img: <iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen title="capoo sleeping" />,
         text: "OIC John complains to you that the rest of the NCOs are slacking off. What will you do?",
         option: [
@@ -259,7 +248,6 @@ const planArcNodes = {
     },
     
     "P13": {
-        index: "P13",
         text: () => (<React.Fragment><Dialogue
             startOfConvo="Our jobs aren't really what we want to do or what we thought they would be like..."
             speakerClass="nco-speech"
@@ -286,7 +274,6 @@ const planArcNodes = {
     },
     
     "P9": {
-        index: "P9",
         text: "The NCOs ask: What margin width should we use for our proposal?",
         option: [
             {
@@ -309,7 +296,6 @@ const planArcNodes = {
     },
     
     "P10": {
-        index: "P10",
         text: "Alright! Your NCOs have created a beautiful proposal which the teacher approves, with just a week to spare! All seems to be going well :D",
         option: [{
             text: "Nice ^__^",
@@ -318,7 +304,6 @@ const planArcNodes = {
     },
     
     "P14": {
-        index: "P14",
         text: "Your NCOs have finally finished off the proposal two nights before the VIA. It's not the best, but at least it's before the VIA. Let's hope the teacher find's this OK...",
         option: [{
             text: "Fingers crossed...",
