@@ -1,23 +1,17 @@
 import React from 'react';
-import qrSesame from '../images/qr-sesame.png'
-import qrSunshine from '../images/qr-sunshine.png'
-import oneWeekLater from '../images/one-week-later.jpg'
-import wgt from '../images/wgt.jpg'
-import scrooge from '../images/scrooge.jpg'
-import soccer from '../images/soccer.png'
-import justForLaughs from '../images/just-for-laughs.png'
-import pepecry from '../images/pepecry.png'
-import consts from '../consts'
-import Dialogue from '../convo/Dialogue'
-import scroogeConvos from '../convo/scrooge'
-import jonConvos from '../convo/jonathan'
-import allamConvos from '../convo/allam'
-import emilyConvos from '../convo/emily'
-import carmenConvos from '../convo/carmen'
+
+import consts from '../consts';
+import Dialogue from '../convo/Dialogue';
+import scroogeConvos from '../convo/scrooge';
+import jonConvos from '../convo/jonathan';
+import allamConvos from '../convo/allam';
+import emilyConvos from '../convo/emily';
+import carmenConvos from '../convo/carmen';
+import NodeImg from '../NodeImg';
 
 const nodes = {
     "L1": {
-        index: "L1",
+        img: <NodeImg src="emergency-button.jpg" alt="Emergency Button" />,
         text: (flags) => `Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at ${flags.name}. Should you intervene?`,
         option: [
             {
@@ -31,11 +25,11 @@ const nodes = {
     },
 
     "L101": {
-        index: "L101",
+        img: <NodeImg src="emergency-meeting.png" alt="Emergency Button" />,
         text: (flags) => (
             <div>
                 <p>How would you like to intervene?</p>
-                {flags.ncogoal !== "" && <p><em>[You have already set goals for the NCOs.]</em></p>}
+                {flags.ncogoal !== "" && <p class="informative">[You have already set goals for the NCOs.]</p>}
             </div>
         ),
         option: [
@@ -55,13 +49,12 @@ const nodes = {
     },
 
     "L2": {
-        index: "L2",
         text: (flags) => (<div>
             <p>What would you like your NCOs to do?</p>
-            {flags.research.call && <p><em>[You have already called the home.]</em></p>}
-            {flags.research.recce && <p><em>[You have already visited the home physically.]</em></p>}
-            {flags.research.email === 1 && <p><em>[You have already waited 1 week for a reply to your email.]</em></p>}
-            {flags.research.email === 2 && <p><em>[Unfortunately, due to the 2 week delay, you don't have time to conduct a reccee.]</em></p>}
+            {flags.research.call && <p class="informative">[You have already called the home.]</p>}
+            {flags.research.recce && <p class="informative">[You have already visited the home physically.]</p>}
+            {flags.research.email === 1 && <p class="informative">[You have already waited 1 week for a reply to your email.]</p>}
+            {flags.research.email === 2 && <p class="informative">[Unfortunately, due to the 2 week delay, you don't have time to conduct a reccee.]</p>}
         </div>),
         option: [
             {
@@ -100,15 +93,14 @@ const nodes = {
                 condition: (flags) => flags.research.email < 2 && !flags.research.recce,
             },
             {
-                text: "Never mind, they're doing good (Back)",
+                text: "Never mind, my NCOs are doing good (Back)",
                 next: "L101"
             }
         ]
     },
 
     "L3": {
-        index: "L3",
-        img: (flags) => <img src={flags.name === consts.SESAME ? qrSesame : qrSunshine} alt="QR code to brochure" />,
+        img: (flags) => <NodeImg src={flags.name === consts.SESAME ? "qr-sesame.png" : "qr-sunshine.png"} alt="QR code to brochure" />,
         text: (flags) => (
             <p>
                 You managed to find the website of the home and have found a brochure. <br/>
@@ -127,8 +119,7 @@ const nodes = {
     },
 
     "L4": {
-        index: "L4",
-        img: (<img src={oneWeekLater} width="40%" alt="Spongebob One Week Later" />),
+        img: <NodeImg src="one-week-later.jpg" width="40%" alt="Spongebob One Week Later" />,
         text: "It's been one week but the home hasn't replied you yet. What do you want to do?",
         option: [
             {
@@ -149,8 +140,7 @@ const nodes = {
     },
 
     "L5": {
-        index: "L5",
-        img: (<iframe src="https://giphy.com/embed/3o6Ztke2ogPyvyhPXO" frameBorder="0" title="Time is ticking" />),
+        img: <iframe src="https://giphy.com/embed/3o6Ztke2ogPyvyhPXO" frameBorder="0" title="Time is ticking" />,
         text: "It's been another week but the home still hasn't replied you. What do you want to do?",
         option: [
             {
@@ -164,8 +154,7 @@ const nodes = {
     },
 
     "L6": {
-        index: "L6",
-        img: (<img src={wgt} alt="where got time" />),
+        img: <NodeImg src="wgt.jpg" alt="where got time" />,
         text: "WHERE GOT TIME TO WAIT??",
         option: [
             {
@@ -175,8 +164,7 @@ const nodes = {
     },
 
     "L8": {
-        index: "L8",
-        img: (<img src={scrooge} alt="scrooge" />),
+        img: (<NodeImg src="scrooge.jpg" alt="scrooge" />),
         text: "Upon calling the home, you were able to speak to the Home Director, Mr Scrooge.",
         option: [
             {
@@ -186,8 +174,7 @@ const nodes = {
     },
 
     "L9": {
-        index: "L9",
-        img: (<img src={scrooge} alt="scrooge" />),
+        img: () => nodes["L8"].img,
         text: (flags) => nodes["L14"].text(flags),
         option: [
             {
@@ -198,8 +185,7 @@ const nodes = {
     },
 
     "L201": {
-        index: "L201",
-        img: (<img src={scrooge} alt="scrooge" />),
+        img: () => nodes["L8"].img,
         text: "You have time for one last question! What would you like to ask?",
         option: [
             {
@@ -218,8 +204,7 @@ const nodes = {
     },
 
     "L10": {
-        index: "L10",
-        img: (<img src={soccer} alt="soccer" />),
+        img: <NodeImg src="soccer.png" alt="soccer" />,
         text: "I think the kids like to play soccer.",
         option: [
             {
@@ -229,8 +214,7 @@ const nodes = {
     },
 
     "L11": {
-        index: "L11",
-        img: (<img src={justForLaughs} alt="just for laugh gags" />),
+        img: (<NodeImg src="just-for-laughs.png" alt="just for laugh gags" />),
         text: "We have a TV, a phone and a kitchen. Nothing really interesting plays on TV though... it's usually Just for Laugh Gags.",
         option: [
             {
@@ -240,7 +224,6 @@ const nodes = {
     },
 
     "L12": {
-        index: "L12",
         text: "There is no Wi-Fi at the home.",
         option: [
             {
@@ -250,7 +233,6 @@ const nodes = {
     },
 
     "L13": {
-        index: "L13",
         text: "You have arrived at the home! You can speak to any of the children or the Home Director. Who would you like to speak to?",
         option: [
             {
@@ -280,8 +262,7 @@ const nodes = {
     },
 
     "L14": {
-        index: "L14",
-        img: (<img src={scrooge} alt="scrooge" />),
+        img: () => nodes["L8"].img,
         text: (flags) => (<Dialogue
             startOfConvo={`Welcome to ${flags.name}! I am Ebenzer Scrooge, the Home Director. Feel free to ask me anything about the home!`}
             speakerClass="scrooge-speech"
@@ -295,8 +276,6 @@ const nodes = {
     },
 
     "L15": {
-        index: "L15",
-        img: (<img />),
         text: () => (<Dialogue 
             startOfConvo="Hi... I'm Jonathan, and I'm 16 years old."
             speakerClass="jon-speech"
@@ -311,8 +290,6 @@ const nodes = {
     },
 
     "L16": {
-        index: "L16",
-        img: (<img />),
         text: () => (<Dialogue 
             startOfConvo="Sup. I'm Allam, and I'm 14."
             speakerClass="allam-speech"
@@ -327,8 +304,6 @@ const nodes = {
     },
 
     "L17": {
-        index: "L17",
-        img: (<img />),
         text: () => (<Dialogue 
             startOfConvo="Umm... hello! I'm Emily!"
             speakerClass="emily-speech"
@@ -343,8 +318,6 @@ const nodes = {
     },
 
     "L18": {
-        index: "L18",
-        img: (<img />),
         text: () => (<Dialogue 
             startOfConvo="I'm Carmen..."
             speakerClass="carmen-speech"
@@ -359,8 +332,7 @@ const nodes = {
     },
 
     "L20": {
-        index: "L20",
-        img: (<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/thinking-face_1f914.png" alt="Thinking emoji"/>),
+        img: (<NodeImg ext="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/thinking-face_1f914.png" alt="Thinking emoji"/>),
         text: "How do you want to set goals with the NCOs?",
         option: [
             {
@@ -375,8 +347,7 @@ const nodes = {
     },
 
     "L21": {
-        index: "L21",
-        img: (<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/yawning-face_1f971.png" alt="Yawning emoji" />),
+        img: (<NodeImg ext="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/yawning-face_1f971.png" alt="Yawning emoji" />),
         text: "Some of the NCOs looked very bored after you told them that they should aim to put in their best as well as learn more from the stories of the residents...",
         option: [
             {
@@ -386,9 +357,7 @@ const nodes = {
     },
 
     "L22": {
-        index: "L22",
-        img: (<img />),
-        text: (flags) => (<React.Fragment>
+        text: () => (<React.Fragment>
             <p>
                 You asked the NCOs to share their goals with you. This is what one of the NCOs told you.
             </p>
@@ -415,7 +384,6 @@ const nodes = {
     },
 
     "L23": {
-        index: "L23",
         text: "What do you want to tell the NCO?",
         option: [
             {
@@ -429,9 +397,8 @@ const nodes = {
     },
 
     "L24": {
-        index: "L24",
-        img: (<img src={pepecry} alt="" />),
-        text: "The NCO looks a bid sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
+        img: <NodeImg src="pepecry.png" />,
+        text: "The NCO looks a bit sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
         option: [
             {
                 text: "Proceed on",
@@ -440,7 +407,6 @@ const nodes = {
     },
 
     "L25": {
-        index: "L25",
         text: "The NCO thinks about it and enthusiastically responds that by the end of the VIA, he wants to learn how to appropriately delegate manpower based on need.",
         option: [
             {

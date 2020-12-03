@@ -1,14 +1,10 @@
 import consts from '../consts'
-
-import timeline from '../images/timeline.png'
-import footdrill from '../images/footdrill.png'
-import notlikeduck from '../images/NotLikeDuck.png'
-import sunset from '../images/sunset.jpg'
+import NodeImg from '../NodeImg'
 
 const askArcNodes = {
     "A1": {
         index: "A1",
-        img: (<img src={timeline} alt="Timeline. 1400-1430 Reporting Parade; 1430-1515 Briefing for VIA; 1515-1600 Buffer; 1600-1630 Dismissal Parade" />),
+        img: (<NodeImg src="timeline.png" alt="Timeline. 1400-1430 Reporting Parade; 1430-1515 Briefing for VIA; 1515-1600 Buffer; 1600-1630 Dismissal Parade" />),
         text: "The home visit is soon approaching. You have requested your NCOs to prepare the unit for the VIA. This is their plan for the training right before the VIA. What feedback do you have for the training plan?",
         option: [
             {
@@ -31,7 +27,6 @@ const askArcNodes = {
     
     "A2": {
         index: "A2",
-        img: (<img />),
         text: "What would you like the NCOs to include in the training?",
         option: [
             {
@@ -56,7 +51,7 @@ const askArcNodes = {
     
     "A3": {
         index: "A3",
-        img: (<img src={footdrill} />),
+        img: (<NodeImg src="footdrill.png" />),
         text: "It is the day of the training. During reporting parade, the NCOs observed that the cadets' foot drill standards are very bad and they want to spend the whole training revising foot drill. Should you intervene?",
         option: [
             {
@@ -81,7 +76,7 @@ const askArcNodes = {
     
     "A4": {
         index: "A4",
-        img: (<img src={notlikeduck} alt="notlikeduck" />),
+        img: (<NodeImg src="NotLikeDuck.png" alt="notlikeduck" />),
         text: "Your cadets are woefully unprepared for the VIA and it fails spectacularly.",
         option: [{
             text: "Let's not do that... (Back)",
@@ -91,7 +86,6 @@ const askArcNodes = {
     
     "A5": {
         index: "A5",
-        img: (<img />),
         text: "The parade is done and the NCOs are starting the briefing session.",
         option: [{
             text: "Continue",
@@ -110,24 +104,30 @@ const askArcNodes = {
     
     "A6": {
         index: "A6",
-        img: (<img />),
-        text: "During the facilitation session, one of your cadets set this goal for herself. Should you intervene?",
+        img: (<div className="textbox">
+            <div className="qn">What do you want to learn from this VIA visit?</div>
+            <div className="ans">I want to learn as much as possible.</div>
+        </div>),
+        text: "During the facilitation session, one of your cadets set this goal for herself. Do you accept this goal?",
         option: [
             {
                 text: "Yes",
-                next: "A7"
+                next: "A10",
+                fx: (flags) => flags.cadetgoal = consts.cadetgoal.BAD
             },
             {
                 text: "No",
-                next: "A10",
-                fx: (flags) => flags.cadetgoal = consts.cadetgoal.BAD
+                next: "A7"
             }
         ]
     },
     
     "A7": {
         index: "A7",
-        img: (<img />),
+        img: (<div className="textbox">
+            <div className="qn">What do you want to learn from this VIA visit?</div>
+            <div className="ans">I want to learn the stories of the children at the home.</div>
+        </div>),
         text: "She comes up with a new goal. Are you happy with this goal?",
         option: [
             {
@@ -144,7 +144,7 @@ const askArcNodes = {
     
     "A8": {
         index: "A8",
-        img: (<img src={sunset} alt="sunset" />),
+        img: (<NodeImg src="sunset.jpg" alt="sunset" />),
         text: "The training has ended and the cadets are clear of what will be happening during the VIA. However, the cadets looked quite bored when the NCOs tell them what their goal for the VIA should be...",
         option: [{
             text: "Continue",
@@ -154,7 +154,7 @@ const askArcNodes = {
     
     "A9": {
         index: "A9",
-        img: (<img src={sunset} alt="sunset" />),
+        img: () => askArcNodes["A8"].img,
         text: "The training has ended and the cadets are clear of what will be happening during the VIA. Everyone is very excited!",
         option: [{
             text: "Let's hope the VIA goes well too!",
@@ -164,7 +164,7 @@ const askArcNodes = {
     
     "A10": {
         index: "A10",
-        img: (<img src={sunset} alt="sunset" />),
+        img: () => askArcNodes["A8"].img,
         text: "The training has ended and the cadets are clear of what will be happening during the VIA.",
         option: [{
             text: "Continue",

@@ -1,27 +1,13 @@
 .App {
-  text-align: center;
-  display: flex;
-  flex-flow: row nowrap;
-  padding: 1rem 10%;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
   background-color: #282c34;
+  color: white;
+  text-align: center;
   min-height: 100vh;
+  padding: 0 10%;
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 .Node {
@@ -31,17 +17,18 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    margin: 1rem 0;
 }
 
 @media screen and (max-width: 960px) {
     .App {
-        padding: 1rem 24px;
+        padding: 0 24px;
     }
 }
 
 @media screen and (max-width: 600px) {
     .App {
-        padding: 1rem 16px;
+        padding: 0 16px;
     }
 }
 
@@ -168,3 +155,25 @@ a {
     }
 }
 
+.informative {
+    margin-top: 0;
+    padding-top: 0;
+    font-style: italic;
+    color: #bbb;
+}
+
+.textbox {
+    text-align: left;
+    width: 67%;
+    border: 2px solid #444;
+}
+
+.textbox > .qn {
+    padding: 0.33rem 1rem;
+    background-color: #444;
+}
+
+.textbox > .ans {
+    padding: 1rem;
+    background-color: #282c34;
+}
