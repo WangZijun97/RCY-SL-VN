@@ -1,6 +1,6 @@
 import React from 'react'
 import consts from '../consts'
-import scrooge from '../images/scrooge.jpg'
+import NodeImg from '../NodeImg'
 import Dialogue from '../convo/Dialogue'
 import scroogeConvos from '../convo/scrooge'
 import jonConvos from '../convo/jonathan'
@@ -321,7 +321,7 @@ const serveArcNodes = {
     
     "S20": {
         index: "S20",
-        img: (<img src={scrooge} alt="scrooge" />),
+        img: (<NodeImg src="scrooge.jpg" alt="scrooge" />),
         text: (flags) => (<Dialogue
             startOfConvo={`Hope you are having a great time here at ${flags.name}! I am Ebenzer Scrooger, the Home Director. Feel free to ask me anything about this place!`}
             speakerClass="scrooge-speech"
