@@ -53,7 +53,7 @@ const Game = () => {
 
         return () => {
             document.removeEventListener('keydown', keypressListener);
-        }
+        };
    }, [seqPos, setSeqPos, node, flagDispatch]);
 
     return <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} />;
