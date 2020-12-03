@@ -14,8 +14,13 @@ const devNodes = {
             },
             {
                 text: "jump sections",
-                next: "dev2"
-            }]
+                next: "dev2",
+            },
+            {
+                text: "go back to last section",
+                next: (flags) => flags.lastNode,
+            }
+        ]
     },
     
     "dev1": {
