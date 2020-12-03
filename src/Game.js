@@ -12,6 +12,7 @@ const initialFlags = {
         brochure: false,
         email: 0,
     },
+    sessions: "",
     ncogoal: "",
     activity: "",
     cadetgoal: "",

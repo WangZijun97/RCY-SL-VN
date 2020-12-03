@@ -1,4 +1,12 @@
+import React from 'react'
 import consts from '../consts'
+import scrooge from '../images/scrooge.jpg'
+import Dialogue from '../convo/Dialogue'
+import scroogeConvos from '../convo/scrooge'
+import jonConvos from '../convo/jonathan'
+import allamConvos from '../convo/allam'
+import emilyConvos from '../convo/emily'
+import carmenConvos from '../convo/carmen'
 
 const serveArcNodes = {
     
@@ -25,24 +33,25 @@ const serveArcNodes = {
     "S3": {
         index: "S3",
         img: (<img />),
-        text: "You start with the activities!",
+        text: (flags) => `Let's begin with the activities! Your unit decided to ${flags.activity}.`,
         option: [{
             text: "Proceed",
             next: (flags) => {
-                if (flags.activity == consts.AMONG_US) {
+                if (flags.activity == consts.activities.AMONG_US) {
                     return "S4"
                 } else if (Object.values(consts.songs).includes(flags.activity)) {
                     return "S6"
                 } else if (Object.values(consts.books).includes(flags.activity)) {
                     return "S12"
-                } else if (flags.activity == consts.SOCCER) {
+                } else if (flags.activity == consts.activities.SOCCER) {
                     return "S17"
-                } else if (flags.activity == consts.CHIT_CHAT) {
+                } else if (flags.activity == consts.activities.CHIT_CHAT) {
                     return "S19"
-                } else if (flags.activity == consts.KITE) {
+                } else if (flags.activity == consts.activities.KITE) {
                     return "S101"
                 }
-            }
+            },
+            fx: (flags) => flags.activity == consts.activities.CHIT_CHAT ? flags.result = consts.results.OK : null
         }]
     },
     
@@ -245,7 +254,7 @@ const serveArcNodes = {
         option: [{
             text: "Continue...",
             next: "S19",
-            fx: (flags) => flags.result = consts.GOOD
+            fx: (flags) => flags.result = consts.results.GOOD
         }]
     },
     
@@ -266,7 +275,7 @@ const serveArcNodes = {
         option: [{
             text: "Continue",
             next: "S19",
-            fx: (flags) => flags.result = consts.EXCELLENT
+            fx: (flags) => flags.result = consts.results.EXCELLENT
         }]
     },
     
@@ -276,10 +285,159 @@ const serveArcNodes = {
         text: "Which of the people at the home would you like to talk to?",
         option: [
             {
-                text: "",
-                next: ""
+                text: "Speak to Home Director, Mr Scrooge",
+                next: "S20"
+            },
+            {
+                text: "Speak to 16 year old Jonathan",
+                next: "S21"
+            },
+            {
+                text: "Speak to 14 year old Allam",
+                next: "S22"
+            },
+            {
+                text: "Speak to 10 year old Emily",
+                next: "S23"
+            },
+            {
+                text: "Speak to 9 year old Carmen",
+                next: "S24"
+            },
+            {
+                text: "Wrap up the VIA",
+                next: (flags) => {
+                    if (flags.result == consts.results.OK) {
+                        return "S26"
+                    } else if (flags.result == consts.results.GOOD) {
+                        return "S25"
+                    } else if (flags.result == consts.results.EXCELLENT) {
+                        return "S102"
+                    }
+                    return "S27"
+                }
             }]
+    },
+    
+    "S20": {
+        index: "S20",
+        img: (<img src={scrooge} alt="scrooge" />),
+        text: (flags) => (<Dialogue
+            startOfConvo={`Hope you are having a great time here at ${flags.name}! I am Ebenzer Scrooger, the Home Director. Feel free to ask me anything about this place!`}
+            speakerClass="scrooge-speech"
+            convos={scroogeConvos}
+            name="Mr. Scrooge" />),
+        option: [{
+            text: "Go back to talk to the others",
+            next: "S19"
+        }]
+    },
+    
+    "S21": {
+        index: "S21",
+        img: (<img />),
+        text: () => (<Dialogue
+            startOfConvo="Hi... I'm Jonathan, and I'm 16 years old."
+            speakerClass="jon-speech"
+            convos={jonConvos}
+            name="Jonathan"
+            />),
+        option: [
+            {
+                text: "Go back to talk to the others",
+                next: "S19"
+            }]
+    },
+    
+    "S22": {
+        index: "S22",
+        img: (<img />),
+        text: () => (<Dialogue 
+            startOfConvo="Sup. I'm Allam, and I'm 14."
+            speakerClass="allam-speech"
+            convos={allamConvos}
+            name="Allam"
+            />),
+        option: [
+            {
+                text: "Go back to talk to the others",
+                next: "S19"
+            }]
+    },
+    
+    "S23": {
+        index: "S23",
+        img: (<img />),
+        text: () => (<Dialogue 
+            startOfConvo="Umm... hello! I'm Emily!"
+            speakerClass="emily-speech"
+            convos={emilyConvos}
+            name="Emily"
+            />),
+        option: [
+            {
+                text: "Go back to talk to the others",
+                next: "S19"
+            }]
+    },
+    
+    "S24": {
+        index: "S24",
+        img: (<img />),
+        text: () => (<Dialogue 
+            startOfConvo="I'm Carmen..."
+            speakerClass="carmen-speech"
+            convos={carmenConvos}
+            name="Carmen"
+            />),
+        option: [
+            {
+                text: "Go back to talk to the others",
+                next: "S19"
+            }]
+    },
+    
+    "S102": {
+        index: "S102",
+        img: (<img />), //5-star ending!
+        text: "The VIA is reaching its end. The kids have had an incredible day fighting kites and your cadets feel very satisfied learning how to fight kites from the children from the home. You are elated by how successful the VIA is.",
+        option: [
+            {
+                text: "Yay!",
+                next: "R1"
+            }]
+    },
+    
+    "S25": {
+        index: "S25",
+        img: (<img />), //4-star ending
+        text: "The VIA is reaching its end. Most of the kids and the cadets are enjoying themselves greatly. You are satisfied that the VIA has been a success, but you wonder if there was something that would have engaged all of the kids.",
+        option: [{
+            text: "Yay!",
+            next: "R1"
+        }]
+    },
+    
+    "S26": {
+        index: "S26",
+        img: (<img />), //3-star ending
+        text: "The VIA is reaching its end. You see that the kids and cadets are talking rather animatedly. You feel that the VIA has gone rather well, but you wonder what else could you have done to make it better...",
+        option: [{
+            text: "Continue",
+            next: "R1"
+        }]
+    },
+    
+    "S27": {
+        index: "S27",
+        img: (<img />), //2-star ending
+        text: "The VIA is reaching its end. It started off pretty weakly, but at least some of the kids and cadets are talking with each other...",
+        option: [{
+            text: "Continue",
+            next: "R1"
+        }]
     }
+
 }
 
 export default serveArcNodes

@@ -1,22 +1,24 @@
 const consts = {
     SESAME: "Sesame Street Children's Orphanage",
     SUNSHINE: "Sunshine Children's Home",
-    AMONG_US: "Among Us",
-    SOCCER: "Soccer",
-    CHIT_CHAT: "Chit Chat",
-    KITE: "Kite Fighting",
+    activities: {
+        AMONG_US: "play Among Us",
+        SOCCER: "play Soccer",
+        CHIT_CHAT: "just chit chat",
+        KITE: "play Kite Fighting"
+    },
     songs: {
-        K_POP: "K-pop",
-        NDP: "National Day Songs",
-        SCHOOL_SONG: "School Song + RC Song",
-        RAP: "Rap",
-        OLD: "80s Songs"
+        K_POP: "sing K-pop",
+        NDP: "sing National Day songs",
+        SCHOOL_SONG: "sing School Song and Red Cross Song",
+        RAP: "sing Rap",
+        OLD: "sing 80s songs"
     },
     books: {
-        SNOW_WHITE: "Snow White + Three Little Pigs",
-        GERONIMO: "Geronimo Stilton + Enid Blyton",
-        HARRY_POTTER: "Harry Potter + Percy Jackson",
-        HARD_TRUTHS: "Hard Truths to Keep Singapore Going"
+        SNOW_WHITE: "read Snow White + Three Little Pigs",
+        GERONIMO: "read Geronimo Stilton + Enid Blyton",
+        HARRY_POTTER: "read Harry Potter + Percy Jackson",
+        HARD_TRUTHS: "read Hard Truths to Keep Singapore Going"
     },
     cadetgoal: {
         NCO: "Set by NCOs",
@@ -24,8 +26,17 @@ const consts = {
         BAD: "Set by cadets but bad",
         GOOD: "Set by cadets well"
     },
-    GOOD: "good",
-    EXCELLENT: "excellent"
+    results: {
+        OK: "meh",
+        GOOD: "good",
+        EXCELLENT: "excellent"
+    }
 };
+
+export const allActivities = {
+    ...consts.activities,
+    ...consts.songs,
+    ...consts.books
+}
 
 export default consts;

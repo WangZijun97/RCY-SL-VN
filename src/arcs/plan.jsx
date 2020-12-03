@@ -19,7 +19,7 @@ const planArcNodes = {
             {
                 text: "Among Us!",
                 next: "P3",
-                fx: (flags) => { flags.activity = consts.AMONG_US },
+                fx: (flags) => { flags.activity = consts.activities.AMONG_US },
             },
             {
                 text: "Sing Songs",
@@ -32,13 +32,13 @@ const planArcNodes = {
             {
                 text: "Play soccer",
                 next: "P3",
-                fx: (flags) => { flags.activity = consts.SOCCER },
+                fx: (flags) => { flags.activity = consts.activities.SOCCER },
                 condition: (flags) => flags.research.internet || flags.research.freeTime || flags.research.soccer,
             },
             {
                 text: "Chit Chat",
                 next: "P3",
-                fx: (flags) => { flags.activity = consts.CHIT_CHAT }
+                fx: (flags) => { flags.activity = consts.activitiesCHIT_CHAT }
             },
             {
                 text: "Bring PS5 and Switch to play games",
@@ -47,7 +47,7 @@ const planArcNodes = {
             {
                 text: "Kite Fighting",
                 next: "P3",
-                fx: (flags) => { flags.activity = consts.KITE },
+                fx: (flags) => { flags.activity = consts.activities.KITE },
                 condition: (flags) => flags.research.recce,
             }
         ]

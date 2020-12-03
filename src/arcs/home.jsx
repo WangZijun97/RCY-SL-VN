@@ -17,9 +17,14 @@ const homeArcNodes = {
             {
                 text: "START BUT IN CAPS",
                 next: "H1"
+            },
+            {
+                text: "Developer only",
+                next: "dev0"
             }
         ]
     },
+    
     "H1": {
         index: "H1",
         img: (<img src={school} width="266" height="200" alt="Chai Chee Secondary School" />),
