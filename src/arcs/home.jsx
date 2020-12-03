@@ -7,7 +7,7 @@ const homeArcNodes = {
         img: <NodeImg src="sl-gold.png" alt="SL badge" width="200" />,
         text: () => (<React.Fragment>
             <p>Welcome to the Service Learning VIA Adventure! This is a Choose Your Own Adventure-style of game.
-            Be prepared to make a lot of choices -- some of these will matter, some of these won't.</p>
+            Be prepared to make a lot of choices. Some of these choices will matter, some of these won't.</p>
             <p>Press either button below to start.</p>
             </React.Fragment>),
         option: [
