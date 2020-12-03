@@ -1,22 +1,13 @@
 import React from 'react';
 import consts from '../consts';
-
-import planning from '../images/plan.jpg';
-import singing from '../images/singing.png';
-import snowWhite from '../images/snow-white.jpg';
-import threeLittlePigs from '../images/three-little-pigs.jpg';
-import geronimo from '../images/geronimo-stilton.jpg';
-import enidBlyton from '../images/enid-blyton.jpg';
-import harryPotter from '../images/harry-potter.jpg';
-import percyJackson from '../images/percy-jackson.jpg';
-import hardTruths from '../images/hard-truths.jpg';
-import timeFlies from '../images/time-flies.jpg';
 import Dialogue from '../convo/Dialogue';
+import NodeImg from '../NodeImg';
+
 
 const planArcNodes = {
     "P1": {
         index: "P1",
-        img: (<img src={planning} alt="" />),
+        img: <NodeImg src="plan.jpg" alt="" />,
         text: (flags) => (<React.Fragment>
             <p>Time to get some planning done - here are some activities that your NCOs have proposed! They are seeking your opinion -- which one should they focus on?</p>
             {(flags.research.internet || flags.research.freeTime || flags.research.soccer) && <p class="informative">[You have unlocked additional options because of your NCOs' research.]</p>}
@@ -63,13 +54,13 @@ const planArcNodes = {
     "P2": {
         index: "P2",
         img: () => (<div className="book-catalogue">
-            <img src={snowWhite} alt="Snow White"/>
-            <img src={threeLittlePigs} alt="Three Little Pigs"/>
-            <img src={geronimo} alt="Geronimo Stilton"/>
-            <img src={enidBlyton} alt="Enid Blyton"/>
-            <img src={harryPotter} alt="Harry Potter"/>
-            <img src={percyJackson} alt="Percy Jackson"/>
-            <img src={hardTruths} alt="Hard Truths"/>
+            <NodeImg src="snow-white.jpg" alt="Snow White"/>
+            <NodeImg src="three-little-pigs.jpg" alt="Three Little Pigs"/>
+            <NodeImg src="geronimo-stilton.jpg" alt="Geronimo Stilton"/>
+            <NodeImg src="enid-blyton.jpg" alt="Enid Blyton"/>
+            <NodeImg src="harry-potter.jpg" alt="Harry Potter"/>
+            <NodeImg src="percy-jackson.jpg" alt="Percy Jackson"/>
+            <NodeImg src="hard-truths.jpg" alt="Hard Truths"/>
             </div>),
         text: "What books should the NCOs bring? They have time for two books:",
         option: [
@@ -102,7 +93,7 @@ const planArcNodes = {
 
     "P4": {
         index: "P4",
-        img: (<img src={singing} alt="" />),
+        img: <NodeImg src="singing.png" alt="" />,
         text: "The NCOs wonder what type of songs to sing. What will you suggest?",
         option: [
             {
@@ -169,7 +160,7 @@ const planArcNodes = {
 
     "P6": {
         index: "P6",
-        img: (<img src="https://i.kym-cdn.com/photos/images/original/001/861/224/330.jpg" alt="ps5 duck" />),
+        img: <NodeImg ext="https://i.kym-cdn.com/photos/images/original/001/861/224/330.jpg" alt="ps5 duck" />,
         text: "That's neat, but you don't have enough budget to buy those things (Besides, it's already a miracle if you even manage to find these in stock)",
         option: [
             {
@@ -180,7 +171,7 @@ const planArcNodes = {
 
     "P7": {
         index: "P7",
-        img: (<img src="https://i.kym-cdn.com/photos/images/original/001/779/895/752.jpg" alt="not stonks" />),
+        img: <NodeImg ext="https://i.kym-cdn.com/photos/images/original/001/779/895/752.jpg" alt="not stonks" />,
         text: "Haha very funny - by not having the VIA, your unit's EUA dropped from Gold to Silver :( Your unit is very sad.",
         option: [
             {
@@ -191,7 +182,7 @@ const planArcNodes = {
     
     "P5": {
         index: "P5",
-        img: (<img src={timeFlies} alt="Time flies" />),
+        img: <NodeImg src="time-flies.jpg" alt="Time flies" />,
         text: "The NCOs are spending a lot of time on setting roles and goals. Should you intervene?",
         option: [
             {
@@ -231,7 +222,7 @@ const planArcNodes = {
 
     "P11": {
         index: "P11",
-        img: (<img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/thinking-face_1f914.png" alt="Thinking emoji"/>),
+        img: <NodeImg ext="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/thinking-face_1f914.png" alt="Thinking emoji"/>,
         text: "Well that got them to move on, but they don't seen too happy about it...",
         option: [{
             text: "Continue",
@@ -241,7 +232,7 @@ const planArcNodes = {
     
     "P12": {
         index: "P12",
-        img: (<iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen title="capoo sleeping" />),
+        img: <iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen title="capoo sleeping" />,
         text: "OIC John complains to you that the rest of the NCOs are slacking off. What will you do?",
         option: [
             {
