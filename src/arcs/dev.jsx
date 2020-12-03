@@ -1,11 +1,19 @@
 import consts from '../consts'
 import {allActivities} from '../consts'
 
+const objToKeyValArray = (obj, keyPrefix = "") => {
+    return Object.entries(obj).map(([k, v]) => {
+        if (v instanceof Object) {
+            return objToKeyValArray(v, `${keyPrefix}${k}.`);
+        } else {
+            return `${keyPrefix}${k}: ${v}`;
+        }
+    });
+}
+
 const devNodes = {
     
     "dev0": {
-        index: "dev0",
-        img: (<img />),
         text: "Hacker page wew",
         option: [
             {
@@ -24,30 +32,17 @@ const devNodes = {
     },
     
     "dev1": {
-        index: "dev1",
-        img: (<img />),
-        text: (flags) => {
-            let str = ""
-            for (let key in flags) {
-                str += key + ": " + flags[key] + " | "
-                if (flags[key] instanceof Object) {
-                    for (let k in flags[key]) {
-                        str += k + ": " + flags[key][k] + " | "
-                    }
-                }
-            }
-            return str
-        },
+        text: (flags) => objToKeyValArray(flags).flat().join(' | '),
         option: [
             {
                 text: "Change home",
                 next: "dev1",
-                fx: (flags) => flags.name == consts.SESAME ? flags.name = consts.SUNSHINE : flags.name = consts.SESAME
+                fx: (flags) => flags.name === consts.SESAME ? flags.name = consts.SUNSHINE : flags.name = consts.SESAME
             },
             {
                 text: "Toggle call",
                 next: "dev1",
-                fx: (flags) => flags.research.call == true ? flags.research.call = false : flags.research.call = true
+                fx: (flags) => flags.research.call === true ? flags.research.call = false : flags.research.call = true
             },
             {
                 text: "Toggle freeTime",
@@ -124,8 +119,6 @@ const devNodes = {
     },
     
     "dev2": {
-        index: "dev2",
-        img: (<img />),
         text: "jump",
         option: [
             {
