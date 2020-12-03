@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/RCY-SL-VN/static/css/main.bd8d2a08.chunk.css",
-    "main.js": "/RCY-SL-VN/static/js/main.0cf50545.chunk.js",
-    "main.js.map": "/RCY-SL-VN/static/js/main.0cf50545.chunk.js.map",
+    "main.css": "/RCY-SL-VN/static/css/main.2c4d572f.chunk.css",
+    "main.js": "/RCY-SL-VN/static/js/main.f050c1ca.chunk.js",
+    "main.js.map": "/RCY-SL-VN/static/js/main.f050c1ca.chunk.js.map",
     "runtime-main.js": "/RCY-SL-VN/static/js/runtime-main.2babe940.js",
     "runtime-main.js.map": "/RCY-SL-VN/static/js/runtime-main.2babe940.js.map",
     "static/js/2.439ba840.chunk.js": "/RCY-SL-VN/static/js/2.439ba840.chunk.js",
@@ -10,10 +10,11 @@
     "static/js/3.1bfcf33a.chunk.js": "/RCY-SL-VN/static/js/3.1bfcf33a.chunk.js",
     "static/js/3.1bfcf33a.chunk.js.map": "/RCY-SL-VN/static/js/3.1bfcf33a.chunk.js.map",
     "index.html": "/RCY-SL-VN/index.html",
-    "static/css/main.bd8d2a08.chunk.css.map": "/RCY-SL-VN/static/css/main.bd8d2a08.chunk.css.map",
+    "static/css/main.2c4d572f.chunk.css.map": "/RCY-SL-VN/static/css/main.2c4d572f.chunk.css.map",
     "static/js/2.439ba840.chunk.js.LICENSE.txt": "/RCY-SL-VN/static/js/2.439ba840.chunk.js.LICENSE.txt",
     "static/media/NotLikeDuck.6c872f74.png": "/RCY-SL-VN/static/media/NotLikeDuck.6c872f74.png",
     "static/media/bridge.28f88af6.jpg": "/RCY-SL-VN/static/media/bridge.28f88af6.jpg",
+    "static/media/emergency-meeting.13a877fe.png": "/RCY-SL-VN/static/media/emergency-meeting.13a877fe.png",
     "static/media/enid-blyton.c4c1a692.jpg": "/RCY-SL-VN/static/media/enid-blyton.c4c1a692.jpg",
     "static/media/footdrill.115dac5f.png": "/RCY-SL-VN/static/media/footdrill.115dac5f.png",
     "static/media/geronimo-stilton.aa519912.jpg": "/RCY-SL-VN/static/media/geronimo-stilton.aa519912.jpg",
@@ -23,6 +24,7 @@
     "static/media/logo.6ce24c58.svg": "/RCY-SL-VN/static/media/logo.6ce24c58.svg",
     "static/media/one-week-later.1b3d0941.jpg": "/RCY-SL-VN/static/media/one-week-later.1b3d0941.jpg",
     "static/media/percy-jackson.f22816b4.jpg": "/RCY-SL-VN/static/media/percy-jackson.f22816b4.jpg",
+    "static/media/plan.d9044d47.jpg": "/RCY-SL-VN/static/media/plan.d9044d47.jpg",
     "static/media/school.7ff66d3c.jpg": "/RCY-SL-VN/static/media/school.7ff66d3c.jpg",
     "static/media/sesamestreeticon.abf2e9ef.PNG": "/RCY-SL-VN/static/media/sesamestreeticon.abf2e9ef.PNG",
     "static/media/singing.5b01f500.png": "/RCY-SL-VN/static/media/singing.5b01f500.png",
@@ -39,7 +41,7 @@
   "entrypoints": [
     "static/js/runtime-main.2babe940.js",
     "static/js/2.439ba840.chunk.js",
-    "static/css/main.bd8d2a08.chunk.css",
-    "static/js/main.0cf50545.chunk.js"
+    "static/css/main.2c4d572f.chunk.css",
+    "static/js/main.f050c1ca.chunk.js"
   ]
 }
