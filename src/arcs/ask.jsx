@@ -110,24 +110,30 @@ const askArcNodes = {
     
     "A6": {
         index: "A6",
-        img: (<img />),
-        text: "During the facilitation session, one of your cadets set this goal for herself. Should you intervene?",
+        img: (<div className="textbox">
+            <div className="qn">What do you want to learn from this VIA visit?</div>
+            <div className="ans">I want to learn as much as possible.</div>
+        </div>),
+        text: "During the facilitation session, one of your cadets set this goal for herself. Do you accept this goal?",
         option: [
             {
                 text: "Yes",
-                next: "A7"
+                next: "A10",
+                fx: (flags) => flags.cadetgoal = consts.cadetgoal.BAD
             },
             {
                 text: "No",
-                next: "A10",
-                fx: (flags) => flags.cadetgoal = consts.cadetgoal.BAD
+                next: "A7"
             }
         ]
     },
     
     "A7": {
         index: "A7",
-        img: (<img />),
+        img: (<div className="textbox">
+            <div className="qn">What do you want to learn from this VIA visit?</div>
+            <div className="ans">I want to learn the stories of the children at the home.</div>
+        </div>),
         text: "She comes up with a new goal. Are you happy with this goal?",
         option: [
             {

@@ -174,3 +174,19 @@ a {
     font-style: italic;
     color: #bbb;
 }
+
+.textbox {
+    text-align: left;
+    width: 67%;
+    border: 2px solid #444;
+}
+
+.textbox > .qn {
+    padding: 0.33rem 1rem;
+    background-color: #444;
+}
+
+.textbox > .ans {
+    padding: 1rem;
+    background-color: #282c34;
+}
