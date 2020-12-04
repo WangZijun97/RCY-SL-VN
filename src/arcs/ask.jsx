@@ -166,7 +166,7 @@ const askArcNodes = {
                 fx: (flags) => flags.cadetgoal = consts.cadetgoal.GOOD
             },
             {
-                text: "How about something else? You caould try and learn how to solve the problems of the children.",
+                text: "How about something else? You could try and learn how to solve the problems of the children.",
                 next: "A8",
                 fx: (flags) => flags.cadetgoal = consts.cadetgoal.NCO
             }]

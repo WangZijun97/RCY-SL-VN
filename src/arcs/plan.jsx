@@ -34,7 +34,7 @@ const planArcNodes = {
             {
                 text: "Chit Chat",
                 next: "P3",
-                fx: (flags) => { flags.activity = consts.activitiesCHIT_CHAT }
+                fx: (flags) => { flags.activity = consts.activities.CHIT_CHAT }
             },
             {
                 text: "Bring PS5 and Switch to play games",
@@ -227,22 +227,22 @@ const planArcNodes = {
             {
                 text: "Assemble the rest of the NCOs and scold them",
                 next: "P14",
-                fx: (flags) => { flags.rolesandgoals = "Scold" }
+                fx: (flags) => { flags.rolesandgoals = consts.rolesandgoals.SCOLD }
             },
             {
                 text: "Tell them off to the YO, this is getting out of your hands!",
-                next: "P121",
-                fx: (flags) => { flags.rolesandgoals = "YO Scold" }
+                next: "P14",
+                fx: (flags) => { flags.rolesandgoals = consts.rolesandgoals.YO_SCOLD }
             },
             {
                 text: "Tell John to handle it himself - he is the OIC after all. At most get the chairperson Meiling to help him out.",
-                next: "P122",
-                fx: (flags) => { flags.rolesandgoals = "Nothing" }
+                next: "P14",
+                fx: (flags) => { flags.rolesandgoals = consts.rolesandgoals.OIC }
             },
             {
                 text: "Ask the rest of the NCOs: What's going on?",
                 next: "P13",
-                fx: (flags) => { flags.rolesandgoals = "Check on them" }
+                fx: (flags) => { flags.rolesandgoals = consts.rolesandgoals.CHECK_ON_THEM }
             }
         ]
     },
@@ -260,7 +260,7 @@ const planArcNodes = {
             {
                 text: "Well, RnRs are always set like this and have worked previous years, so let's better just stick to it.",
                 next: "P14",
-                fx: (flags) => { flags.rolesandgoals =  "Tradition" }
+                fx: (flags) => { flags.rolesandgoals =  consts.rolesandgoals.TRADITION }
             },
             {
                 text: "Oh if you really want, feel free to swap roles...",

@@ -20,6 +20,13 @@ const consts = {
         HARRY_POTTER: "read Harry Potter + Percy Jackson",
         HARD_TRUTHS: "read Hard Truths to Keep Singapore Going"
     },
+    rolesandgoals: {
+        SCOLD: "scold",
+        YO_SCOLD: "YO scold",
+        OIC: "nothing",
+        CHECK_ON_THEM: "check on them",
+        TRADITION: "tradition"
+    },
     cadetgoal: {
         NCO: "Set by NCOs",
         CADET: "Set by cadets",

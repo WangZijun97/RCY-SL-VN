@@ -15,6 +15,7 @@ const initialFlags = {
     sessions: "",
     ncogoal: "",
     activity: "",
+    rolesandgoals: "",
     cadetgoal: "",
     result: 0,
     lastNode: "",
