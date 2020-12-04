@@ -104,7 +104,7 @@ const serveArcNodes = {
             } else if (flags.activity === consts.songs.RAP) {
                 return <NodeImg src="eminem.png" alt="Eminem" />;
             } else if (flags.activity === consts.songs.OLD) {
-                return (<iframe width="80%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="80s song" />);
+                return (<div className="iframe-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="80s song" /></div>);
             } else return <div />;
         },
         text: "You begin with the sing-along session...",

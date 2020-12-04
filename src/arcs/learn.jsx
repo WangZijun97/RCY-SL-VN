@@ -140,7 +140,7 @@ const nodes = {
     },
 
     "L5": {
-        img: <iframe src="https://giphy.com/embed/3o6Ztke2ogPyvyhPXO" frameBorder="0" title="Time is ticking" />,
+        img: (<div className="iframe-container"> <iframe src="https://giphy.com/embed/3o6Ztke2ogPyvyhPXO" frameBorder="0" title="Time is ticking" /> </div>),
         text: "It's been another week but the home still hasn't replied you. What do you want to do?",
         option: [
             {

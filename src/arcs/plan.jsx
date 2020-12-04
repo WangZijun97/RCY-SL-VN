@@ -221,7 +221,7 @@ const planArcNodes = {
     },
     
     "P12": {
-        img: <iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen title="capoo sleeping" />,
+        img: (<div className="iframe-container"><iframe src="https://giphy.com/embed/XoM1eSwGMXK4huqV2E" frameBorder="0" class="giphy-embed" allowFullScreen title="capoo sleeping" /></div>),
         text: "OIC John complains to you that the rest of the NCOs are slacking off. What will you do?",
         option: [
             {
