@@ -42,7 +42,7 @@ const devNodes = {
             {
                 text: "Toggle call",
                 next: "dev1",
-                fx: (flags) => flags.research.call === true ? flags.research.call = false : flags.research.call = true
+                fx: (flags) => flags.research.call = !flags.research.call,
             },
             {
                 text: "Toggle freeTime",
@@ -103,14 +103,7 @@ const devNodes = {
             {
                 text: "Change results",
                 next: "dev1",
-                fx: (flags) => {
-                    const allVals = Object.values(consts.results)
-                    if (allVals.includes(flags.result)) {
-                        flags.result = allVals[(allVals.indexOf(flags.result) + 1) % allVals.length]
-                    } else {
-                        flags.result = allVals[0]
-                    }
-                }
+                fx: (flags) => { flags.result = (flags.result + 1) % 6; }
             },
             {
                 text: "Done",

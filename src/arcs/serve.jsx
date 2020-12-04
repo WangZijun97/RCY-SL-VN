@@ -7,6 +7,25 @@ import jonConvos from '../convo/jonathan'
 import allamConvos from '../convo/allam'
 import emilyConvos from '../convo/emily'
 import carmenConvos from '../convo/carmen'
+import Stars from '../stars'
+
+const POOR_RESULTS = [consts.activities.AMONG_US, consts.books.HARD_TRUTHS, consts.songs.SCHOOL_SONG];
+const GOOD_RESULTS = [consts.activities.SOCCER, consts.activities.CHIT_CHAT];
+
+const calculateScore = (flags, finalChitChat) => {
+    const sustainability = flags.name === consts.SESAME ? 1 : 0;
+    const chitChatScore = finalChitChat ? 1 : 0;
+
+    if (POOR_RESULTS.includes(flags.activity)) {
+        return sustainability + chitChatScore;
+    } else if (GOOD_RESULTS.includes(flags.activity)) {
+        return 2 + sustainability + chitChatScore;
+    } else if (flags.activity === consts.activities.KITE) {
+        return 3 + sustainability + chitChatScore;
+    } else {
+        return 1 + sustainability + chitChatScore;
+    }
+}
 
 const serveArcNodes = {
     "S1": {
@@ -14,7 +33,7 @@ const serveArcNodes = {
         text: "It is the day of the VIA! You board the bus with the unit to the VIA location.",
         option: [{
             text: "Exciting!",
-            next: (flags) => flags.name == consts.SESAME ? "S3" : "S2"
+            next: (flags) => flags.name === consts.SESAME ? "S3" : "S2"
         }]
     },
 
@@ -57,7 +76,6 @@ const serveArcNodes = {
                     return "S101"
                 }
             },
-            fx: (flags) => flags.activity === consts.activities.CHIT_CHAT ? flags.result = consts.results.OK : null
         }]
     },
 
@@ -67,11 +85,13 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let the cadets play and let the kids watch",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Let's just give up on this and chit chat with them instead...",
-                next: "S19"
+                next: "S19",
+                fx: (flags) => { flags.result = calculateScore(flags, true); }
             }]
     },
 
@@ -106,7 +126,8 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let's just keep singing",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Start chit-chatting with the kids",
@@ -124,7 +145,8 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let's just keep singing",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Start chit-chatting with the kids",
@@ -138,7 +160,8 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let's just keep singing",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Start chit-chatting with the kids",
@@ -174,7 +197,8 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let's continue reading",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Start chit-chatting with the kids",
@@ -191,7 +215,8 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let's continue reading",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Start chit-chatting with the kids",
@@ -208,7 +233,8 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let's continue reading",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Start chit-chatting with the kids",
@@ -222,7 +248,8 @@ const serveArcNodes = {
         option: [
             {
                 text: "Let's continue reading",
-                next: "S18"
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, false); }
             },
             {
                 text: "Start chit-chatting with the kids",
@@ -236,12 +263,11 @@ const serveArcNodes = {
         option: [{
             text: "Continue...",
             next: "S19",
-            fx: (flags) => flags.result = consts.results.GOOD
         }]
     },
 
     "S18": {
-        img: (<img />), // 1-star activity
+        img: (<Stars label="Service" rating={1} />), // 1-star activity
         text: "The VIA is coming to its end. The unit wasn't able to engage the vast majority of the kids at the home. You feel disappointed by the VIA...",
         option: [{
             text: "Oh no...",
@@ -250,12 +276,11 @@ const serveArcNodes = {
     },
 
     "S101": {
-        img: (<iframe width="80%" src="https://www.youtube.com/embed/1TroueqxAtM" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Kite-Fighting" />),
+        img: (<div className="iframe-container"><iframe src="https://www.youtube.com/embed/1TroueqxAtM" frameborder="0" width="100%" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="Kite-Fighting" /></div>),
         text: "Incredibly, all of the kids are ecstatic to play kite-fighting. They start showing off their kites as well as the various techniques they use to defeat others' kites to your cadets. Everyone is enjoying themselves greatly. During the breaks in the game, you start talking to some of the kids from the home.",
         option: [{
             text: "Continue",
             next: "S19",
-            fx: (flags) => flags.result = consts.results.EXCELLENT
         }]
     },
 
@@ -284,16 +309,8 @@ const serveArcNodes = {
             },
             {
                 text: "Wrap up the VIA",
-                next: (flags) => {
-                    if (flags.result == consts.results.OK) {
-                        return "S26"
-                    } else if (flags.result == consts.results.GOOD) {
-                        return "S25"
-                    } else if (flags.result == consts.results.EXCELLENT) {
-                        return "S102"
-                    }
-                    return "S27"
-                }
+                next: "S32767",
+                fx: (flags) => { flags.result = calculateScore(flags, true)  }
             }]
     },
 
@@ -370,43 +387,65 @@ const serveArcNodes = {
             }]
     },
 
-    "S102": {
-        img: (<img />), //5-star ending!
-        text: "The VIA is reaching its end. The kids have had an incredible day fighting kites and your cadets feel very satisfied learning how to fight kites from the children from the home. You are elated by how successful the VIA is.",
-        option: [
-            {
-                text: "Yay!",
-                next: "R1"
-            }]
-    },
-
-    "S25": {
-        img: (<img />), //4-star ending
-        text: "The VIA is reaching its end. Most of the kids and the cadets are enjoying themselves greatly. You are satisfied that the VIA has been a success, but you wonder if there was something that would have engaged all of the kids.",
-        option: [{
-            text: "Yay!",
-            next: "R1"
-        }]
-    },
-
-    "S26": {
-        img: (<img />), //3-star ending
-        text: "The VIA is reaching its end. You see that the kids and cadets are talking rather animatedly. You feel that the VIA has gone rather well, but you wonder what else could you have done to make it better...",
+    "S32767": {
+        img: (flags) => (<Stars label="Service" rating={flags.result} />),
+        text: (flags) => (<p>{makeDescription(flags.name === consts.SESAME, flags.activity, flags.result)}</p>),
         option: [{
             text: "Continue",
-            next: "R1"
+            next: "R1",
         }]
     },
+}
 
-    "S27": {
-        img: (<img />), //2-star ending
-        text: "The VIA is reaching its end. It started off pretty weakly, but at least some of the kids and cadets are talking with each other...",
-        option: [{
-            text: "Continue",
-            next: "R1"
-        }]
+const makeDescription = (isSesame, activity, score) => {
+    let str = isSesame ? "Many of the kids remember your unit from the previous visit and were excited to see you again." : "The atmosphere was rather awkward as many of the kids at the home were unfriendly with you."
+
+    if (POOR_RESULTS.includes(activity)) {
+        const didChitChat = (score - isSesame ? 1 : 0) === 1;
+        str += isSesame ? " Unfortunately," : " Furthermore,";
+        if (didChitChat) str += " the VIA had a pretty disastrous start as";
+        str += " the vast majority of the kids at the home were uninterested in what your unit planned."
+
+        if (didChitChat) str += " At least some of the kids and cadets are talking with each other..."
+
+        // Chit chat
+    } else if (activity === consts.activities.CHIT_CHAT) {
+        str += isSesame ? "" : " Nevertheless, they warmed up to the cadets.";
+        str += " You see many of the kids and the cadets were talking animatedly with each other.";
+
+        // Soccer
+    } else if (activity === consts.activities.SOCCER) {
+        str += isSesame ? "" : " Nevertheless,";
+        str += " most of the kids and the cadets were enjoying themselves greatly playing soccer, and many of them bonded closely over the fun that they are having.";
+
+        // Kite-fighting
+    } else if (activity === consts.activities.KITE) {
+        str += isSesame ? " Incredibly," : " Despite that,";
+        str += " you notice that all of the kids had a lot of fun fighting kites and your cadets felt very satisfied learning how to fight kites from the children from the home.";
+
+        // otherwise
+    } else {
+        const didChitChat = (score - isSesame ? 1 : 0) === 2;
+        str += isSesame ? " Unfortunately," : " Furthermore,";
+        if (didChitChat) str += " the VIA had a pretty weak start as";
+        str += " many kids at the home weren't engaged by what your unit planned."
+
+        if (didChitChat) str += " At least some of the kids and cadets are talking with each other..."
     }
 
+    if (score === 5) {
+        str += " This VIA has been an incredible success and you are extremely proud of your NCOs for that!";
+    } else if (score === 4) {
+        str += " This VIA has been rather successful. Nevertheless, you can't help but wonder what you could have done to make it even better...";
+    } else if (score === 3) {
+        str += " This VIA has been okay but there is definitely room for improvement...";
+    } else if (score === 2) {
+        str += " This VIA wasn't so good and there was definitely a lot that needed improvement...";
+    } else {
+        str += " This VIA has gone pretty badly and you feel very disappointed...";
+    }
+
+    return `The VIA has come to an end. ${str}`
 }
 
 export default serveArcNodes

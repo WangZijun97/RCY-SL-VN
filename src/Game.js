@@ -16,7 +16,7 @@ const initialFlags = {
     ncogoal: "",
     activity: "",
     cadetgoal: "",
-    result: "",
+    result: 0,
     lastNode: "",
 };
 
