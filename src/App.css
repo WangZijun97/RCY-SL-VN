@@ -208,3 +208,22 @@ a {
     left: 0;
     top: 0;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+table th, td {
+    border: 1px solid #666;
+    padding: 0.33rem 1rem;
+}
+
+th {
+    background-color: #666;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 0.6rem;
+    }
+}

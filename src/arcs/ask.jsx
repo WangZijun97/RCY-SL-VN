@@ -4,7 +4,37 @@ import NodeImg from '../NodeImg'
 const askArcNodes = {
     "A1": {
         index: "A1",
-        img: (<NodeImg src="timeline.png" alt="Timeline. 1400-1430 Reporting Parade; 1430-1515 Briefing for VIA; 1515-1600 Buffer; 1600-1630 Dismissal Parade" />),
+        img: (<table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Activity</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1400 - 1430</td>
+                    <td>Reporting Parade</td>
+                    <td>Parade Square</td>
+                </tr>
+                <tr>
+                    <td>1430 - 1515</td>
+                    <td>VIA Briefing</td>
+                    <td>Classroom</td>
+                </tr>
+                <tr>
+                    <td>1515 - 1600</td>
+                    <td>Buffer</td>
+                    <td>Classroom</td>
+                </tr>
+                <tr>
+                    <td>1600 - 1630</td>
+                    <td>Dismissal Parade</td>
+                    <td>Parade Square</td>
+                </tr>
+            </tbody>
+            </table>),
         text: "The home visit is soon approaching. You have requested your NCOs to prepare the unit for the VIA. This is their plan for the training right before the VIA. What feedback do you have for the training plan?",
         option: [
             {
