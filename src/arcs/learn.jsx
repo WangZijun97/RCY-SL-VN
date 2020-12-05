@@ -39,8 +39,7 @@ const nodes = {
             },
             {
                 text: "Set goals",
-                next: "L20",
-                condition: (flags) => flags.ncogoal === "",
+                next: "L20"
             },
             {
                 text: "I have completed the interventions that I want.",
@@ -338,7 +337,7 @@ const nodes = {
             {
                 text: "Tell the NCOs what goals they should try to achieve.",
                 next: "L21",
-                fx: (flags) => flags.ncogoal = "by VIs"
+                fx: (flags) => flags.ncogoal = consts.ncogoals.VI
             },
             {
                 text: "Facilitate the NCOs in setting their own goals for the VIA.",
@@ -373,12 +372,12 @@ const nodes = {
             {
                 text: "I'm okay with it.",
                 next: "L101",
-                fx: (flags) => flags.ncogoal = "not specific"
+                fx: (flags) => flags.ncogoal = consts.ncogoals.NOT_SPECIFIC
             },
             {
                 text: "I don't like it.",
                 next: "L23",
-                fx: (flags) => flags.ncogoal = "by NCOs"
+                fx: (flags) => flags.ncogoal = consts.ncogoals.NCO
             },
         ]
     },

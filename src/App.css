@@ -140,6 +140,11 @@ a {
     border-color: #e88;
 }
 
+.cadet-speech {
+    color: #fd0;
+    border-color: #fd0;
+}
+
 .book-catalogue {
     display: flex;
     flex-flow: row wrap;

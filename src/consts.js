@@ -1,6 +1,12 @@
 const consts = {
     SESAME: "Sesame Street Children's Orphanage",
     SUNSHINE: "Sunshine Children's Home",
+    ncogoals: {
+        NONE: "did not set",
+        VI: "set by VIs",
+        NOT_SPECIFIC: "goal set is not specific",
+        NCO: "set by NCOs"
+    },
     activities: {
         AMONG_US: "play Among Us",
         SOCCER: "play Soccer",
@@ -28,6 +34,7 @@ const consts = {
         TRADITION: "tradition"
     },
     cadetgoal: {
+        NONE: "Did not set",
         NCO: "Set by NCOs",
         CADET: "Set by cadets",
         BAD: "Set by cadets but bad",
@@ -43,6 +50,11 @@ const consts = {
         TWO_TGT: "2 in a month",
         TWO_SPREAD: "2 spread out",
         FOUR: "4"
+    },
+    debrief: {
+        NCO: "NCOs debriefed only",
+        CADET: "Cadets debriefed only",
+        BOTH: "Both were debriefed"
     }
 };
 

@@ -3,6 +3,7 @@ import learnArcNodes from './arcs/learn'
 import planArcNodes from './arcs/plan'
 import askArcNodes from './arcs/ask'
 import serveArcNodes from './arcs/serve'
+import reflectArcNodes from './arcs/reflect'
 import devNodes from './arcs/dev'
 import consts from './consts'
 import bridge from './images/bridge.jpg'
@@ -24,6 +25,7 @@ const nodes = {
     ...planArcNodes,
     ...askArcNodes,
     ...serveArcNodes,
+    ...reflectArcNodes,
     ...devNodes
     
 }   

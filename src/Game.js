@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import * as data from './data.js';
 import Node from './Node.js';
+import consts from './consts'
 
 const initialFlags = {
     name: "default",
@@ -13,12 +14,13 @@ const initialFlags = {
         email: 0,
     },
     sessions: "",
-    ncogoal: "",
+    ncogoal: consts.ncogoals.NONE,
     activity: "",
     rolesandgoals: "",
-    cadetgoal: "",
+    cadetgoal: consts.cadetgoal.NONE,
     result: 0,
     lastNode: "",
+    debrief: ""
 };
 
 const reducer = (state, action) => {
