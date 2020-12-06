@@ -6,7 +6,7 @@ const Stars = (props) => {
     const { label, rating } = props;
 
     const fillColor = (label === "Service") ? "#8cf" : "#9b9";
-    const maxStars = (label === "Service") ? 5 : 7;
+    const maxStars = (label === "Service") ? 7 : 7;
     const filledProps = { color: fillColor, opacity: 1 };
     const unfilledProps = { opacity: 0.4 };
 

@@ -10,21 +10,26 @@ import carmenConvos from '../convo/carmen'
 import Stars from '../stars'
 
 const POOR_RESULTS = [consts.activities.AMONG_US, consts.books.HARD_TRUTHS, consts.songs.SCHOOL_SONG];
-const GOOD_RESULTS = [consts.activities.SOCCER, consts.activities.CHIT_CHAT];
 
 const calculateScore = (flags, finalChitChat) => {
     const sustainability = flags.name === consts.SESAME ? 1 : 0;
+    const sessionSus = [consts.sessions.TWO_TGT, consts.sessions.FOUR].includes(flags.sessions) ? 1 : 0;
     const chitChatScore = finalChitChat ? 1 : 0;
+    
+    let result = sustainability + chitChatScore + sessionSus
 
     if (POOR_RESULTS.includes(flags.activity)) {
-        return sustainability + chitChatScore;
-    } else if (GOOD_RESULTS.includes(flags.activity)) {
-        return 2 + sustainability + chitChatScore;
+        result += 0 //lol
+    } else if (flags.activity === consts.activities.CHIT_CHAT) {
+        result += 2
+    } else if (flags.activity === consts.activities.SOCCER) {
+        result += 3
     } else if (flags.activity === consts.activities.KITE) {
-        return 3 + sustainability + chitChatScore;
+        result += 4
     } else {
-        return 1 + sustainability + chitChatScore;
+        result += 1
     }
+    return result
 }
 
 const serveArcNodes = {
@@ -433,11 +438,11 @@ const makeDescription = (isSesame, activity, score) => {
         if (didChitChat) str += " At least some of the kids and cadets are talking with each other..."
     }
 
-    if (score === 5) {
+    if (score === 7) {
         str += " This VIA has been an incredible success and you are extremely proud of your NCOs for that!";
-    } else if (score === 4) {
+    } else if (score > 4 && score < 7) {
         str += " This VIA has been rather successful. Nevertheless, you can't help but wonder what you could have done to make it even better...";
-    } else if (score === 3) {
+    } else if (score < 5 && score > 2) {
         str += " This VIA has been okay but there is definitely room for improvement...";
     } else if (score === 2) {
         str += " This VIA wasn't so good and there was definitely a lot that needed improvement...";

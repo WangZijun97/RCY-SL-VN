@@ -117,6 +117,12 @@ const endNodes = {
     },
     
     "ANALYSIS": {
+        img: (<img />),
+        text: "bsidjlsnadbhjhdjd",
+        option: [{
+            text: "abc",
+            next: "adsfiohwqdas"
+        }]
     }
         
     
