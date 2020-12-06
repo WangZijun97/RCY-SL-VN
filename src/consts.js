@@ -27,9 +27,10 @@ const consts = {
         HARD_TRUTHS: "read Hard Truths to Keep Singapore Going"
     },
     rolesandgoals: {
+        NONE: "don't intervene",
         SCOLD: "scold",
         YO_SCOLD: "YO scold",
-        OIC: "nothing",
+        OIC: "OIC tank",
         CHECK_ON_THEM: "check on them",
         TRADITION: "tradition"
     },

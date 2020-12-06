@@ -4,7 +4,7 @@ import * as data from './data.js';
 import Node from './Node.js';
 import consts from './consts'
 
-const initialFlags = {
+export const initialFlags = {
     name: "default",
     research: {
         call: false,
@@ -16,7 +16,7 @@ const initialFlags = {
     sessions: "",
     ncogoal: consts.ncogoals.NONE,
     activity: "",
-    rolesandgoals: "",
+    rolesandgoals: consts.rolesandgoals.NONE,
     cadetgoal: consts.cadetgoal.NONE,
     result: 0,
     lastNode: "",

@@ -77,6 +77,18 @@ const devNodes = {
                 }
             },
             {
+                text: "Change nco goal",
+                next: "dev1",
+                fx: (flags) => {
+                    const allVals = Object.values(consts.ncogoals)
+                    if (allVals.includes(flags.ncogoal)) {
+                        flags.ncogoal= allVals[(allVals.indexOf(flags.ncogoal) + 1) % allVals.length]
+                    } else {
+                        flags.ncogoal= allVals[0]
+                    }
+                }
+            },
+            {
                 text: "Change activity",
                 next: "dev1",
                 fx: (flags) => {
@@ -85,6 +97,18 @@ const devNodes = {
                         flags.activity = allVals[(allVals.indexOf(flags.activity) + 1) % allVals.length]
                     } else {
                         flags.activity = allVals[0]
+                    }
+                }
+            },
+            {
+                text: "Change roles and goals",
+                next: "dev1",
+                fx: (flags) => {
+                    const allVals = Object.values(consts.rolesandgoals)
+                    if (allVals.includes(flags.rolesandgoals)) {
+                        flags.rolesandgoals= allVals[(allVals.indexOf(flags.rolesandgoals) + 1) % allVals.length]
+                    } else {
+                        flags.rolesandgoals= allVals[0]
                     }
                 }
             },
@@ -104,6 +128,18 @@ const devNodes = {
                 text: "Change results",
                 next: "dev1",
                 fx: (flags) => { flags.result = (flags.result + 1) % 6; }
+            },
+            {
+                text: "Change debrief",
+                next: "dev1",
+                fx: (flags) => {
+                    const allVals = Object.values(consts.debrief)
+                    if (allVals.includes(flags.debrief)) {
+                        flags.debrief= allVals[(allVals.indexOf(flags.debrief) + 1) % allVals.length]
+                    } else {
+                        flags.debrief= allVals[0]
+                    }
+                }
             },
             {
                 text: "Done",
@@ -137,6 +173,10 @@ const devNodes = {
             {
                 text: "Reflect",
                 next: "R1"
+            },
+            {
+                text: "End",
+                next: "END"
             }]
     }
 }

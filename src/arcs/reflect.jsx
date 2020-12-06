@@ -74,7 +74,7 @@ const reflectArcNodes = {
                 condition: (flags) => flags.debrief == consts.debrief.NCO
             },
             {
-                text: "We can still debrief the cadets back in school after dismissal",
+                text: "We can still debrief the NCOs back in school after dismissal",
                 next: "R5",
                 condition: (flags) => flags.debrief == consts.debrief.CADET,
                 fx: (flags) => flags.debrief = consts.debrief.BOTH
@@ -121,7 +121,7 @@ const reflectArcNodes = {
     
     "R7": {
         img: (<img />),
-        text: "Your NCOs are very confused about what they need to debrief about... What are goals? \u53EF\u4EE5\u5403\u7684\u5417? (translator note: can this be eaten?)",
+        text: (flags) => (<span>Your NCOs are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)<br/><em>You did not set goals with the NCOs</em></span>),
         option: [
             {
                 text: "Time to debrief the cadets",
@@ -185,7 +185,7 @@ const reflectArcNodes = {
     
     "R12": {
         img: (<img />), 
-        text: "Your cadets are very confused about what they need to debrief about... What are goals? \u53EF\u4EE5\u5403\u7684\u5417? (translator note: can this be eaten?)",
+        text: (flags) => (<span>Your NCOs are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)<br/><em>You did not set goals with your cadets</em></span>),
         option: [{
             text: "Oh dear",
             next: "R4"
