@@ -90,17 +90,9 @@ const askArcNodes = {
             },
             ...["Let them spend 15 minutes on foot drill before carrying on with the original plan", "Rush them through reporting parade"].map((text) => ({
                 text,
-                next: (flags) => {
-                    switch (flags.cadetgoal) {
-                        case consts.cadetgoal.CADET: 
-                            return "A5";
-                        case consts.cadetgoal.NCO: 
-                            return "A7";
-                        default:
-                            return "A9";
-                    }
+                next: "A5"
                 }
-            })),
+            )),
         ]
     },
     

@@ -89,7 +89,7 @@ const reflectArcNodes = {
             next: (flags) => {
                 if (flags.ncogoal == consts.ncogoals.NONE) {
                     return "R7"
-                } else if (flags.rolesandgoals == consts.ncogoals.VI) {
+                } else if (flags.ncogoal== consts.ncogoals.VI) {
                     return "R8"
                 } else if (flags.ncogoal == consts.ncogoals.NOT_SPECIFIC) {
                     return "R9"
