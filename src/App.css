@@ -1,13 +1,14 @@
 .App {
-  background-color: #282c34;
-  color: white;
-  text-align: center;
-  min-height: 100vh;
-  padding: 0 10%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    top: 0;
+    padding: 0 10%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .Node {
@@ -17,7 +18,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin: 1rem 0;
+    margin: 3.5rem 0 1rem;
     width: 100%;
 }
 
@@ -246,3 +247,56 @@ th {
     }
 }
 
+header.navbar {
+    position: fixed;
+    z-index: 999;
+    min-height: 2.25rem;
+    width: 100%;
+    background-color: #4f5b62;
+    color: #fff;
+    padding: 0.25rem 0;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header.navbar img {
+    height: 2rem;
+}
+
+header.navbar .title {
+    margin: 0;
+    padding-left: 0.33rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.navbar-left {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.navbar-right {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.btn {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    background-color: transparent;
+    min-height: 28px;
+    text-align: center;
+    color: #aaa;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+}

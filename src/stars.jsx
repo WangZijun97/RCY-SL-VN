@@ -15,6 +15,7 @@ const Stars = (props) => {
         <div className="stars">
             {[...Array(maxStars)].map((_, i) => (<FontAwesomeIcon
                 icon={faStar}
+                key={i}
                 {...(i < rating ? filledProps : unfilledProps)}
             />))}
         </div>

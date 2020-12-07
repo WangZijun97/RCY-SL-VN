@@ -3,6 +3,7 @@ import './App.css';
 import * as data from './data.js';
 import Node from './Node.js';
 import consts from './consts'
+import Navbar from './Navbar';
 
 const initialFlags = JSON.stringify({
     name: "default",
@@ -61,7 +62,12 @@ const Game = () => {
         };
    }, [seqPos, setSeqPos, node, flagDispatch]);
 
-    return <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} />;
+    return (
+        <React.Fragment>
+            <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} />
+        </React.Fragment>
+    );
+
 }
 
 export default Game;
