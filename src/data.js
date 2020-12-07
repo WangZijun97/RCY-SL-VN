@@ -1,16 +1,12 @@
+import askArcNodes from './arcs/ask'
+import devNodes from './arcs/dev'
+import endNodes from './arcs/end'
 import homeArcNodes from './arcs/home'
 import learnArcNodes from './arcs/learn'
 import planArcNodes from './arcs/plan'
-import askArcNodes from './arcs/ask'
-import serveArcNodes from './arcs/serve'
 import reflectArcNodes from './arcs/reflect'
-import endNodes from './arcs/end'
-import devNodes from './arcs/dev'
-import consts from './consts'
-import {initialFlags} from './Game'
-import bridge from './images/bridge.jpg'
-import skull from './images/skull.png'
-import smiley from './images/smiley.png'
+import serveArcNodes from './arcs/serve'
+import {getInitialFlags} from './Game'
 
 const flags = {};
 
@@ -21,7 +17,7 @@ let nodeoof = {
     option: [{
         text: "Back to start",
         next: "H0",
-        fx: (flags) => {Object.assign(flags, initialFlags)} //reset flags
+        fx: (flags) => {Object.assign(flags, getInitialFlags())} //reset flags
     }]
 }
 

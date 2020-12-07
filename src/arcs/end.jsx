@@ -1,6 +1,6 @@
 import React from 'react'
 import consts from '../consts'
-import {initialFlags} from '../Game'
+import {getInitialFlags} from '../Game'
 import Stars from '../stars'
 
 /*
@@ -206,7 +206,9 @@ const endNodes = {
         option: [{
             text: "Play Again!!",
             next: "H0",
-            fx: (flags) => {Object.assign(flags, initialFlags)}
+            fx: (flags) => {
+                Object.assign(flags, getInitialFlags());
+            }
         }]
     }
         

@@ -4,7 +4,7 @@ import * as data from './data.js';
 import Node from './Node.js';
 import consts from './consts'
 
-export const initialFlags = {
+const initialFlags = JSON.stringify({
     name: "default",
     research: {
         call: false,
@@ -21,7 +21,9 @@ export const initialFlags = {
     result: 0,
     lastNode: "",
     debrief: ""
-};
+});
+
+export const getInitialFlags = () => JSON.parse(initialFlags);
 
 const reducer = (state, action) => {
     const draftOfState = { ...state };
@@ -34,7 +36,7 @@ const endingPos = keySequence.length - 1;
 
 const Game = () => {
     const [node, setNode] = React.useState("H0");
-    const [flags, flagDispatch] = React.useReducer(reducer, initialFlags);
+    const [flags, flagDispatch] = React.useReducer(reducer, getInitialFlags());
     const [seqPos, setSeqPos] = React.useState(0);
 
     React.useEffect(() => {
