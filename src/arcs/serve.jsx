@@ -13,7 +13,7 @@ const POOR_RESULTS = [consts.activities.AMONG_US, consts.books.HARD_TRUTHS, cons
 
 const calculateScore = (flags, finalChitChat) => {
     const sustainability = flags.name === consts.SESAME ? 1 : 0;
-    const sessionSus = [consts.sessions.TWO_TGT, consts.sessions.FOUR].includes(flags.sessions) ? 1 : 0;
+    const sessionSus = [consts.sessions.TWO_SPREAD, consts.sessions.FOUR].includes(flags.sessions) ? 1 : 0;
     const chitChatScore = finalChitChat ? 1 : 0;
     
     let result = sustainability + chitChatScore + sessionSus

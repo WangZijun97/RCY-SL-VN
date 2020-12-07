@@ -214,6 +214,10 @@ a {
     top: 0;
 }
 
+.analysis {
+    text-align: left;
+}
+
 table {
     border-collapse: collapse;
 }

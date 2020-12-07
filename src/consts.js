@@ -47,10 +47,10 @@ const consts = {
         EXCELLENT: "excellent"
     },
     sessions: {
-        ONE: "1",
-        TWO_TGT: "2 in a month",
-        TWO_SPREAD: "2 spread out",
-        FOUR: "4"
+        ONE: "1 session",
+        TWO_TGT: "2 sessions in a month",
+        TWO_SPREAD: "2 sessions spread out",
+        FOUR: "4 sessions pread out"
     },
     debrief: {
         NCO: "NCOs debriefed only",
