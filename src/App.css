@@ -21,9 +21,17 @@
     width: 100%;
 }
 
+img {
+    max-width: 50%;
+}
+
 @media screen and (max-width: 960px) {
     .App {
         padding: 0 24px;
+    }
+
+    img {
+        max-width: 75%;
     }
 }
 
@@ -31,11 +39,12 @@
     .App {
         padding: 0 16px;
     }
+
+    img {
+        max-width: 90%;
+    }
 }
 
-img {
-    max-width: 50%;
-}
 
 button {
     min-height: 36px;
@@ -120,7 +129,7 @@ a {
 }
 
 .img-group-h3 > img {
-    height: 120px;
+    max-height: 25%;
 }
 
 @media screen and (max-width: 960px) {
@@ -236,3 +245,4 @@ th {
         font-size: 0.6rem;
     }
 }
+

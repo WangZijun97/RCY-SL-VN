@@ -94,7 +94,7 @@ const endNodes = {
         img: (flags) => (<Stars label="Learning" rating={calculateLearningScore(flags)} />),
         text: "The VIA was certainly an interesting experience, but you can't help but wonder if your cadets have really learnt much through this VIA experience. What will they remember after a few months?",
         option: [{
-            text: "END GAME",
+            text: "End game and view results",
             next: "ANALYSIS"
         }]
     },
@@ -103,7 +103,7 @@ const endNodes = {
         img: (flags) => (<Stars label="Learning" rating={calculateLearningScore(flags)} />),
         text: "The VIA was definitely an interesting and fruitful experience for you and your unit. You could tell that your NCOs and cadets have grown much. However, you can't help but wonder - how can you push them to be even clearer and active in their learning?",
         option: [{
-            text: "END GAME",
+            text: "End game and view results",
             next: "ANALYSIS"
         }]
     },
@@ -112,7 +112,7 @@ const endNodes = {
         img: (flags) => (<Stars label="Learning" rating={calculateLearningScore(flags)} />),
         text: "The VIA was an amazing learning experience for both you and your cadets. Scanning through some of your their reflections amazed you at just how much thought they had put into this whole experience. This entire project was hard work, but certainly pushed them evermoreso closer to being a humanitarian youth who uplifts the community around them!",
         option: [{
-            text: "END GAME",
+            text: "End game and view results",
             next: "ANALYSIS"
         }]
     },
@@ -139,7 +139,7 @@ const endNodes = {
             } else if (flags.sessions === consts.sessions.ONE) {
                 service.push(`You chose to have only ${flags.sessions}. After the VIA, the children wonder if any of you will be back ever again? They miss you.`)
             } else if (flags.sessions === consts.sessions.TWO_TGT) {
-                service.push(`You chose to have only $(flags.sessions}. After the two sessions, the children look forward to the third, but it never happened... They miss you.`)
+                service.push(`You chose to have only ${flags.sessions}. After the two sessions, the children look forward to the third, but it never happened... They miss you.`)
             }
             
             // Choice of activity, up to 4 stars

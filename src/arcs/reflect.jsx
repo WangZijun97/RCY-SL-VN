@@ -2,11 +2,11 @@ import React from 'react'
 import consts from '../consts'
 import Dialogue from '../convo/Dialogue'
 import vagueCadetDebriefConvos from '../convo/vagueCadetDebrief'
+import NodeImg from '../NodeImg'
 
 const reflectArcNodes = {
     
     "R1": {
-        img: (<img />),
         text: "The VIA has ended and you are waiting for the bus to arrive. What do you want to do?",
         option: [
             {
@@ -34,7 +34,7 @@ const reflectArcNodes = {
     },
     
     "R2fa": {
-        img: (<img />),
+        img: (<NodeImg src="oak.jpg" />),
         text: "It's good that you are enthusiastic about FA, but perhaps we aren't done with the VIA yet to be moving on this fast...",
         option: [{
             text: "Fine.",
@@ -43,7 +43,7 @@ const reflectArcNodes = {
     },
     
     "R2": {
-        img: (<img />),
+        img: (<NodeImg src="pikaoh.jpg" />),
         text: "Err... They had great fun but didn't learn much from the VIA - you can't help but wonder, what's the point of this whole trip?",
         option: [{
             text: "That's not good... (back)",
@@ -52,7 +52,7 @@ const reflectArcNodes = {
     },
     
     "R3": {
-        img: (<img />),
+        img: (<NodeImg src="sunset.jpg" />),
         text: "The cadets were immediately dismissed when you reached school. No debrief means no reflection forms for SL badges means one angry YO >:(",
         option: [{
             text: "Oh well...",
@@ -61,7 +61,6 @@ const reflectArcNodes = {
     },
     
     "R4": {
-        img: (<img />),
         text: "The bus is here to take the cadets back!",
         option: [
             {
@@ -82,7 +81,6 @@ const reflectArcNodes = {
     },
     
     "R5": {
-        img: (<img />),
         text: "You are about to conduct a debrief with your NCOs",
         option: [{
             text: "Proceed",
@@ -101,18 +99,17 @@ const reflectArcNodes = {
     },
     
     "R6": {
-        img: (<img />),
         text: "You are about to conduct a debrief with your cadets",
         option: [{
             text: "Proceed",
             next: (flags) => {
-                if (flags.cadetgoal == consts.cadetgoal.NONE) {
+                if (flags.cadetgoal === consts.cadetgoal.NONE) {
                     return "R12"
-                } else if (flags.cadetgoal == consts.cadetgoal.NCO) {
+                } else if (flags.cadetgoal === consts.cadetgoal.NCO) {
                     return "R13"
-                } else if (flags.cadetgoal == consts.cadetgoal.GOOD) {
+                } else if (flags.cadetgoal === consts.cadetgoal.GOOD) {
                     return "R14"
-                } else if (flags.cadetgoal == consts.cadetgoal.BAD) {
+                } else if (flags.cadetgoal === consts.cadetgoal.BAD) {
                     return 
                 }
             }
@@ -120,8 +117,11 @@ const reflectArcNodes = {
     },
     
     "R7": {
-        img: (<img />),
-        text: (flags) => (<span>Your NCOs are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)<br/><em>You did not set goals with the NCOs</em></span>),
+        img: (<NodeImg ext="https://i.kym-cdn.com/entries/icons/original/000/018/489/nick-young-confused-face-300x256-nqlyaa.jpg" />), 
+        text: () => (<React.Fragment>
+            <p>Your NCOs are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)</p>
+            <p className="informative">[You did not set goals with the NCOs.]</p>
+            </React.Fragment>),
         option: [
             {
                 text: "Time to debrief the cadets",
@@ -136,7 +136,6 @@ const reflectArcNodes = {
     },
     
     "R8": {
-        img: (<img />),
         text: "Your NCOs tell you that they have put in their best and have learnt more about the stories, but they ask you why is there a need to even learn about the stories of the beneficaries.",
         option: [
             {
@@ -152,7 +151,7 @@ const reflectArcNodes = {
     },
     
     "R9": {
-        img: (<img />),
+        img: (<NodeImg src="bad-nco-reflection.png" />),
         text: "Your NCOs tell you that they have learnt a lot about how to plan.",
         option: [
             {
@@ -168,24 +167,26 @@ const reflectArcNodes = {
     },
     
     "R10": {
-        img: (<img />),
         text: "Your NCOs happily tell you that they have learnt a lot about how to plan.",
         option: [
             {
                 text: "Time to debrief the cadets",
                 next: "R4",
-                condition: (flags) => flags.debrief == consts.debrief.NCO
+                condition: (flags) => flags.debrief === consts.debrief.NCO
             },
             {
                 text: "It's all over!",
                 next: "END",
-                condition: (flags) => flags.debrief != consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO
             }]
     },
     
     "R12": {
-        img: (<img />), 
-        text: (flags) => (<span>Your NCOs are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)<br/><em>You did not set goals with your cadets</em></span>),
+        img: (<NodeImg ext="https://i.kym-cdn.com/entries/icons/original/000/018/489/nick-young-confused-face-300x256-nqlyaa.jpg" />), 
+        text: () => (<React.Fragment>
+            <p>Your cadets are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)</p>
+            <p className="informative">[You did not set goals with the cadets.]</p>
+            </React.Fragment>),
         option: [{
             text: "Oh dear",
             next: "R4"
@@ -193,7 +194,6 @@ const reflectArcNodes = {
     },
     
     "R13": {
-        img: (<img />),
         text: "Your cadets tell you that they didn't manage to solve the problems of the children :( They feel sad. At the same time they are confused over why they even need to achieve this goal in the first place...",
         option: [{
             text: "Oh dear",
@@ -202,7 +202,6 @@ const reflectArcNodes = {
     },
     
     "R14": {
-        img: (<img />),
         text: "Your cadets are happy that they managed to learn stories of the beneficaries and are happy for them, such as hearing how Emily managed to do well in school after putting in effort! They are happy with themselves.",
         option: [{
             text: "That's great!",
@@ -211,7 +210,6 @@ const reflectArcNodes = {
     },
     
     "R15": {
-        img: (<img />),
         text: () => (<React.Fragment>
             <p>
                 You ask your cadets to share with you what they've managed to learn. Here's what one of them says:
