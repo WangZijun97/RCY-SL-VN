@@ -206,7 +206,7 @@ const endNodes = {
         option: [{
             text: "Play Again!!",
             next: "H0",
-            fx: (flags) => {Object.assign(flags, initialFlags)}
+            fx: (flags) => {window.location.reload()}
         }]
     }
         

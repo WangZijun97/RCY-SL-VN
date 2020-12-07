@@ -21,7 +21,7 @@ let nodeoof = {
     option: [{
         text: "Back to start",
         next: "H0",
-        fx: (flags) => {Object.assign(flags, initialFlags)} //reset flags
+        fx: (flags) => {window.location.reload()} //reset flags
     }]
 }
 
