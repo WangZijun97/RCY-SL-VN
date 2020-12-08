@@ -11,43 +11,64 @@ const reflectArcNodes = {
         option: [
             {
                 text: "Conduct FA(S) training refresher for next week's accreds",
-                next: "R2fa"
+                next: "R1.5",
             },
             {
                 text: "Play Among Us with your cadets",
-                next: "R2"
+                next: "R1.5"
             },
             {
                 text: "Just chit-chat with your cadets",
-                next: "R2"
+                next: "R1.5"
             },
             {
                 text: "Conduct a debrief session with NCOs first",
-                next: "R5",
-                fx: (flags) => flags.debrief = consts.debrief.NCO
+                next: "R1.5",
+                fx: (flags) => { 
+                    flags.debrief = consts.debrief.NCO;
+                }
             },
             {
                 text: "Get the NCOs to conduct a debrief session with the cadets first",
-                next: "R6",
-                fx: (flags) => flags.debrief = consts.debrief.CADET
-            }]
+                next: "R1.5",
+                fx: (flags) => {
+                    flags.debrief = consts.debrief.CADET;
+                }
+            }
+        ]
     },
-    
-    "R2fa": {
-        img: (<NodeImg src="oak.jpg" />),
-        text: "It's good that you are enthusiastic about FA, but perhaps we aren't done with the VIA yet to be moving on this fast...",
-        option: [{
-            text: "Fine.",
-            next: "R1"
-        }]
+
+    "R1.5": {
+        text: "Are you sure about that? The bus is coming really soon and you only have time for one thing...",
+        option: [
+            {
+                text: "Yes",
+                next: (flags) => {
+                    switch (flags.debrief) {
+                        case consts.debrief.NCO:
+                            return "R5";
+                        case consts.debrief.CADET: 
+                            return "R6";
+                        default:
+                            return "R2";
+                    }
+                },
+            },
+            {
+                text: "Let me choose something else (back)",
+                next: "R1",
+                fx: (flags) => { 
+                    flags.debrief = "";
+                }
+            }
+        ]
     },
     
     "R2": {
-        img: (<NodeImg src="pikaoh.jpg" />),
-        text: "Err... They had great fun but didn't learn much from the VIA - you can't help but wonder, what's the point of this whole trip?",
+        text: "You carry on with that until the bus comes.",
         option: [{
-            text: "That's not good... (back)",
-            next: "R1"
+            text: "Continue",
+            next: "R4"
         }]
     },
     
@@ -70,12 +91,12 @@ const reflectArcNodes = {
             {
                 text: "We can still debrief the cadets back in school",
                 next: "R3",
-                condition: (flags) => flags.debrief == consts.debrief.NCO
+                condition: (flags) => flags.debrief === consts.debrief.NCO
             },
             {
                 text: "We can still debrief the NCOs back in school after dismissal",
                 next: "R5",
-                condition: (flags) => flags.debrief == consts.debrief.CADET,
+                condition: (flags) => flags.debrief === consts.debrief.CADET,
                 fx: (flags) => flags.debrief = consts.debrief.BOTH
             }]
     },
@@ -85,13 +106,13 @@ const reflectArcNodes = {
         option: [{
             text: "Proceed",
             next: (flags) => {
-                if (flags.ncogoal == consts.ncogoals.NONE) {
+                if (flags.ncogoal === consts.ncogoals.NONE) {
                     return "R7"
-                } else if (flags.ncogoal== consts.ncogoals.VI) {
+                } else if (flags.ncogoal === consts.ncogoals.VI) {
                     return "R8"
-                } else if (flags.ncogoal == consts.ncogoals.NOT_SPECIFIC) {
+                } else if (flags.ncogoal === consts.ncogoals.NOT_SPECIFIC) {
                     return "R9"
-                } else if (flags.ncogoal == consts.ncogoals.NCO) {
+                } else if (flags.ncogoal === consts.ncogoals.NCO) {
                     return "R10"
                 }
             }
@@ -126,12 +147,12 @@ const reflectArcNodes = {
             {
                 text: "Time to debrief the cadets",
                 next: "R4",
-                condition: (flags) => flags.debrief == consts.debrief.NCO
+                condition: (flags) => flags.debrief === consts.debrief.NCO
             },
             {
                 text: "It's all over!",
                 next: "END",
-                condition: (flags) => flags.debrief != consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO
             }]
     },
     
@@ -141,12 +162,12 @@ const reflectArcNodes = {
             {
                 text: "Time to debrief the cadets",
                 next: "R4",
-                condition: (flags) => flags.debrief == consts.debrief.NCO
+                condition: (flags) => flags.debrief === consts.debrief.NCO
             },
             {
                 text: "It's all over!",
                 next: "END",
-                condition: (flags) => flags.debrief != consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO
             }]
     },
     
@@ -157,12 +178,12 @@ const reflectArcNodes = {
             {
                 text: "Time to debrief the cadets",
                 next: "R4",
-                condition: (flags) => flags.debrief == consts.debrief.NCO
+                condition: (flags) => flags.debrief === consts.debrief.NCO
             },
             {
                 text: "It's all over!",
                 next: "END",
-                condition: (flags) => flags.debrief != consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO
             }]
     },
     

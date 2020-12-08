@@ -1,5 +1,6 @@
 import consts from '../consts'
 import {allActivities} from '../consts'
+import NodeImg from '../NodeImg'
 
 const objToKeyValArray = (obj, keyPrefix = "") => {
     return Object.entries(obj).map(([k, v]) => {
@@ -14,6 +15,7 @@ const objToKeyValArray = (obj, keyPrefix = "") => {
 const devNodes = {
     
     "dev0": {
+        img: (<NodeImg ext="https://i.kym-cdn.com/photos/images/newsfeed/001/480/544/6c1.jpg" />),
         text: "Hacker page wew",
         option: [
             {
