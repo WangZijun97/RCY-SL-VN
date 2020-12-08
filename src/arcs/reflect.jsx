@@ -27,7 +27,7 @@ const reflectArcNodes = {
                 fx: (flags) => flags.debrief = consts.debrief.NCO
             },
             {
-                text: "Conduct a debrief session with the cadets first",
+                text: "Get the NCOs to conduct a debrief session with the cadets first",
                 next: "R6",
                 fx: (flags) => flags.debrief = consts.debrief.CADET
             }]
@@ -99,7 +99,7 @@ const reflectArcNodes = {
     },
     
     "R6": {
-        text: "You are about to conduct a debrief with your cadets",
+        text: "Your NCOs are about to conduct a debrief with your cadets",
         option: [{
             text: "Proceed",
             next: (flags) => {
@@ -110,7 +110,7 @@ const reflectArcNodes = {
                 } else if (flags.cadetgoal === consts.cadetgoal.GOOD) {
                     return "R14"
                 } else if (flags.cadetgoal === consts.cadetgoal.BAD) {
-                    return 
+                    return "R15"
                 }
             }
         }]
@@ -185,7 +185,7 @@ const reflectArcNodes = {
         img: (<NodeImg ext="https://i.kym-cdn.com/entries/icons/original/000/018/489/nick-young-confused-face-300x256-nqlyaa.jpg" />), 
         text: () => (<React.Fragment>
             <p>Your cadets are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)</p>
-            <p className="informative">[You did not set goals with the cadets.]</p>
+            <p className="informative">[Your NCOs did not set goals with the cadets.]</p>
             </React.Fragment>),
         option: [{
             text: "Oh dear",
@@ -194,7 +194,7 @@ const reflectArcNodes = {
     },
     
     "R13": {
-        text: "Your cadets tell you that they didn't manage to solve the problems of the children :( They feel sad. At the same time they are confused over why they even need to achieve this goal in the first place...",
+        text: "Your cadets tell your NCOs that they didn't manage to solve the problems of the children :( They feel sad. At the same time they are confused over why they even need to achieve this goal in the first place...",
         option: [{
             text: "Oh dear",
             next: "R4"
@@ -212,7 +212,7 @@ const reflectArcNodes = {
     "R15": {
         text: () => (<React.Fragment>
             <p>
-                You ask your cadets to share with you what they've managed to learn. Here's what one of them says:
+                Your NCOs ask your cadets to share with each other what they've managed to learn. Here's what one of them says to her friend:
             </p>
             <Dialogue
                 startOfConvo="I'm happy that I've managed to learn a lot!"
@@ -220,7 +220,7 @@ const reflectArcNodes = {
                 convos={vagueCadetDebriefConvos}
                 name="Cadet Bobby"
             />
-            <p>What do you think?</p>
+            <p>You can pop in here if you would like to.</p>
         </React.Fragment>),
         option: [{
             text: "Hmm...",
