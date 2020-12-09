@@ -14,7 +14,12 @@ export class Node extends React.Component {
     }
 
     doBgmChange(next, flags) {
-        const bgm = getNode(next).bgm;
+        let bgm = getNode(next).bgm;
+
+        if (bgm instanceof Function) {
+            bgm = bgm(this.props.flags);
+        }
+
         if (bgm !== undefined) {
             this.props.onMusicChange(bgm, flags);
         }
@@ -42,7 +47,7 @@ export class Node extends React.Component {
 
     imggen(obj) {
         if (obj instanceof Function) {
-            return obj(this.props.flags);
+            return obj(this.props.flags, this.props.isMuted);
         } else if (obj === undefined) {
             return <React.Fragment />;
         } else return obj;

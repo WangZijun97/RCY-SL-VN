@@ -21,7 +21,8 @@ const initialFlags = JSON.stringify({
     cadetgoal: consts.cadetgoal.NONE,
     result: 0,
     lastNode: "",
-    debrief: ""
+    debrief: "",
+    noTimeToDebriefCadets: false,
 });
 
 export const getInitialFlags = () => JSON.parse(initialFlags);
@@ -40,7 +41,7 @@ const Game = (props) => {
     const [flags, flagDispatch] = React.useReducer(reducer, getInitialFlags());
     const [seqPos, setSeqPos] = React.useState(0);
 
-    const { onMusicChange } = props;
+    const { onMusicChange, onMusicDisable } = props;
 
     React.useEffect(() => {
         const keypressListener = (e) => {
@@ -64,8 +65,12 @@ const Game = (props) => {
         };
    }, [seqPos, setSeqPos, node, flagDispatch]);
 
+    React.useEffect(() => {
+        if (node === 'H0.5') onMusicDisable();
+    }, [node, onMusicDisable]);
+
     return (
-        <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange} />
+        <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange}  />
     );
 
 }

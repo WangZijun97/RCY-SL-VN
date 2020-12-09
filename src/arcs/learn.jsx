@@ -25,6 +25,7 @@ const nodes = {
     },
 
     "L101": {
+        bgm: 'mii.mp3',
         img: <NodeImg src="emergency-meeting.png" alt="Emergency Button" />,
         text: (flags) => (
             <div>
@@ -104,7 +105,7 @@ const nodes = {
         text: (flags) => (
             <p>
                 You managed to find the website of the home and have found a brochure. <br/>
-                <a target="_blank" href={
+                <a target="_blank" rel="noreferrer" href={
                     flags.name === consts.SESAME?
                         "https://drive.google.com/file/d/1y9t6LN6cBId0RCxE4M-7f3DOcUal8K3X/view?usp=sharing" :
                         "https://drive.google.com/file/d/1gesm8PTUZaWnSfcy_KiPKF6H4oT86KGA/view?usp=sharing"}>
@@ -233,6 +234,7 @@ const nodes = {
     },
 
     "L13": {
+        bgm: 'forlorn-child.mp3',
         text: "You have arrived at the home! You can speak to any of the children or the Home Director. Who would you like to speak to?",
         option: [
             {

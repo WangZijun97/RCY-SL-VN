@@ -73,6 +73,7 @@ const reflectArcNodes = {
     },
     
     "R3": {
+        bgm: 'only-time.mp3',
         img: (<NodeImg src="sunset.jpg" />),
         text: "The cadets were immediately dismissed when you reached school. No debrief means no reflection forms for SL badges means one angry YO >:(",
         option: [{
@@ -91,7 +92,8 @@ const reflectArcNodes = {
             {
                 text: "We can still debrief the cadets back in school",
                 next: "R3",
-                condition: (flags) => flags.debrief === consts.debrief.NCO
+                condition: (flags) => flags.debrief === consts.debrief.NCO,
+                fx: (flags) => { flags.noTimeToDebriefCadets = true },
             },
             {
                 text: "We can still debrief the NCOs back in school after dismissal",
