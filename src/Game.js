@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
+import consts from './consts';
 import * as data from './data.js';
+import {musicStates} from './music';
 import Node from './Node.js';
-import consts from './consts'
-import Navbar from './Navbar';
 
 const initialFlags = JSON.stringify({
     name: "default",
@@ -35,10 +35,12 @@ const reducer = (state, action) => {
 const keySequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA']
 const endingPos = keySequence.length - 1;
 
-const Game = () => {
+const Game = (props) => {
     const [node, setNode] = React.useState("H0");
     const [flags, flagDispatch] = React.useReducer(reducer, getInitialFlags());
     const [seqPos, setSeqPos] = React.useState(0);
+
+    const { onMusicChange } = props;
 
     React.useEffect(() => {
         const keypressListener = (e) => {
@@ -63,9 +65,7 @@ const Game = () => {
    }, [seqPos, setSeqPos, node, flagDispatch]);
 
     return (
-        <React.Fragment>
-            <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} />
-        </React.Fragment>
+        <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange} />
     );
 
 }

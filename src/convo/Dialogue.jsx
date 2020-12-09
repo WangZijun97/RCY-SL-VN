@@ -22,9 +22,9 @@ const Dialogue = (props) => {
         addQn(qnIndex);
     }
 
-    return (<div class="dialogue-container">
+    return (<div className="dialogue-container">
         <div>You talk to {name}.</div>
-        <div class={combinedSpeakerClass}>{startOfConvo}</div>
+        <div className={combinedSpeakerClass}>{startOfConvo}</div>
         {askedQns.map((qnIndex) => (<React.Fragment key={qnIndex}>
             <div class="self-speech">{convos[qnIndex].q}</div>
             {convos[qnIndex].a.map((ans) => (

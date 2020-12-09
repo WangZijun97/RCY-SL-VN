@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {getNode} from './data';
 //import pic from './bridge.jpg';
 
 export class Node extends React.Component {
@@ -9,6 +10,14 @@ export class Node extends React.Component {
         this.handleClick = this.handleClick.bind(this)
         this.textgen = this.textgen.bind(this)
         this.buttongen = this.buttongen.bind(this)
+        this.doBgmChange = this.doBgmChange.bind(this)
+    }
+
+    doBgmChange(next, flags) {
+        const bgm = getNode(next).bgm;
+        if (bgm !== undefined) {
+            this.props.onMusicChange(bgm, flags);
+        }
     }
     
     handleClick(opt) {
@@ -16,13 +25,19 @@ export class Node extends React.Component {
         if (opt.next instanceof Function) {
             next = opt.next(this.props.flags)
         }
+
         if ("fx" in opt) {
             return () => {
                 this.props.trigger(next);
                 this.props.dispatch(opt.fx);
+                this.doBgmChange(next, this.props.flags)
             }
         }
-        return () => this.props.trigger(next)
+        
+        return () => { 
+            this.props.trigger(next) ;
+            this.doBgmChange(next, this.props.flags)
+        }
     }
 
     imggen(obj) {
@@ -41,13 +56,13 @@ export class Node extends React.Component {
         }
     }
     
-    buttongen(opt) {
+    buttongen(opt, i) {
         if ("condition" in opt) {
             if (!opt.condition(this.props.flags)) {
                 return
             }
         }
-        return (<button onClick={this.handleClick(opt)}>{opt.text instanceof Function ? opt.text(this.prop.flags) : opt.text}</button>)
+        return (<button key={i} onClick={this.handleClick(opt)}>{opt.text instanceof Function ? opt.text(this.prop.flags) : opt.text}</button>)
     }
     
     render() {
@@ -56,7 +71,7 @@ export class Node extends React.Component {
             <div className="Node">
                 {this.imggen(this.props.data.img)}
                 {this.textgen(this.props.data.text)}
-                <div class="btn-container">{this.props.data.option.map(opt => this.buttongen(opt))}</div>
+                <div className="btn-container">{this.props.data.option.map((opt, i) => this.buttongen(opt, i))}</div>
             </div>)
     }
 }

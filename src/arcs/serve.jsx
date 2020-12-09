@@ -86,6 +86,7 @@ const serveArcNodes = {
 
     "S4": {
         img: <NodeImg src="NotLikeDuck.png" />,
+        bgm: 'among-us.mp3',
         text: "Oh dear, you discovered that most of the kids do not have smartphones... What should the NCOs do?",
         option: [
             {

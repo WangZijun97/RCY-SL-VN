@@ -28,6 +28,7 @@ const homeArcNodes = {
     
     "H1": {
         img: <NodeImg src="school.jpg" alt="Chai Chee Secondary School" />,
+        bgm: 'mii.mp3',
         text: "You are a VI attached to Chai Chee Secondary School. It is July 2021, and you unit needs to conduct one more VIA to fulfill the requirements for SL badges. Your teacher has asked you to recommend a VIA project for the unit to do.",
         option: [
             {

@@ -6,6 +6,7 @@ import NodeImg from '../NodeImg';
 const planArcNodes = {
     "P1": {
         img: <NodeImg src="plan.jpg" alt="" />,
+        bgm: 'chariots-of-fire.mp3',
         text: (flags) => (<React.Fragment>
             <p>Time to get some planning done - here are some activities that your NCOs have proposed! They are seeking your opinion -- which one should they focus on?</p>
             {(flags.research.internet || flags.research.freeTime || flags.research.soccer) && <p class="informative">[You have unlocked additional options because of your NCOs' research.]</p>}
