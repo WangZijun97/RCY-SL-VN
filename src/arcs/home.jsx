@@ -23,10 +23,6 @@ const homeArcNodes = {
                 text: "Start (Mobile Data-friendly)",
                 next: "H0.5"
             },
-            {
-                text: "Developer only",
-                next: "dev0"
-            }
         ]
     },
 
