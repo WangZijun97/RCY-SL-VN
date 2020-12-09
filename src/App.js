@@ -68,7 +68,7 @@ function App() {
         <React.Fragment>
             <Navbar isMuted={audioState.state === musicStates.MUTED} onMuteToggle={handleMuteToggle} />
             <div className="App App-header">
-                <Game audioState={audioState} onMusicChange={handleMusicChange} />
+                <Game audioState={audioState} onMusicChange={handleMusicChange} isMuted={audioState.state === musicStates.MUTED} />
             </div>
         </React.Fragment>
     );

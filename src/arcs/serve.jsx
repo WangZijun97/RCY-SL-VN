@@ -52,6 +52,19 @@ const serveArcNodes = {
     },
 
     "S3": {
+        bgm: (flags) => {
+            if (flags.activity === consts.activities.AMONG_US) {
+                return 'among-us.mp3';
+            } else if (Object.values(consts.songs).includes(flags.activity)) {
+                return serveArcNodes["S6"].bgm(flags);
+            } else if (Object.values(consts.books).includes(flags.activity)) {
+                return serveArcNodes["S12"].bgm(flags);
+            } else if (flags.activity === consts.activities.KITE) {
+                return null;
+            } else if (flags.activity === consts.activities.SOCCER) {
+                return 'this-time-for-africa.mp3';
+            }
+        },
         img: (flags) => {
             if (flags.activity === consts.activities.AMONG_US) {
                 return <NodeImg src="among-us.jpg" alt="Among Us" />;
@@ -61,6 +74,8 @@ const serveArcNodes = {
                 return serveArcNodes["S12"].img(flags);
             } else if (flags.activity === consts.activities.KITE) {
                 return serveArcNodes["S101"].img;
+            } else if (flags.activity === consts.activities.SOCCER) {
+                return serveArcNodes["S17"].img;
             } else return <div />;
         },
         text: (flags) => `Let's begin with the activities! Your unit decided to ${flags.activity}.`,
@@ -86,7 +101,6 @@ const serveArcNodes = {
 
     "S4": {
         img: <NodeImg src="NotLikeDuck.png" />,
-        bgm: 'among-us.mp3',
         text: "Oh dear, you discovered that most of the kids do not have smartphones... What should the NCOs do?",
         option: [
             {
@@ -102,7 +116,20 @@ const serveArcNodes = {
     },
 
     "S6": {
-        img: (flags) => {
+        bgm: (flags) => {
+            if (flags.activity === consts.songs.K_POP) {
+                return 'public/bgm/dynamite.mp3';
+            } else if (flags.activity === consts.songs.NDP) {
+                return 'home.mp3';
+            } else if (flags.activity === consts.songs.RAP) {
+                return 'eminem.mp3';
+            } else if (flags.activity === consts.songs.OLD) {
+                return null;
+            } else if (flags.activity === consts.songs.SCHOOL_SONG) {
+                return 'make-a-change.mp3';
+            }
+        },
+        img: (flags, isMuted) => {
             if (flags.activity === consts.songs.K_POP) {
                 return <NodeImg src="bts.jpg" alt="BTS" />;
             } else if (flags.activity === consts.songs.NDP) {
@@ -110,7 +137,7 @@ const serveArcNodes = {
             } else if (flags.activity === consts.songs.RAP) {
                 return <NodeImg src="eminem.png" alt="Eminem" />;
             } else if (flags.activity === consts.songs.OLD) {
-                return (<div className="iframe-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="80s song" /></div>);
+                return (<div className="iframe-container"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameBorder="0" allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="80s song" /></div>);
             } else return <div />;
         },
         text: "You begin with the sing-along session...",
@@ -176,6 +203,17 @@ const serveArcNodes = {
     },
 
     "S12": {
+        bgm: (flags) => {
+            if (flags.activity === consts.books.SNOW_WHITE) {
+                return "twinkle-twinkle.mp3";
+            } else if (flags.activity === consts.books.GERONIMO) {
+                return "geronimo.mp3";
+            } else if (flags.activity === consts.books.HARRY_POTTER) {
+                return "harry-potter.mp3";
+            } else if (flags.activity === consts.books.HARD_TRUTHS) {
+                return "tentera.mp3";
+            }
+        },
         img: (flags) => serveArcNodes[serveArcNodes["S12"].option[0].next(flags)].img,
         text: "Your cadets start reading the books to the children...",
         option: [{
@@ -291,6 +329,7 @@ const serveArcNodes = {
     },
 
     "S19": {
+        bgm: 'reunited.mp3',
         text: "Which of the people at the home would you like to talk to?",
         option: [
             {
@@ -394,6 +433,7 @@ const serveArcNodes = {
     },
 
     "S32767": {
+        bgm: 'watashi-no-uso.mp3',
         img: (flags) => (<Stars label="Service" rating={flags.result} />),
         text: (flags) => (<p>{makeDescription(flags.name === consts.SESAME, flags.activity, flags.result)}</p>),
         option: [{

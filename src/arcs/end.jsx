@@ -67,6 +67,24 @@ const calculateLearningScore = (flags) => {
     
     return score
 }
+
+const getEndingBgm = (score, noTimeToDebriefCadets) => {
+    if (noTimeToDebriefCadets && score <= 8) return;
+
+    if (score <= 0) {
+        return 'astronomia.mp3';
+    } else if (score <= 3) {
+        return 'i-am-glad.mp3';
+    } else if (score <= 6) {
+        return 'determination.mp3';
+    } else if (score <= 10) {
+        return 'raining-somewhere-else.mp3'
+    } else if (score <= 13) {
+        return 'gate-of-steiner.mp3'
+    } else {
+        return 'hopes-and-dreams.mp3'
+    }
+}
     
 
 const endNodes = {
@@ -82,7 +100,7 @@ const endNodes = {
                     return "end0"
                 } else if (score < 7) {
                     return "end1"
-                } else if (score == 7) {
+                } else if (score === 7) {
                     return "end2"
                 }            
             }
@@ -118,6 +136,7 @@ const endNodes = {
     },
     
     "ANALYSIS": {
+        bgm: (flags) => getEndingBgm(flags.result + calculateLearningScore(flags), flags.noTimeToDebriefCadets),
         img: (flags) => (<React.Fragment>
             <Stars label="Service" rating={flags.result} />
             <Stars label="Learning" rating={calculateLearningScore(flags)} />
