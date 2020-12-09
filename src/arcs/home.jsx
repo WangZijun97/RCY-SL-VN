@@ -20,10 +20,28 @@ const homeArcNodes = {
                 next: "H1"
             },
             {
+                text: "Start (Mobile Data-friendly)",
+                next: "H0.5"
+            },
+            {
                 text: "Developer only",
                 next: "dev0"
             }
         ]
+    },
+
+    "H0.5": {
+        img: <NodeImg src="school.jpg" alt="Chai Chee Secondary School" />,
+        text: "You are a VI attached to Chai Chee Secondary School. It is July 2021, and you unit needs to conduct one more VIA to fulfill the requirements for SL badges. Your teacher has asked you to recommend a VIA project for the unit to do.",
+        option: [
+            {
+                text: "Home Visit",
+                next: "H3"
+            },
+            {
+                text: "First Aid Duty for Inter-School Sports Day",
+                next: "H2"
+            }]
     },
     
     "H1": {

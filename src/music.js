@@ -10,6 +10,7 @@ export const musicStates = {
     START: 'start',
     PLAYING: 'playing',
     MUTED: 'muted',
+    DISABLED: 'disabled',
     CROSSFADING: 'cross-fading',
     CROSSFADED: 'cross-faded',
     FADING_IN: 'fading in',
@@ -26,6 +27,7 @@ export const initialMusic = {
 }
 
 export const actionTypes = {
+    DISABLE: 'DISABLE',
     PLAY: 'PLAY',
     MUTE: 'MUTE',
     PAUSE: 'PAUSE',
@@ -35,7 +37,17 @@ export const actionTypes = {
 }
 
 export const musicStateReducer = (state, action) => {
+    if (state.active === null) return state;
+
     switch (action.type) {
+        case actionTypes.DISABLE:
+            return {
+                state: musicStates.DISABLED,
+                active: null,
+                fadeOut: [],
+                fadeProgress: 1,
+            }
+
         case actionTypes.PLAY:
             return {
                 state: musicStates.FADING_IN,
@@ -64,6 +76,14 @@ export const musicStateReducer = (state, action) => {
 
         case actionTypes.CHANGE:
             if (state.active.src === action.payload.src) return state;
+            if (state.state === musicStates.MUTED || state.state === musicStates.FADED_OUT)
+                return {
+                    state: musicStates.MUTED,
+                    active: action.payload,
+                    fadeOut: [],
+                    fadeProgress: 1,
+                };
+
             state.fadeOut.forEach((audio) => { audio.amplitude = audio.volume });
             state.active.amplitude = state.active.volume;
 
@@ -117,3 +137,4 @@ export const createPauseAction = () => ({ type: actionTypes.PAUSE });
 export const createEvolveAction = (stepSize = CROSSFADE_STEP_SIZE) => ({ type: actionTypes.EVOLVE, payload: stepSize });
 export const createChangeAction = (fileName) => ({ type: actionTypes.CHANGE, payload: createHTMLAudioElement(fileName) });
 export const createPostChangeAction = () => ({ type: actionTypes.CLEANUP_CHANGE });
+export const createDisableAction = () => ({ type: actionTypes.DISABLE });

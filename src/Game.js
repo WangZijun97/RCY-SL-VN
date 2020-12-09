@@ -41,7 +41,7 @@ const Game = (props) => {
     const [flags, flagDispatch] = React.useReducer(reducer, getInitialFlags());
     const [seqPos, setSeqPos] = React.useState(0);
 
-    const { onMusicChange, isMuted } = props;
+    const { onMusicChange, onMusicDisable } = props;
 
     React.useEffect(() => {
         const keypressListener = (e) => {
@@ -65,8 +65,12 @@ const Game = (props) => {
         };
    }, [seqPos, setSeqPos, node, flagDispatch]);
 
+    React.useEffect(() => {
+        if (node === 'H0.5') onMusicDisable();
+    }, [node, onMusicDisable]);
+
     return (
-        <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange} isMuted={isMuted} />
+        <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange}  />
     );
 
 }
