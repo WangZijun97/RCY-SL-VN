@@ -373,7 +373,6 @@ const serveArcNodes = {
     },
 
     "S21": {
-        img: (<img />),
         text: () => (<Dialogue
             startOfConvo="Hi... I'm Jonathan, and I'm 16 years old."
             speakerClass="jon-speech"
@@ -388,7 +387,6 @@ const serveArcNodes = {
     },
 
     "S22": {
-        img: (<img />),
         text: () => (<Dialogue 
             startOfConvo="Sup. I'm Allam, and I'm 14."
             speakerClass="allam-speech"
@@ -403,7 +401,6 @@ const serveArcNodes = {
     },
 
     "S23": {
-        img: (<img />),
         text: () => (<Dialogue 
             startOfConvo="Umm... hello! I'm Emily!"
             speakerClass="emily-speech"
@@ -418,7 +415,6 @@ const serveArcNodes = {
     },
 
     "S24": {
-        img: (<img />),
         text: () => (<Dialogue 
             startOfConvo="I'm Carmen..."
             speakerClass="carmen-speech"
