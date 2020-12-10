@@ -8,11 +8,8 @@ import reflectArcNodes from './arcs/reflect'
 import serveArcNodes from './arcs/serve'
 import {getInitialFlags} from './Game'
 
-const flags = {};
-
 let nodeoof = {
     index: "oof",
-    img: (<img />),
     text: "Still under development UwU. Please refresh page.",
     option: [{
         text: "Back to start",

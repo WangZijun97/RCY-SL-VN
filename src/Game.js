@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import consts from './consts';
 import * as data from './data.js';
-import {musicStates} from './music';
 import Node from './Node.js';
 
 const initialFlags = JSON.stringify({
