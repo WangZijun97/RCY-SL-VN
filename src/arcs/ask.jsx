@@ -3,6 +3,7 @@ import NodeImg from '../NodeImg'
 
 const askArcNodes = {
     "A1": {
+        bgm: 'chariots-of-fire.mp3',
         img: (<table>
             <thead>
                 <tr>

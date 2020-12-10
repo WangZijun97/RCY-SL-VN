@@ -34,6 +34,7 @@ const calculateScore = (flags, finalChitChat) => {
 
 const serveArcNodes = {
     "S1": {
+        bgm: 'chariots-of-fire.mp3',
         img: <NodeImg src="magic-schoolbus.jpg" alt="School Bus" />,
         text: "It is the day of the VIA! You board the bus with the unit to the VIA location.",
         option: [{

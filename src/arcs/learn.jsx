@@ -11,6 +11,7 @@ import NodeImg from '../NodeImg';
 
 const nodes = {
     "L1": {
+        bgm: 'mii.mp3',
         img: <NodeImg src="emergency-button.jpg" alt="Emergency Button" />,
         text: (flags) => `Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at ${flags.name}. Should you intervene?`,
         option: [

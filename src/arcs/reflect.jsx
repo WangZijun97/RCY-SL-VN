@@ -8,6 +8,7 @@ import NodeImg from '../NodeImg'
 const reflectArcNodes = {
     
     "R1": {
+        bgm: 'watashi-no-uso.mp3',
         text: "The VIA has ended and you are waiting for the bus to arrive. What do you want to do?",
         option: [
             {
