@@ -3,7 +3,6 @@ import NodeImg from '../NodeImg'
 
 const askArcNodes = {
     "A1": {
-        index: "A1",
         img: (<table>
             <thead>
                 <tr>
@@ -42,21 +41,21 @@ const askArcNodes = {
                 next: "A3"
             },
             {
-                text: "Reduce the time for the parades and give them to the briefing",
+                text: "You should reduce the time for the parades and give them to the briefing",
                 next: "A3"
             },
             {
-                text: "Reduce the buffer time for the briefing",
+                text: "You should reduce the buffer time for the briefing",
                 next: "A3"
             },
             {
-                text: "Get the NCOs to include more things during the training",
+                text: "You should add something to the training",
                 next: "A2"
-            }]
+            }
+        ]
     },
     
     "A2": {
-        index: "A2",
         text: "What would you like the NCOs to include in the training?",
         option: [
             {
@@ -76,11 +75,15 @@ const askArcNodes = {
             {
                 text: "Bring the whole unit to the Red Cross Room to help pack the logistics for the VIA",
                 next: "A3"
-            }]
+            },
+            {
+                text: "Never mind, the training is okay as it is. (Back)",
+                next: "A1"
+            }
+        ]
     },
     
     "A3": {
-        index: "A3",
         img: (<NodeImg src="footdrill.png" />),
         text: "It is the day of the training. During reporting parade, the NCOs observed that the cadets' foot drill standards are very bad and they want to spend the whole training revising foot drill. Should you intervene?",
         option: [
@@ -97,7 +100,6 @@ const askArcNodes = {
     },
     
     "A4": {
-        index: "A4",
         img: (<NodeImg src="NotLikeDuck.png" alt="notlikeduck" />),
         text: "Your cadets are woefully unprepared for the VIA and it fails spectacularly.",
         option: [{
@@ -107,7 +109,6 @@ const askArcNodes = {
     },
     
     "A5": {
-        index: "A5",
         text: "The parade is done and the NCOs are starting the briefing session.",
         option: [{
             text: "Continue",
@@ -125,7 +126,7 @@ const askArcNodes = {
     },
     
     "A6": {
-        index: "A6",
+        bgm: 'kahoot.mp3',
         img: (<div className="textbox">
             <div className="qn">What do you want to learn from this VIA visit?</div>
             <div className="ans">I want to learn as much as possible.</div>
@@ -145,7 +146,6 @@ const askArcNodes = {
     },
     
     "A7": {
-        index: "A7",
         img: (<div className="textbox">
             <div className="qn">What do you want to learn from this VIA visit?</div>
             <div className="ans">I want to learn the stories of the children at the home.</div>
@@ -165,7 +165,7 @@ const askArcNodes = {
     },
     
     "A8": {
-        index: "A8",
+        bgm: 'chariots-of-fire.mp3',
         img: (<NodeImg src="sunset.jpg" alt="sunset" />),
         text: "The training has ended and the cadets are clear of what will be happening during the VIA. However, the cadets looked quite bored when the NCOs tell them what their goal for the VIA should be...",
         option: [{
@@ -175,7 +175,7 @@ const askArcNodes = {
     },
     
     "A9": {
-        index: "A9",
+        bgm: 'chariots-of-fire.mp3',
         img: () => askArcNodes["A8"].img,
         text: "The training has ended and the cadets are clear of what will be happening during the VIA. Everyone is very excited!",
         option: [{
@@ -185,7 +185,7 @@ const askArcNodes = {
     },
     
     "A10": {
-        index: "A10",
+        bgm: 'chariots-of-fire.mp3',
         img: () => askArcNodes["A8"].img,
         text: "The training has ended and the cadets are clear of what will be happening during the VIA.",
         option: [{

@@ -359,6 +359,7 @@ const nodes = {
     },
 
     "L22": {
+        bgm: 'kahoot.mp3',
         text: () => (<React.Fragment>
             <p>
                 You asked the NCOs to share their goals with you. This is what one of the NCOs told you.
