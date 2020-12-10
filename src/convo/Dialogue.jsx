@@ -10,13 +10,22 @@ const askedQnsReducer = (state, action) => {
     return [...state, action];
 }
 
+const createAvailableQnGetter = (numOfLines) => (askedQns) => 
+    [...Array(numOfLines)].map((_, i) => i).filter((i) => !askedQns.includes(i));
+
 const Dialogue = (props) => {
-    const { startOfConvo, speakerClass, convos, name } = props;
+    const { 
+        startOfConvo, 
+        speakerClass, 
+        convos, 
+        name, 
+        availableQnGetter = createAvailableQnGetter(convos.length) 
+    } = props;
 
     const [askedQns, addQn] = React.useReducer(askedQnsReducer, []);
     const combinedSpeakerClass = clsx('other-speech', speakerClass);
 
-    const availableQns = [...Array(convos.length)].map((_, i) => i).filter((i) => askedQns.indexOf(i) < 0);
+    const availableQns = availableQnGetter(askedQns);
 
     const createButtonHandler = (qnIndex) => () => {
         addQn(qnIndex);
@@ -24,7 +33,7 @@ const Dialogue = (props) => {
 
     return (<div className="dialogue-container">
         <div>You talk to {name}.</div>
-        <div className={combinedSpeakerClass}>{startOfConvo}</div>
+        {startOfConvo && <div className={combinedSpeakerClass}>{startOfConvo}</div>}
         {askedQns.map((qnIndex) => (<React.Fragment key={qnIndex}>
             <div class="self-speech">{convos[qnIndex].q}</div>
             {convos[qnIndex].a.map((ans) => (

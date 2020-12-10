@@ -1,6 +1,7 @@
 import React from 'react'
 import consts from '../consts'
 import Dialogue from '../convo/Dialogue'
+import ncoDebriefConvo, {ncoDebriefConvoFunc} from '../convo/ncoDebrief'
 import vagueCadetDebriefConvos from '../convo/vagueCadetDebrief'
 import NodeImg from '../NodeImg'
 
@@ -190,32 +191,37 @@ const reflectArcNodes = {
     },
     
     "R10": {
-        text: "Your NCOs happily tell you that they have learnt a lot about how to plan.",
+        text: (<Dialogue
+            speakerClass="nco-speech"
+            convos={ncoDebriefConvo}
+            name="NCO Sarah"
+            availableQnGetter={ncoDebriefConvoFunc}
+        />),
         option: [
             {
-                text: "Time to debrief the cadets",
+                text: "Fast forward to the end of the debrief and debrief the cadets",
                 next: "R4",
                 condition: (flags) => flags.debrief === consts.debrief.NCO
             },
             {
-                text: "It's all over!",
+                text: "Fast forward to the end of the debrief",
                 next: "END",
                 condition: (flags) => flags.debrief !== consts.debrief.NCO
             }]
     },
-    
+
     "R12": {
         img: (<NodeImg ext="https://i.kym-cdn.com/entries/icons/original/000/018/489/nick-young-confused-face-300x256-nqlyaa.jpg" />), 
         text: () => (<React.Fragment>
             <p>Your cadets are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)</p>
             <p className="informative">[Your NCOs did not set goals with the cadets.]</p>
-            </React.Fragment>),
+        </React.Fragment>),
         option: [{
             text: "Oh dear",
             next: "R4"
         }]
     },
-    
+
     "R13": {
         text: "Your cadets tell your NCOs that they didn't manage to solve the problems of the children :( They feel sad. At the same time they are confused over why they even need to achieve this goal in the first place...",
         option: [{
@@ -223,7 +229,7 @@ const reflectArcNodes = {
             next: "R4"
         }]
     },
-    
+
     "R14": {
         text: "Your cadets are happy that they managed to learn stories of the beneficaries and are happy for them, such as hearing how Emily managed to do well in school after putting in effort! They are happy with themselves.",
         option: [{
@@ -231,7 +237,7 @@ const reflectArcNodes = {
             next: "R4"
         }]
     },
-    
+
     "R15": {
         text: () => (<React.Fragment>
             <p>
