@@ -1,5 +1,5 @@
 const consts = {
-    SESAME: "Sesame Street Children's Orphanage",
+    SESAME: "Sesame Street Children's Home",
     SUNSHINE: "Sunshine Children's Home",
     ncogoals: {
         NONE: "did not set",
