@@ -21,7 +21,7 @@ export const musicStates = {
 // active and next[...] are instances of HTMLAudioElement
 export const initialMusic = {
     state: musicStates.START,
-    active: null,
+    active: createHTMLAudioElement('tunak.mp3'),
     fadeOut: [],
     fadeProgress: 1, // varies from 0 to 1
 }
