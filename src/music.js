@@ -18,6 +18,10 @@ export const musicStates = {
     FADED_OUT: 'faded out',
 }
 
+const mutedStates = [musicStates.MUTED, musicStates.FADED_OUT, musicStates.FADING_OUT];
+
+export const checkIsMuted = (state) => mutedStates.includes(state);
+
 // active and next[...] are instances of HTMLAudioElement
 export const initialMusic = {
     state: musicStates.START,

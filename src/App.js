@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Game from './Game.js';
-import {createChangeAction, createDisableAction, createEvolveAction, createMuteAction, createPauseAction, createPlayAction, createPostChangeAction, CROSSFADE_STEP_SIZE, initialMusic, musicStateReducer, musicStates} from './music';
+import {checkIsMuted, createChangeAction, createDisableAction, createEvolveAction, createMuteAction, createPauseAction, createPlayAction, createPostChangeAction, CROSSFADE_STEP_SIZE, initialMusic, musicStateReducer, musicStates} from './music';
 import Navbar from './Navbar';
 
 const FADE_DURATION_IN_MS = 500;
@@ -11,7 +11,7 @@ function App() {
 
     const handleMuteToggle = () => {
         if (!audioState.active) return;
-        if (audioState.state === musicStates.MUTED) {
+        if (checkIsMuted(audioState.state)) {
             audioState.active.play();
             audioDispatch(createPlayAction());
         } else {
@@ -72,7 +72,7 @@ function App() {
 
     return (
         <React.Fragment>
-            <Navbar isMuted={audioState.state === musicStates.MUTED} onMuteToggle={handleMuteToggle} />
+            <Navbar isMuted={checkIsMuted(audioState.state)} onMuteToggle={handleMuteToggle} />
             <div className="App App-header">
                 <Game audioState={audioState} onMusicChange={handleMusicChange} onMusicDisable={handleMusicDisable} />
             </div>
