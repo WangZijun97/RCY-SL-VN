@@ -35,9 +35,9 @@ const Dialogue = (props) => {
         <div>You talk to {name}.</div>
         {startOfConvo && <div className={combinedSpeakerClass}>{startOfConvo}</div>}
         {askedQns.map((qnIndex) => (<React.Fragment key={qnIndex}>
-            <div class="self-speech">{convos[qnIndex].q}</div>
-            {convos[qnIndex].a.map((ans) => (
-                <div class={combinedSpeakerClass}>{ans}</div>
+            <div className="self-speech">{convos[qnIndex].q}</div>
+            {convos[qnIndex].a.map((ans, i) => (
+                <div key={i} class={combinedSpeakerClass}>{ans}</div>
             ))}
         </React.Fragment>))}
         <div className="btn-container">

@@ -219,8 +219,8 @@ const endNodes = {
             }
             
             return (<div className="analysis">
-                <h3><u>Service</u></h3><ul>{service.map(point => (<li>{point}</li>))}</ul>
-                <h3><u>Learning</u></h3><ul>{learning.map(point => (<li>{point}</li>))}</ul>
+                <h3><u>Service</u></h3><ul>{service.map((point, i) => (<li key={i}>{point}</li>))}</ul>
+                <h3><u>Learning</u></h3><ul>{learning.map((point, i) => (<li key={i}>{point}</li>))}</ul>
             </div>)
         },
         option: [{

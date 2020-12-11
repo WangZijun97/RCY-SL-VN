@@ -31,7 +31,7 @@ const nodes = {
         text: (flags) => (
             <div>
                 <p>How would you like to intervene?</p>
-                {flags.ncogoal !== consts.ncogoals.NONE && <p class="informative">[You have already set goals for the NCOs.]</p>}
+                {flags.ncogoal !== consts.ncogoals.NONE && <p className="informative">[You have already set goals for the NCOs.]</p>}
             </div>
         ),
         option: [
@@ -53,10 +53,10 @@ const nodes = {
     "L2": {
         text: (flags) => (<div>
             <p>What would you like your NCOs to do?</p>
-            {flags.research.call && <p class="informative">[You have already called the home.]</p>}
-            {flags.research.recce && <p class="informative">[You have already visited the home physically.]</p>}
-            {flags.research.email === 1 && <p class="informative">[You have already waited 1 week for a reply to your email.]</p>}
-            {flags.research.email === 2 && <p class="informative">[Unfortunately, due to the 2 week delay, you don't have time to conduct a reccee.]</p>}
+            {flags.research.call && <p className="informative">[You have already called the home.]</p>}
+            {flags.research.recce && <p className="informative">[You have already visited the home physically.]</p>}
+            {flags.research.email === 1 && <p className="informative">[You have already waited 1 week for a reply to your email.]</p>}
+            {flags.research.email === 2 && <p className="informative">[Unfortunately, due to the 2 week delay, you don't have time to conduct a reccee.]</p>}
         </div>),
         option: [
             {
