@@ -35,7 +35,10 @@ const askArcNodes = {
                 </tr>
             </tbody>
             </table>),
-        text: "The home visit is soon approaching. You have requested your NCOs to prepare the unit for the VIA. This is their plan for the training right before the VIA. What feedback do you have for the training plan?",
+        text: (flags) => (<React.Fragment>
+            <p>The home visit is soon approaching. You have requested your NCOs to prepare the unit for the VIA. This is their plan for the training right before the VIA. What feedback do you have for the training plan?</p>
+            <p className="informative">[Reminder: your unit has chosen to {flags.activity}.]</p>
+            </React.Fragment>),
         option: [
             {
                 text: "It's very good, carry on.",
@@ -57,7 +60,11 @@ const askArcNodes = {
     },
     
     "A2": {
-        text: "What would you like the NCOs to include in the training?",
+        text: (flags) => (<React.Fragment>
+            <p>What would you like the NCOs to include in the training?</p>
+            <p className="informative">[Reminder: your unit has chosen to {flags.activity}.]</p>
+        </React.Fragment>
+            ),
         option: [
             {
                 text: "The NCOs should tell the cadets what they should try and learn from the VIA",
@@ -162,9 +169,10 @@ const askArcNodes = {
                 text: "How about something else? You could try and learn how to solve the problems of the children.",
                 next: "A8",
                 fx: (flags) => flags.cadetgoal = consts.cadetgoal.NCO
-            }]
+            }
+        ]
     },
-    
+
     "A8": {
         bgm: 'chariots-of-fire.mp3',
         img: (<NodeImg src="sunset.jpg" alt="sunset" />),
@@ -174,7 +182,7 @@ const askArcNodes = {
             next: "S1"
         }]
     },
-    
+
     "A9": {
         bgm: 'chariots-of-fire.mp3',
         img: () => askArcNodes["A8"].img,
@@ -184,7 +192,7 @@ const askArcNodes = {
             next: "S1"
         }]
     },
-    
+
     "A10": {
         bgm: 'chariots-of-fire.mp3',
         img: () => askArcNodes["A8"].img,
@@ -194,7 +202,7 @@ const askArcNodes = {
             next: "S1"
         }]
     }
-    
+
 }
 
 export default askArcNodes;
