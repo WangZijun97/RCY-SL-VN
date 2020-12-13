@@ -1,5 +1,6 @@
-import consts from '../consts'
-import NodeImg from '../NodeImg'
+import React from 'react';
+import consts from '../consts';
+import NodeImg from '../NodeImg';
 
 const askArcNodes = {
     "A1": {
