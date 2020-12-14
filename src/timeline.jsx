@@ -5,10 +5,10 @@ import consts from './consts';
 import './timeline.css';
 
 export const icons = {
-    EXCELLENT: [faGrinStars, '#aef28c'],
-    GOOD: [faSmile, '#ecec93'],
-    MEDIOCRE: [faMeh, '#ecbf93'],
-    BAD: [faFrown, '#ec9393'],
+    EXCELLENT: [faGrinStars, '#8bc34a'],
+    GOOD: [faSmile, '#ffeb3b'],
+    MEDIOCRE: [faMeh, '#ffc107'],
+    BAD: [faFrown, '#f44336'],
 }
 
 export const Entry = (props) => {
