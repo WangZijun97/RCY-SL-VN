@@ -174,8 +174,8 @@ const getCadetGoalTitleAndEntry = (cadetGoalState) => {
 
         case consts.cadetgoal.NCO:
             return [
-                "You encouraged the NCOs set learning goals for the cadets to achieve during the training before the VIA.",
-                "While goals were set, cadets are less likely to take up these goals and own them when they are set by others. What about those who want to learn about something else? These cadets would not be focused on the learning point set on them during the VIA project. As a result, any learning would not be intentional, and it would be more difficult for new learning points from this project to take root within the NCOs. Mistakes made are then likely to repeat. Perhaps it would be beneficial in future to guide/facilitate (or get the NCOs to guide/facilitate) the cadets to set their own goals before the planning process begins."
+                "Your unit set learning goals for the cadets to achieve during the VIA.",
+                "While goals were set, cadets are less likely to take up these goals and own them when you and/or your NCOs set these goals for them. What about those who want to learn about something else? These cadets would not be focused on the learning point set on them during the VIA project. As a result, any learning would not be intentional, and it would be more difficult for new learning points from this project to take root within the NCOs. Mistakes made are then likely to repeat. Perhaps it would be beneficial in future to guide/facilitate (or get the NCOs to guide/facilitate) the cadets to set their own goals before the planning process begins."
             ];
 
         case consts.cadetgoal.BAD:
@@ -190,6 +190,21 @@ const getCadetGoalTitleAndEntry = (cadetGoalState) => {
                 "As a result, the cadets took ownership over their learning and intentionally worked towards the goals set. At the very least, they would be more conscious of what they are doing, especially towards activities that are more relevant to what they want to learn. Good job!"
             ]
     }
+}
+
+
+const getChitChatTitleAndEntry = (activity, chitChatAfter) => {
+    if (chitChatAfter) {
+        return [
+            "Your cadets chit-chatted with the children at the home during the VIA project.",
+            "Chit-chatting is good as it lets your cadets build rapport with the children at the home. Ultimately, the goal of your home visit is here to engage and emotionally connect with the children at your home, and conversation allows them to establish that emotional connection. Good job! :D"
+        ];
+    }
+
+    return [
+        `Despite the poor response from the children towards your unit's VIA, your cadets continued to ${activity}.`,
+        "As your cadets never casually chatted to the children at the home, they never made an emotional connection with the children at the home :( Remember that ultimately, you want to engage and connect with the children at the home through the VIA, and chit-chatting is an easy way to achieve this. Perhaps next time you could encourage your cadets to do that instead."
+    ]
 }
 
 const debriefPerhapsClause = "VIAs aren't just for our cadets to serve the community; they are also for our cadets to learn new skills and better understand and empathize with others in our society. Perhaps it would be good to have debriefs for both cadets and NCOs at the end of each VIA session in future."
@@ -230,6 +245,7 @@ const Timeline = (props) => {
     const [ncoRnGTitle, ncoRnGEntry] = getNcoRnGTitleAndEntry(flags.rolesandgoals);
     const [sessionsTitle, sessionsEntry] = getSessionsTitleAndEntry(flags.sessions);
     const [cadetGoalTitle, cadetGoalEntry] = getCadetGoalTitleAndEntry(flags.cadetgoal);
+    const [chitChatTitle, chitChatEntry] = getChitChatTitleAndEntry(flags.activity, flags.finalChitChat);
     const [debriefTitle, debriefEntry] = getDebriefTitleAndEntry(flags.debrief);
 
     return (<div className="timeline">
@@ -255,6 +271,9 @@ const Timeline = (props) => {
         </Entry>
         <Entry arc="3. Ask" type="Learning" keyword="Individual Learning" title={cadetGoalTitle}>
             {cadetGoalEntry}
+        </Entry>
+        <Entry arc="4. Serve" type="Service" keyword="Meaningful Service" title={chitChatTitle}>
+            {chitChatEntry}
         </Entry>
         <Entry arc="5. Reflect" type="Learning" keyword="Reciprocity" title={debriefTitle}>
             {debriefEntry}

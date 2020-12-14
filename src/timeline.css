@@ -71,6 +71,16 @@
 
 .iconBtn {
     cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.iconBtn:focus {
+    background-color: #444;
+}
+
+.timeline .container .iconBtn {
+    margin-left: 1.5rem;
 }
 
 
