@@ -50,7 +50,7 @@ const consts = {
         ONE: "1 session",
         TWO_TGT: "2 sessions in a month",
         TWO_SPREAD: "2 sessions spread out",
-        FOUR: "4 sessions pread out"
+        FOUR: "4 sessions spread out"
     },
     debrief: {
         NCO: "NCOs debriefed only",

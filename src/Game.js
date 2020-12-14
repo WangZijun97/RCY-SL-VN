@@ -18,6 +18,7 @@ const initialFlags = JSON.stringify({
     activity: "",
     rolesandgoals: consts.rolesandgoals.NONE,
     cadetgoal: consts.cadetgoal.NONE,
+    finalChitChat: false,
     result: 0,
     lastNode: "",
     debrief: "",

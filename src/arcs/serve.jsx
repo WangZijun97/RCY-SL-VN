@@ -356,7 +356,10 @@ const serveArcNodes = {
             {
                 text: "Wrap up the VIA",
                 next: "S32767",
-                fx: (flags) => { flags.result = calculateScore(flags, true)  }
+                fx: (flags) => { 
+                    flags.finalChitChat = true;
+                    flags.result = calculateScore(flags, true);
+                }
             }]
     },
 
