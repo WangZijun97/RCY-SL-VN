@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/RCY-SL-VN/static/css/main.54f3100c.chunk.css",
+    "main.css": "/RCY-SL-VN/static/css/main.fb4acdcc.chunk.css",
     "main.js": "/RCY-SL-VN/static/js/main.c4eea624.chunk.js",
     "main.js.map": "/RCY-SL-VN/static/js/main.c4eea624.chunk.js.map",
     "runtime-main.js": "/RCY-SL-VN/static/js/runtime-main.a71bb8f4.js",
@@ -10,13 +10,13 @@
     "static/js/3.d3f31514.chunk.js": "/RCY-SL-VN/static/js/3.d3f31514.chunk.js",
     "static/js/3.d3f31514.chunk.js.map": "/RCY-SL-VN/static/js/3.d3f31514.chunk.js.map",
     "index.html": "/RCY-SL-VN/index.html",
-    "static/css/main.54f3100c.chunk.css.map": "/RCY-SL-VN/static/css/main.54f3100c.chunk.css.map",
+    "static/css/main.fb4acdcc.chunk.css.map": "/RCY-SL-VN/static/css/main.fb4acdcc.chunk.css.map",
     "static/js/2.06808280.chunk.js.LICENSE.txt": "/RCY-SL-VN/static/js/2.06808280.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a71bb8f4.js",
     "static/js/2.06808280.chunk.js",
-    "static/css/main.54f3100c.chunk.css",
+    "static/css/main.fb4acdcc.chunk.css",
     "static/js/main.c4eea624.chunk.js"
   ]
 }
