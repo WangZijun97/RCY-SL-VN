@@ -1,7 +1,10 @@
 .timeline {
     position: relative;
     max-width: 100%;
-    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .timeline::after {
@@ -15,7 +18,8 @@
 }
 
 .timeline .topText {
-    font-variant-caps: all-small-caps;
+    text-transform: uppercase;
+    font-size: 0.67rem;
 }
 
 .topText {
