@@ -1,0 +1,80 @@
+.timeline {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 0.75rem;
+    background-color: #445;
+    top: 0;
+    bottom: 0;
+    left: 0.5rem;
+}
+
+.timeline .topText {
+    font-variant-caps: all-small-caps;
+}
+
+.topText {
+    color: #bbb;
+}
+
+.topText .arcName {
+    color: #9494b3;
+}
+
+.topText .service {
+    color: #88b1bf;
+}
+
+.topText .learning {
+    color: #88bf88;
+}
+
+.timeline .container {
+    position: relative;
+    left: 2rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: calc(100% - 2rem);
+}
+
+.timeline .titleContainer {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.timeline .titleContainer > .title {
+    flex: 1;
+}
+
+.timeline .container .title::after {
+    content: '';
+    position: absolute;
+    left: -1.4rem;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.iconBtn {
+    cursor: pointer;
+}
+
+
+.timeline .container .content {
+    color: #aaa;
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px #444 solid;
+}

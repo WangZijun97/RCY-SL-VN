@@ -2,6 +2,7 @@ import React from 'react'
 import consts from '../consts'
 import {getInitialFlags} from '../Game'
 import Stars from '../stars'
+import Timeline, {Entry} from '../timeline'
 
 /*
  * NCO goal = 3 stars (1 if not perfect, 0 if none + 1 for doing debrief)
@@ -222,6 +223,7 @@ const endNodes = {
                 <h3><u>Service</u></h3><ul>{service.map((point, i) => (<li key={i}>{point}</li>))}</ul>
                 <h3><u>Learning</u></h3><ul>{learning.map((point, i) => (<li key={i}>{point}</li>))}</ul>
                 <p>You have come to the end of the game. We recommend that you play the game at least twice! After your second playthrough, we would also love to hear your feedback at <a href="https://tinyurl.com/viadvfeedback" target="_blank" rel="noreferrer">tinyurl.com/viadvfeedback</a>!</p>
+                <Timeline flags={flags} />
             </div>)
         },
         option: [{
