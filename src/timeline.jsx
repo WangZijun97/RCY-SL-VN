@@ -36,7 +36,10 @@ export const Entry = (props) => {
     </div>)
 }
 
+const researchStarter = "Before planning the VIA, you asked your NCOs to find out more about the home.";
+
 const getResearchTitleAndEntry = (researchState) => {
+
     if (researchState.recce) {
         return [
             "Your NCOs made a physical recce to the home before they started planning the VIA.",
@@ -56,7 +59,7 @@ const getResearchTitleAndEntry = (researchState) => {
     if (researchState.brochure) {
         return [
             "Your NCOs searched the internet for more information about the home.",
-            "Reading the brochure allowed your NCOs to have a rough understanding of the conditions of the home and guess some of the activities which the children might enjoy. That's okay. Mext time, perhaps you could encourage your NCOs to contact the home directly (or even better, visit them) so that they would get a better understanding of the home, which would help them think of more engaging activities to do during their VIA.",
+            "Reading the brochure allowed your NCOs to have a rough understanding of the conditions of the home and guess some of the activities which the children might enjoy. That's okay. Next time, perhaps you could encourage your NCOs to contact the home directly (or even better, visit them) so that they would get a better understanding of the home, which would help them think of more engaging activities to do during their VIA.",
             icons.MEDIOCRE,
         ]
     }
