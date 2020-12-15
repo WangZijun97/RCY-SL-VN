@@ -67,7 +67,7 @@ const getResearchTitleAndEntry = (researchState) => {
     if (researchState.call) {
         return [
             "Your NCOs called the Home Director before they started planning the VI, learnt more about the home, but did not find out much about what the children at the home would enjoy.",
-            "Speaking with the Home Director helped your NCOs to understand more about the conditions of the home, but that didn't really help them think of activities that would engage all the children at the home. Next time, perhaps get your NCOs to keep in mind the purpose of researching more about the home beforehand -- to learn more about the residents there and what would interest them. That might help them ask better questions, or even think of an alternative mode of research that would help them find out more about what would engage the children at the home.",
+            "Speaking with the Home Director helped your NCOs to understand more about the conditions of the home, but that didn't really help them think of activities that would engage all the children at the home. Keep in mind the purpose of researching more about the home beforehand is for your NCOs to learn more about the residents so that they can empathize with them and plan something which would better interest the children. Perhaps you could encourage your NCOs to ask better questions, or try something else instead. Are there more direct means of finding out the needs of the children?",
             icons.MEDIOCRE,
         ]
     }
