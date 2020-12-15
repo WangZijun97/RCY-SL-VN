@@ -7,7 +7,7 @@ import './timeline.css';
 export const icons = {
     EXCELLENT: [faGrinStars, '#8bc34a'],
     GOOD: [faSmile, '#ffeb3b'],
-    MEDIOCRE: [faMeh, '#ffc107'],
+    MEDIOCRE: [faMeh, '#ff9100'],
     BAD: [faFrown, '#f44336'],
 }
 
