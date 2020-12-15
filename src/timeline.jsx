@@ -287,7 +287,7 @@ const Timeline = (props) => {
     const [debriefTitle, debriefEntry, debriefIcon] = getDebriefTitleAndEntry(flags.debrief);
 
     return (<div className="timeline">
-        <Entry arc="VIA Choice" type="Service" keyword="Sustainability" title={`Your unit decided to visit ${flags.name}.`} icon={flags.name === consts.SESAME ? icons.EXCELELNT : icons.BAD}>
+        <Entry arc="VIA Choice" type="Service" keyword="Sustainability" title={`Your unit decided to visit ${flags.name}.`} icon={flags.name === consts.SESAME ? icons.EXCELLENT : icons.BAD}>
             {flags.name === consts.SESAME ?
                     `Your unit has a well-established relationship with ${flags.name}, so the children there are much more familiar with you. Hence, this decision was good because sustained engagement with a target community builds trust between the two of you, which makes any interaction that much more fruitful!` :
                     `As ${flags.name} is unfamiliar to your unit, the children there treat all of you as strangers in the beginning. It will take time to build up a good relationship with them. This choice reduced the effectiveness of this VIA project. Instead, you should consider a unit that you have already built up a sustained, trusting relationship with to eliminate this fear of strangers.`}
