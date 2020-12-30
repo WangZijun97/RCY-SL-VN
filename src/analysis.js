@@ -23,7 +23,7 @@ export const getResearchTitleAndEntry = (researchState) => {
 
     if (researchState.freeTime) {
         return [
-            "Your NCOs called the Home Director before they started planning the VI, learnt more about the home, and found out more about the activities which the children enjoy in their free time.",
+            "Your NCOs called the Home Director before they started planning the VIA, learnt more about the home, and found out more about the activities which the children enjoy in their free time.",
             "Your NCOs asked good questions during the call with the Home Director, which helped them find out the activities which most of the children at the home enjoy. That's great! In the future, you could consider getting your NCOs to personally visit the home so that they can get a first-hand understanding of the conditions of the home. Speaking directly to the children would also help your NCOs better empathize with the needs of the children and let them have a more complete understanding of what all the children at the home would enjoy.",
             icons.GOOD,
         ];
