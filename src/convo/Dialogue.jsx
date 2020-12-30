@@ -19,10 +19,12 @@ const Dialogue = (props) => {
         speakerClass, 
         convos, 
         name, 
-        availableQnGetter = createAvailableQnGetter(convos.length) 
+        availableQnGetter = createAvailableQnGetter(convos.length), 
+        maxQns = 3
     } = props;
+    
 
-    const [askedQns, addQn] = React.useReducer(askedQnsReducer, []);
+    const [askedQns, addQn] = React.useReducer(askedQnsReducer, []); //count using askedQns.length, compare with max
     const combinedSpeakerClass = clsx('other-speech', speakerClass);
 
     const availableQns = availableQnGetter(askedQns);
@@ -30,6 +32,8 @@ const Dialogue = (props) => {
     const createButtonHandler = (qnIndex) => () => {
         addQn(qnIndex);
     }
+    
+    const qnsLeft = maxQns - askedQns.length
 
     return (<div className="dialogue-container">
         <div>You talk to {name}.</div>
@@ -40,12 +44,16 @@ const Dialogue = (props) => {
                 <div key={i} class={combinedSpeakerClass}>{ans}</div>
             ))}
         </React.Fragment>))}
-        <div className="btn-container">
+        <div className="btn-container" style={{display: qnsLeft < 1 ? "none" : "inherit"}}>
             {availableQns.map((qnIndex) => <button key={qnIndex} onClick={createButtonHandler(qnIndex)}>
             {convos[qnIndex].q}
             </button>)}
         </div>
+        {/*number of questions left message*/}
+        <p className="informative">{qnsLeft > 0 ? `You can ask ${name} ${qnsLeft} more question` + (qnsLeft === 1 ? "" : "s") : `${name} is done with your questions`}</p>
     </div>)
+    
+    //if exceed max, add some form of im bored at the bottom
 }
 
 export default Dialogue;

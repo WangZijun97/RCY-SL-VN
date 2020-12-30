@@ -188,7 +188,7 @@ const nodes = {
         text: (flags) => nodes["L14"].text(flags),
         option: [
             {
-                text: "Continue",
+                text: "One last thing pleeeeeease",
                 next: "L201",
             }
         ]
@@ -196,7 +196,7 @@ const nodes = {
 
     "L201": {
         img: () => nodes["L8"].img,
-        text: "You have time for one last question! What would you like to ask?",
+        text: (flags) => (<p><span className="scrooge-speech">"Ok fine you can ask one more question..."</span><br />What would you like to ask?</p>),
         option: [
             {
                 text: "What do the kids like to do in their free time?",
