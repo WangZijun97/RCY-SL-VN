@@ -130,6 +130,11 @@ const askArcNodes = {
                     default:
                         return "A10"
                 }
+            },
+            fx: (flags) => {
+                if (flags.cadetgoal !== consts.cadetgoal.CADET) {
+                    flags.decisionVisibility.cadetgoal = true;
+                }
             }
         }]
     },
@@ -145,7 +150,10 @@ const askArcNodes = {
             {
                 text: "Yes",
                 next: "A10",
-                fx: (flags) => flags.cadetgoal = consts.cadetgoal.BAD
+                fx: (flags) => { 
+                    flags.cadetgoal = consts.cadetgoal.BAD;
+                    flags.decisionVisibility.cadetgoal = true;
+                }
             },
             {
                 text: "No",
@@ -164,12 +172,18 @@ const askArcNodes = {
             {
                 text: "This goal is good!",
                 next: "A9",
-                fx: (flags) => flags.cadetgoal = consts.cadetgoal.GOOD
+                fx: (flags) => { 
+                    flags.cadetgoal = consts.cadetgoal.GOOD;
+                    flags.decisionVisibility.cadetgoal = true;
+                }
             },
             {
                 text: "How about something else? You could try and learn how to solve the problems of the children.",
                 next: "A8",
-                fx: (flags) => flags.cadetgoal = consts.cadetgoal.NCO
+                fx: (flags) => { 
+                    flags.cadetgoal = consts.cadetgoal.NCO;
+                    flags.decisionVisibility.cadetgoal = true;
+                }
             }
         ]
     },

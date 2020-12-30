@@ -181,6 +181,7 @@ const planArcNodes = {
             {
                 text: "Nah, they are doing fine.",
                 next: "P9",
+                fx: (flags) => flags.decisionVisibility.rolesandgoals = true,
             },
             {
                 text: "Yes",
@@ -203,11 +204,13 @@ const planArcNodes = {
             },
             {
                 text: "Tell the OIC and O2ICs to set for the rest of the committee",
-                next: "P9"
+                next: "P9",
+                fx: (flags) => flags.decisionVisibility.rolesandgoals = true,
             },
             {
                 text: "Actually, none of these",
-                next: "P9"
+                next: "P9",
+                fx: (flags) => flags.decisionVisibility.rolesandgoals = true,
             }
         ]
     },
@@ -265,11 +268,13 @@ const planArcNodes = {
             },
             {
                 text: "Oh if you really want, feel free to swap roles...",
-                next: "P9"
+                next: "P9",
+                fx: (flags) => flags.decisionVisibility.rolesandgoals = true,
             },
             {
                 text: "Ok let's go back to setting your own roles and goals",
-                next: "P9"
+                next: "P9",
+                fx: (flags) => flags.decisionVisibility.rolesandgoals = true,
             }
         ]
     },

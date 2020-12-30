@@ -286,7 +286,7 @@ header.navbar .title {
     margin-right: 1rem;
 }
 
-.btn {
+.btn, .btn.active:hover {
     padding-left: 0.6rem;
     padding-right: 0.6rem;
     background-color: transparent;
@@ -299,4 +299,9 @@ header.navbar .title {
     font-size: 0.9rem;
     display: inline-flex;
     align-items: center;
+}
+
+.btn.active, .btn:hover {
+    background-color: #aaa;
+    color: #4f5b62;
 }

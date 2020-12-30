@@ -8,6 +8,9 @@ const FADE_DURATION_IN_MS = 500;
 
 function App() {
     const [audioState, audioDispatch] = React.useReducer(musicStateReducer, initialMusic)
+    const [sidebarShown, setSidebarShown] = React.useState(() => {
+        return window.innerWidth >= 960
+    })
 
     const handleMuteToggle = () => {
         if (!audioState.active) return;
@@ -26,6 +29,10 @@ function App() {
 
     const handleMusicDisable = () => {
         audioDispatch(createDisableAction());
+    }
+
+    const handleSidebarToggle = () => {
+        setSidebarShown(!sidebarShown);
     }
 
     React.useEffect(() => {
@@ -72,9 +79,9 @@ function App() {
 
     return (
         <React.Fragment>
-            <Navbar isMuted={checkIsMuted(audioState.state)} onMuteToggle={handleMuteToggle} />
+            <Navbar isMuted={checkIsMuted(audioState.state)} onMuteToggle={handleMuteToggle} sidebarShown={sidebarShown} onSidebarToggle={handleSidebarToggle} />
             <div className="App App-header">
-                <Game audioState={audioState} onMusicChange={handleMusicChange} onMusicDisable={handleMusicDisable} />
+                <Game audioState={audioState} onMusicChange={handleMusicChange} onMusicDisable={handleMusicDisable} sidebarShown={sidebarShown} onSidebarChange={setSidebarShown} />
             </div>
         </React.Fragment>
     );

@@ -6,7 +6,7 @@ import vagueCadetDebriefConvos from '../convo/vagueCadetDebrief'
 import NodeImg from '../NodeImg'
 
 const reflectArcNodes = {
-    
+
     "R1": {
         bgm: 'watashi-no-uso.mp3',
         text: "The VIA has ended and you are waiting for the bus to arrive. What do you want to do?",
@@ -65,7 +65,7 @@ const reflectArcNodes = {
             }
         ]
     },
-    
+
     "R2": {
         text: "You carry on with that until the bus comes.",
         option: [{
@@ -73,23 +73,25 @@ const reflectArcNodes = {
             next: "R4"
         }]
     },
-    
+
     "R3": {
         bgm: 'only-time.mp3',
         img: (<NodeImg src="sunset.jpg" />),
         text: "The cadets were immediately dismissed when you reached school. No debrief means no reflection forms for SL badges means one angry YO >:(",
         option: [{
             text: "Oh well...",
-            next: "END"
+            next: "END",
+            fx: (flags) => flags.decisionVisibility.debrief = true,
         }]
     },
-    
+
     "R4": {
         text: "The bus is here to take the cadets back!",
         option: [
             {
                 text: "Guess we are done today!",
-                next: "END"
+                next: "END",
+                fx: (flags) => flags.decisionVisibility.debrief = true,
             },
             {
                 text: "We can still debrief the cadets back in school",
@@ -104,7 +106,7 @@ const reflectArcNodes = {
                 fx: (flags) => flags.debrief = consts.debrief.BOTH
             }]
     },
-    
+
     "R5": {
         text: "You are about to conduct a debrief with your NCOs",
         option: [{
@@ -122,7 +124,7 @@ const reflectArcNodes = {
             }
         }]
     },
-    
+
     "R6": {
         text: "Your NCOs are about to conduct a debrief with your cadets",
         option: [{
@@ -140,13 +142,13 @@ const reflectArcNodes = {
             }
         }]
     },
-    
+
     "R7": {
         img: (<NodeImg ext="https://i.kym-cdn.com/entries/icons/original/000/018/489/nick-young-confused-face-300x256-nqlyaa.jpg" />), 
         text: () => (<React.Fragment>
             <p>Your NCOs are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)</p>
             <p className="informative">[You did not set goals with the NCOs.]</p>
-            </React.Fragment>),
+        </React.Fragment>),
         option: [
             {
                 text: "Time to debrief the cadets",
@@ -156,10 +158,11 @@ const reflectArcNodes = {
             {
                 text: "It's all over!",
                 next: "END",
-                condition: (flags) => flags.debrief !== consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO,
+                fx: (flags) => flags.decisionVisibility.debrief = true,
             }]
     },
-    
+
     "R8": {
         text: "Your NCOs tell you that they have put in their best and have learnt more about the stories, but they ask you why is there a need to even learn about the stories of the beneficaries.",
         option: [
@@ -171,10 +174,11 @@ const reflectArcNodes = {
             {
                 text: "It's all over!",
                 next: "END",
-                condition: (flags) => flags.debrief !== consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO,
+                fx: (flags) => flags.decisionVisibility.debrief = true,
             }]
     },
-    
+
     "R9": {
         img: (<NodeImg src="bad-nco-reflection.png" />),
         text: "Your NCOs tell you that they have learnt a lot about how to plan.",
@@ -187,10 +191,11 @@ const reflectArcNodes = {
             {
                 text: "It's all over!",
                 next: "END",
-                condition: (flags) => flags.debrief !== consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO,
+                fx: (flags) => flags.decisionVisibility.debrief = true,
             }]
     },
-    
+
     "R10": {
         text: (<Dialogue
             speakerClass="nco-speech"
@@ -207,7 +212,8 @@ const reflectArcNodes = {
             {
                 text: "Fast forward to the end of the debrief",
                 next: "END",
-                condition: (flags) => flags.debrief !== consts.debrief.NCO
+                condition: (flags) => flags.debrief !== consts.debrief.NCO,
+                fx: (flags) => flags.decisionVisibility.debrief = true,
             }]
     },
 

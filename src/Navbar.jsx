@@ -1,10 +1,11 @@
-import {faVolumeMute, faVolumeUp} from '@fortawesome/free-solid-svg-icons';
+import {faBars, faVolumeMute, faVolumeUp} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import clsx from 'clsx';
 import React from 'react';
 import NodeImg from './NodeImg';
 
 const Navbar = (props) => {
-    const { isMuted, onMuteToggle } = props;
+    const { isMuted, onMuteToggle, sidebarShown, onSidebarToggle } = props;
 
     return (<header className="navbar">
         <div className="navbar-left">
@@ -12,8 +13,8 @@ const Navbar = (props) => {
             <div className="title">VIA Adventure</div>
         </div>
         <div className="navbar-right">
-            <a href="https://tinyurl.com/slnotes2020" target="_blank" rel="noreferrer" className="btn">Notes</a>
             <button className="btn" onClick={onMuteToggle}><FontAwesomeIcon icon={isMuted ? faVolumeMute : faVolumeUp} /></button>
+            <button className={clsx("btn", sidebarShown && "active")} onClick={onSidebarToggle}><FontAwesomeIcon icon={faBars} /></button>
         </div>
     </header>);
 

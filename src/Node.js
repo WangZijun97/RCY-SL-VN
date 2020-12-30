@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 import './App.css';
 import {getNode} from './data';
@@ -73,7 +74,7 @@ export class Node extends React.Component {
     render() {
         
         return (
-            <div className="Node">
+            <div className={clsx("Node", this.props.sidebarShown && "sidebar-active")}>
                 {this.imggen(this.props.data.img)}
                 {this.textgen(this.props.data.text)}
                 <div className="btn-container">{this.props.data.option.map((opt, i) => this.buttongen(opt, i))}</div>

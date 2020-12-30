@@ -21,7 +21,11 @@ const nodes = {
             },
             {
                 text: "No",
-                next: "P1"
+                next: "P1",
+                fx: (flags) => {
+                    flags.decisionVisibility.research = true;
+                    flags.decisionVisibility.ncogoal = true;
+                }
             }]
     },
 
@@ -46,7 +50,11 @@ const nodes = {
             },
             {
                 text: "I have completed the interventions that I want.",
-                next: "P1"
+                next: "P1",
+                fx: (flags) => {
+                    flags.decisionVisibility.research = true;
+                    flags.decisionVisibility.ncogoal = true;
+                }
             }]
     },
 
@@ -377,7 +385,10 @@ const nodes = {
             {
                 text: "I'm okay with it.",
                 next: "L101",
-                fx: (flags) => flags.ncogoal = consts.ncogoals.NOT_SPECIFIC
+                fx: (flags) => { 
+                    flags.ncogoal = consts.ncogoals.NOT_SPECIFIC;
+                    flags.decisionVisibility.ncogoal = true;
+                }
             },
             {
                 text: "I don't like it.",
@@ -406,7 +417,10 @@ const nodes = {
         option: [
             {
                 text: "Proceed on",
-                next: "L101"
+                next: "L101",
+                fx: (flags) => {
+                    flags.decisionVisibility.ncogoal = true;
+                }
             }]
     },
 
@@ -415,7 +429,10 @@ const nodes = {
         option: [
             {
                 text: "Sounds great!",
-                next: "L101"
+                next: "L101",
+                fx: (flags) => {
+                    flags.decisionVisibility.ncogoal = true;
+                }
             }]
     },
 }

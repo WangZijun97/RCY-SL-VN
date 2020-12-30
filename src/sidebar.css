@@ -1,0 +1,80 @@
+.sidebar {
+    left: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    background-color: #50555e;
+    transition: left 0.2s;
+    padding-top: 3.5rem;
+    padding-bottom: 1rem;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+
+.sidebar.active {
+    left: 0%;
+}
+
+@media screen and (min-width: 600px) {
+    .sidebar {
+        left: 100%;
+        width: 33%;
+    }
+
+    .sidebar.active {
+        left: 67%;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .Node {
+        transition: margin-right 0.2s;
+    }
+
+    .Node.sidebar-active {
+        margin-right: 25%;
+        width: 75%;
+    }
+
+    .sidebar {
+        left: 100%;
+        width: 25%;
+    }
+
+    .sidebar.active {
+        left: 75%;
+    }
+}
+
+.sidebar .analysis {
+    margin-left: 1rem;
+}
+
+.sidebar .timeline::after {
+    background-color: #282c34;
+}
+
+.sidebar .title {
+    font-size: 0.7rem;
+}
+
+.sidebar .timeline .container .title::after {
+    height: 0.35rem;
+    width: 0.35rem;
+    left: -1.25rem;
+    top: 0.35rem;
+}
+
+.sidebar .timeline .container {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+}

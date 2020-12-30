@@ -3,6 +3,8 @@ import './App.css';
 import consts from './consts';
 import * as data from './data.js';
 import Node from './Node.js';
+import clsx from 'clsx';
+import Sidebar from './Sidebar';
 
 const initialFlags = JSON.stringify({
     name: "default",
@@ -19,10 +21,17 @@ const initialFlags = JSON.stringify({
     rolesandgoals: consts.rolesandgoals.NONE,
     cadetgoal: consts.cadetgoal.NONE,
     finalChitChat: false,
-    result: 0,
+    result: null,
     lastNode: "",
     debrief: "",
     noTimeToDebriefCadets: false,
+    decisionVisibility: {
+        research: false,
+        ncogoal: false,
+        rolesandgoals: false,
+        cadetgoal: false,
+        debrief: false,
+    }
 });
 
 export const getInitialFlags = () => JSON.parse(initialFlags);
@@ -41,7 +50,28 @@ const Game = (props) => {
     const [flags, flagDispatch] = React.useReducer(reducer, getInitialFlags());
     const [seqPos, setSeqPos] = React.useState(0);
 
-    const { onMusicChange, onMusicDisable } = props;
+    const [touchStart, setTouchStart] = React.useState(null);
+    const [touchEnd, setTouchEnd] = React.useState(null);
+
+    const { onMusicChange, onMusicDisable, sidebarShown, onSidebarChange } = props;
+
+    const handleTouchStart = (e) => {
+        setTouchStart(e.targetTouches[0].clientX);
+    }
+
+    const handleTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    }
+
+    const handleTouchEnd = () => {
+        const threshold = window.innerWidth * 0.25 + 80;
+
+        if (touchStart - touchEnd > threshold) {
+            onSidebarChange(true);
+        } else if (touchEnd - touchStart > threshold) {
+            onSidebarChange(false);
+        }
+    }
 
     React.useEffect(() => {
         const keypressListener = (e) => {
@@ -69,8 +99,12 @@ const Game = (props) => {
         if (node === 'H0.5') onMusicDisable();
     }, [node, onMusicDisable]);
 
+
     return (
-        <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange}  />
+        <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+        <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange} sidebarShown={sidebarShown}  />
+        <Sidebar sidebarShown={sidebarShown} flags={flags} />
+        </div>
     );
 
 }
