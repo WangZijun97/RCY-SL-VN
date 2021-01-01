@@ -20,7 +20,7 @@ const Dialogue = (props) => {
         convos, 
         name, 
         availableQnGetter = createAvailableQnGetter(convos.length), 
-        maxQns = 3
+        maxQns = convos.length
     } = props;
     
 
