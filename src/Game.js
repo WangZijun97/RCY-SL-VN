@@ -66,6 +66,8 @@ const Game = (props) => {
     const handleTouchEnd = () => {
         const threshold = window.innerWidth * 0.25 + 80;
 
+        if (touchEnd === null) return;
+
         if (touchStart - touchEnd > threshold) {
             onSidebarChange(true);
         } else if (touchEnd - touchStart > threshold) {
