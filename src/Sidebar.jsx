@@ -1,5 +1,3 @@
-import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import React from 'react';
 import {getCadetGoalTitleAndEntry, getChitChatTitleAndEntry, getDebriefTitleAndEntry, getLocationChoiceText, getNcoGoalTitleAndEntry, getNcoRnGTitleAndEntry, getResearchTitleAndEntry} from './analysis';

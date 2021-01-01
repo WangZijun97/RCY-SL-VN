@@ -2,7 +2,7 @@ import React from 'react'
 import consts from '../consts'
 import {getInitialFlags} from '../Game'
 import Stars from '../stars'
-import Timeline, {Entry} from '../timeline'
+import Timeline from '../timeline'
 
 /*
  * NCO goal = 3 stars (1 if not perfect, 0 if none + 1 for doing debrief)
