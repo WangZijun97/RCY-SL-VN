@@ -202,6 +202,7 @@ const reflectArcNodes = {
             convos={ncoDebriefConvo}
             name="NCO Sarah"
             availableQnGetter={ncoDebriefConvoFunc}
+            maxQns={null}
         />),
         option: [
             {
@@ -255,6 +256,7 @@ const reflectArcNodes = {
                 speakerClass="cadet-speech"
                 convos={vagueCadetDebriefConvos}
                 name="Cadet Bobby"
+                maxQns={null}
             />
             <p>You can pop in here if you would like to.</p>
         </React.Fragment>),

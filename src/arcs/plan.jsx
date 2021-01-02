@@ -257,6 +257,7 @@ const planArcNodes = {
             speakerClass="nco-speech"
             convos={[]}
             name="the NCOs"
+            maxQns={null}
         />
             <p>How do you want to respond to them?</p>
             </React.Fragment>),

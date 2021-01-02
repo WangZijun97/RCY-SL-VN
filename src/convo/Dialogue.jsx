@@ -44,13 +44,15 @@ const Dialogue = (props) => {
                 <div key={i} class={combinedSpeakerClass}>{ans}</div>
             ))}
         </React.Fragment>))}
-        <div className="btn-container" style={{display: qnsLeft < 1 ? "none" : "inherit"}}>
+        <div className="btn-container" style={{display: (maxQns !== null && qnsLeft < 1) ? "none" : "inherit"}}>
             {availableQns.map((qnIndex) => <button key={qnIndex} onClick={createButtonHandler(qnIndex)}>
             {convos[qnIndex].q}
             </button>)}
         </div>
         {/*number of questions left message*/}
-        <p className="informative">{qnsLeft > 0 ? `You can ask ${name} ${qnsLeft} more question` + (qnsLeft === 1 ? "" : "s") : `${name} is done with your questions`}</p>
+        {
+        maxQns !== null && <p className="informative">{qnsLeft > 0 ? `You can ask ${name} ${qnsLeft} more question` + (qnsLeft === 1 ? "" : "s") : `${name} is done with your questions`}</p>
+        }
     </div>)
     
     //if exceed max, add some form of im bored at the bottom

@@ -278,6 +278,7 @@ const nodes = {
             startOfConvo={`Welcome to ${flags.name}! I am Ebenzer Scrooge, the Home Director. Feel free to ask me anything about the home!`}
             speakerClass="scrooge-speech"
             convos={scroogeConvos}
+            maxQns={4}
             name="Mr. Scrooge" />) ,
         option: [
             {
@@ -292,6 +293,7 @@ const nodes = {
             speakerClass="jon-speech"
             convos={jonConvos}
             name="Jonathan"
+            maxQns={3}
             />),
         option: [
             {
@@ -378,6 +380,7 @@ const nodes = {
                 speakerClass="nco-speech"
                 convos={[]}
                 name="the NCO"
+                maxQns={null}
             />
             <p>What do you think?</p>
         </React.Fragment>),
