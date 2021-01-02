@@ -53,7 +53,7 @@ const Game = (props) => {
     const [touchStart, setTouchStart] = React.useState(null);
     const [touchEnd, setTouchEnd] = React.useState(null);
 
-    const { onMusicChange, onMusicDisable, sidebarShown, onSidebarChange } = props;
+    const { onMusicChange, onMusicDisable, sidebarShown, onSidebarChange, ...other } = props;
 
     const handleTouchStart = (e) => {
         setTouchStart(e.targetTouches[0].clientX);
@@ -105,7 +105,7 @@ const Game = (props) => {
     return (
         <div onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
         <Node trigger={setNode} data={data.getNode(node)} flags={flags} dispatch={flagDispatch} onMusicChange={onMusicChange} sidebarShown={sidebarShown}  />
-        <Sidebar sidebarShown={sidebarShown} flags={flags} />
+        <Sidebar sidebarShown={sidebarShown} flags={flags} {...other} />
         </div>
     );
 

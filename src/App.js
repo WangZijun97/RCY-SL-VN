@@ -8,6 +8,7 @@ const FADE_DURATION_IN_MS = 500;
 
 function App() {
     const [audioState, audioDispatch] = React.useReducer(musicStateReducer, initialMusic)
+    const [volume, setVolume] = React.useState(70);
     const [sidebarShown, setSidebarShown] = React.useState(() => {
         return window.innerWidth >= 960
     })
@@ -35,6 +36,11 @@ function App() {
         setSidebarShown(!sidebarShown);
     }
 
+    const handleVolumeChange = (volume) => {
+        setVolume(volume);
+        audioState.active.volume = volume / 100;
+    }
+
     React.useEffect(() => {
         const interval = setInterval(() => {
             if (!audioState.active) return;
@@ -42,11 +48,11 @@ function App() {
 
             switch (audioState.state) {
                 case musicStates.FADING_IN:
-                    audioState.active.volume = Math.sin(audioState.fadeProgress * Math.PI / 2);
+                    audioState.active.volume = (volume / 100) * Math.sin(audioState.fadeProgress * Math.PI / 2);
                     break;
 
                 case musicStates.FADING_OUT:
-                    audioState.active.volume = audioState.active.amplitude * Math.cos(audioState.fadeProgress * Math.PI / 2);
+                    audioState.active.volume = (volume / 100) * audioState.active.amplitude * Math.cos(audioState.fadeProgress * Math.PI / 2);
                     break;
 
                 case musicStates.FADED_OUT:
@@ -57,9 +63,9 @@ function App() {
 
                 case musicStates.CROSSFADING:
                     audioState.active.play();
-                    audioState.active.volume = Math.sin(audioState.fadeProgress * Math.PI / 2);
+                    audioState.active.volume = Math.sin(audioState.fadeProgress * Math.PI / 2) * volume / 100;
                     audioState.fadeOut.forEach((audio) => {
-                        audio.volume = audio.amplitude * Math.cos(audioState.fadeProgress * Math.PI / 2);
+                        audio.volume = audio.amplitude * Math.cos(audioState.fadeProgress * Math.PI / 2) * volume / 100;
                     })
                     break;
 
@@ -79,10 +85,20 @@ function App() {
 
     return (
         <React.Fragment>
-            <Navbar isMuted={checkIsMuted(audioState.state)} onMuteToggle={handleMuteToggle} sidebarShown={sidebarShown} onSidebarToggle={handleSidebarToggle} />
-            <div className="App App-header">
-                <Game audioState={audioState} onMusicChange={handleMusicChange} onMusicDisable={handleMusicDisable} sidebarShown={sidebarShown} onSidebarChange={setSidebarShown} />
-            </div>
+            <Navbar sidebarShown={sidebarShown} onSidebarToggle={handleSidebarToggle} />
+        <div className="App App-header">
+        <Game 
+        audioState={audioState} 
+        onMusicChange={handleMusicChange} 
+        onMusicDisable={handleMusicDisable} 
+        sidebarShown={sidebarShown} 
+        onSidebarChange={setSidebarShown} 
+        isMuted={checkIsMuted(audioState.state)} 
+        onMuteToggle={handleMuteToggle} 
+        volume={volume} 
+        onVolumeChange={handleVolumeChange} 
+        />
+        </div>
         </React.Fragment>
     );
 }

@@ -8,7 +8,7 @@ const homeArcNodes = {
         text: () => (<React.Fragment>
             <p>Welcome to the Service Learning VIA Adventure! This is a Choose Your Own Adventure-style of game.
             Be prepared to make a lot of choices. Some of these choices will matter, some of these won't.</p>
-            <p>Use the button on the top right corner (or swipe left) to open up the sidebar, which will contain a list of all the important decisions you have made so far in the game.</p>
+            <p>Use the button on the top right corner (or swipe left) to open up the sidebar, which will contain a list of all the important decisions you have made so far in the game. It also allows you to change the volume of the music.</p>
             <p>Press either button below to start.</p>
             </React.Fragment>),
         option: [
