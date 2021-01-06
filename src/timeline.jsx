@@ -52,16 +52,28 @@ export const Entry = (props) => {
 const getActivityDescription = (activity) => {
     switch (activity) {
         case consts.activities.SOCCER: 
-            return ['Most (but not all of the children) enjoy soccer. As a result, most of them had great fun playing, and a break away from the boredom of daily life. This is a decent (but not the best) choice as you fulfilled the needs of most of the children there.', icons.GOOD]
+            return [
+                (<React.Fragment>Most (but not all of the children) enjoy soccer. As a result, most of them had great fun playing, and a break away from the boredom of daily life. This is a <span className="emph">decent (but not the best) choice as you fulfilled the needs of most of the children</span> there.</React.Fragment>), 
+                icons.GOOD
+            ]
 
         case consts.activities.KITE:
-            return ['All of the children enjoy kite-fighting. As a result, they had incredible fun playing, a great break away from their usual routines. Nice! This is the best choice as you fulfilled the needs of all of the children there.', icons.EXCELLENT]
+            return [
+                (<React.Fragment>All of the children enjoy kite-fighting. As a result, they had incredible fun playing, a great break away from their usual routines. Nice! <span className="emph">This is the best choice as you fulfilled the needs of all of the children there.</span></React.Fragment>),
+                icons.EXCELLENT
+            ]
 
         case consts.activities.CHIT_CHAT:
-            return ["During the chit-chat session, the children were happy to share about their lives, however, they did hope for a little more excitement. This is a decent option, though certainly there are more exciting activities out there that the children enjoy doing. Try learning more about the children before planning to figure out what is the best activity to fulfil all of their needs.", icons.MEDIOCRE]
+            return [
+                (<React.Fragment>During the chit-chat session, the children were happy to share about their lives, however, they hoped for more excitement. This is a decent option, though <span className="emph">there are more exciting activities</span> that the children enjoy. Try <span className="emph">learning more about the children</span> before planning the best activity to fulfil all their needs.</React.Fragment>),
+                icons.MEDIOCRE
+            ]
 
         default:
-            return ["This wasn't very effective at engaging the children as many of them returned to their regular routines instead. Perhaps it would be good to find out more about the children before planning next time?", icons.BAD]
+            return [
+                (<React.Fragment><span className="emph">This wasn't very effective at engaging the children</span> as many of them returned to their regular routines instead. Perhaps it would be good to <span className="emph">find out more about the children before planning</span> next time?</React.Fragment>),
+                icons.BAD
+            ]
     }
 }
 
@@ -70,21 +82,21 @@ const getSessionsTitleAndEntry = (sessionsState) => {
         case consts.sessions.ONE:
             return [
                 `Your unit chose to have only ${sessionsState}.`,
-                "After the VIA, the children wonder if any of you will be back ever again? They miss you. This choice does not help to build trust with the home's residents. Consider having more sustained engagement with them instead (short sessions are ok, it's more important to be regular).",
+                (<React.Fragment>After the VIA, the children wonder if any of you will be back ever again? They miss you. This choice does not help to build trust with the home's residents. <span className="emph">Consider having more sustained engagement</span> with them instead (short sessions are ok, it's more important to be regular).</React.Fragment>),
                 icons.BAD,
             ];
 
         case consts.sessions.TWO_TGT:
             return [
                 `Your unit chose to have only ${sessionsState}.`,
-                "After the two sessions, the children look forward to the third, but it never happened... They miss you. This choice does not help to build trust with the home's residents. Consider having more sustained engagement with them instead (short sessions are ok, it's more important to be regular).",
+                (<React.Fragment>After the two sessions, the children look forward to the third, but it never happened... They miss you. This choice does not help to build trust with the home's residents. <span className="emph">Consider having more sustained engagement</span> with them instead (short sessions are ok, it's more important to be regular).</React.Fragment>),
                 icons.MEDIOCRE,
             ];
 
         default:
             return [
                 `Your unit chose to have ${sessionsState}.`,
-                "By continuously engaging with the home, you managed to build a long-lasting and trusting relationship with the home, enhaning the effectivenss of any service learning project with them. Good choice!",
+                (<React.Fragment>By <span className="emph">continuously engaging with the home</span>, you managed to <span className="emph">build a long-lasting and trusting relationship</span> with the home, enhaning the effectivenss of any service learning project with them. Good choice!</React.Fragment>),
                 icons.EXCELLENT,
             ];
     }
