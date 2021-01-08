@@ -56,6 +56,12 @@ const consts = {
         NCO: "NCOs debriefed only",
         CADET: "Cadets debriefed only",
         BOTH: "Both were debriefed"
+    },
+    events: {
+        MARGIN: "margin width",
+        REIMBURSEMENT: "reimbursement",
+        CHAPERONE: "chaperone",
+        ICE_CREAM: "ice cream",
     }
 };
 

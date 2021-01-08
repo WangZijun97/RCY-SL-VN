@@ -3,7 +3,6 @@ import './App.css';
 import consts from './consts';
 import * as data from './data.js';
 import Node from './Node.js';
-import clsx from 'clsx';
 import Sidebar from './Sidebar';
 
 const initialFlags = JSON.stringify({
@@ -31,7 +30,8 @@ const initialFlags = JSON.stringify({
         rolesandgoals: false,
         cadetgoal: false,
         debrief: false,
-    }
+    },
+    midEvent: null,
 });
 
 export const getInitialFlags = () => JSON.parse(initialFlags);

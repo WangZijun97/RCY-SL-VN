@@ -1,5 +1,6 @@
 import React from 'react';
-import consts, {getRandomEvent} from '../consts';
+import consts from '../consts';
+import {getRandomEvent} from '../events';
 import NodeImg from '../NodeImg';
 
 const homeArcNodes = {
@@ -76,12 +77,18 @@ const homeArcNodes = {
             {
                 text: consts.SESAME,
                 next: "L1",
-                fx: (flags) => { flags.name = consts.SESAME },
+                fx: (flags) => { 
+                    flags.name = consts.SESAME;
+                    flags.midEvent = getRandomEvent();
+                },
             },
             {
                 text: consts.SUNSHINE,
                 next: "L1",
-                fx: (flags) => { flags.name = consts.SUNSHINE },
+                fx: (flags) => { 
+                    flags.name = consts.SUNSHINE 
+                    flags.midEvent = getRandomEvent();
+                },
             }]
     },
 }

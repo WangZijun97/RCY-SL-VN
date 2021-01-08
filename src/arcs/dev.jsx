@@ -1,5 +1,6 @@
 import consts from '../consts'
 import {allActivities} from '../consts'
+import {events} from '../events';
 import NodeImg from '../NodeImg'
 
 const objToKeyValArray = (obj, keyPrefix = "") => {
@@ -142,6 +143,18 @@ const devNodes = {
                         flags.debrief= allVals[0]
                     }
                 }
+            },
+            {
+                text: "Change event",
+                next: "dev1",
+                fx: (flags) => {
+                    if (events.includes(flags.midEvent)) {
+                        flags.midEvent = events[(events.indexOf(flags.midEvent) + 1) % events.length]
+                    } else {
+                        flags.midEvent = events[0]
+                    }
+                }
+
             },
             {
                 text: "Done",
