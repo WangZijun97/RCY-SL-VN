@@ -13,7 +13,7 @@ const nodes = {
     "L1": {
         bgm: 'mii.mp3',
         img: <NodeImg src="emergency-button.jpg" alt="Emergency Button" />,
-        text: (flags) => `Your NCOs are very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at ${flags.name}. Should you intervene?`,
+        text: (flags) => `Your committee is very excited! They would like to get started with planning immediately and are discussing all the fun activities they can do with the children at ${flags.name}. Should you intervene?`,
         option: [
             {
                 text: "Yes",
@@ -60,7 +60,7 @@ const nodes = {
 
     "L2": {
         text: (flags) => (<div>
-            <p>What would you like your NCOs to do?</p>
+            <p>What would you like to do?</p>
             {flags.research.call && <p className="informative">[You have already called the home.]</p>}
             {flags.research.recce && <p className="informative">[You have already visited the home physically.]</p>}
             {flags.research.email === 1 && <p className="informative">[You have already waited 1 week for a reply to your email.]</p>}
@@ -103,7 +103,7 @@ const nodes = {
                 condition: (flags) => flags.research.email < 2 && !flags.research.recce,
             },
             {
-                text: "Never mind, my NCOs are doing good (Back)",
+                text: "Never mind, my committee is doing good (Back)",
                 next: "L101"
             }
         ]
@@ -196,7 +196,7 @@ const nodes = {
 
     "L201": {
         img: () => nodes["L8"].img,
-        text: (flags) => (<p><span className="scrooge-speech">"Ok fine you can ask one more question..."</span><br />What would you like to ask?</p>),
+        text: (flags) => (<p><span className="scrooge-speech">"Ok fine, you can ask one more question..."</span><br />What would you like to ask?</p>),
         option: [
             {
                 text: "What do the kids like to do in their free time?",
@@ -346,22 +346,22 @@ const nodes = {
 
     "L20": {
         img: (<NodeImg ext="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/thinking-face_1f914.png" alt="Thinking emoji"/>),
-        text: "How do you want to set goals with the NCOs?",
+        text: "How do you want to set goals with your committee?",
         option: [
             {
-                text: "Tell the NCOs what goals they should try to achieve.",
+                text: "Tell your committee what goals they should try to achieve.",
                 next: "L21",
                 fx: (flags) => flags.ncogoal = consts.ncogoals.VI
             },
             {
-                text: "Facilitate the NCOs in setting their own goals for the VIA.",
+                text: "Facilitate your committee in setting their own goals for the VIA.",
                 next: "L22"
             }]
     },
 
     "L21": {
         img: (<NodeImg ext="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/yawning-face_1f971.png" alt="Yawning emoji" />),
-        text: "Some of the NCOs looked very bored after you told them that they should aim to put in their best as well as learn more from the stories of the residents...",
+        text: "Some of your committee members looked very bored after you told them that they should aim to put in their best as well as learn more from the stories of the residents...",
         option: [
             {
                 text: "Proceed on",
@@ -373,13 +373,13 @@ const nodes = {
         bgm: 'kahoot.mp3',
         text: () => (<React.Fragment>
             <p>
-                You asked the NCOs to share their goals with you. This is what one of the NCOs told you.
+                You asked your committee to share their goals with you. This is what one of them, Michael, told you.
             </p>
             <Dialogue
                 startOfConvo="My goal is to learn how to plan."
                 speakerClass="nco-speech"
                 convos={[]}
-                name="the NCO"
+                name="Michael"
                 maxQns={null}
             />
             <p>What do you think?</p>
@@ -402,7 +402,7 @@ const nodes = {
     },
 
     "L23": {
-        text: "What do you want to tell the NCO?",
+        text: "What do you want to tell Michael?",
         option: [
             {
                 text: "This is not specific enough. You need to set another goal.",
@@ -416,7 +416,7 @@ const nodes = {
 
     "L24": {
         img: <NodeImg src="pepecry.png" />,
-        text: "The NCO looks a bit sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
+        text: "Michael looks a bit sad. He sets another goal, to learn how to take calculated risks while planning. You are happy with this goal.",
         option: [
             {
                 text: "Proceed on",
@@ -428,7 +428,7 @@ const nodes = {
     },
 
     "L25": {
-        text: "The NCO thinks about it and enthusiastically responds that by the end of the VIA, he wants to learn how to appropriately delegate manpower based on need.",
+        text: "Michael thinks about it and enthusiastically responds that by the end of the VIA, he wants to learn how to appropriately delegate manpower based on need.",
         option: [
             {
                 text: "Sounds great!",
