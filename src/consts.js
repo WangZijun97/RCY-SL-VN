@@ -3,7 +3,6 @@ const consts = {
     SUNSHINE: "Sunshine Children's Home",
     ncogoals: {
         NONE: "did not set",
-        VI: "set by VIs",
         NOT_SPECIFIC: "goal set is not specific",
         NCO: "set by NCOs",
         LEARN_STORIES_BEF_RESEARCH: "by OIC - learn stories - no research yet",

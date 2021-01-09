@@ -13,6 +13,7 @@ const initialFlags = JSON.stringify({
         recce: false,
         brochure: false,
         email: 0,
+        spokeToScrooge: false,
     },
     sessions: "",
     ncogoal: consts.ncogoals.NONE,
