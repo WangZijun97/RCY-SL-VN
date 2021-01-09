@@ -139,7 +139,7 @@ export const getCadetGoalTitleAndEntry = (cadetGoalState) => {
 
         case consts.cadetgoal.NCO:
             return [
-                "Your unit set learning goals for the cadets to achieve during the VIA.",
+                "Your committee set learning goals for the cadets to achieve during the VIA.",
                 (<React.Fragment>While goals were set, <span className="emph">cadets are unlikely to accept goals your committee set</span>, as they may want to learn something else. Learning becomes unintentional, making it difficult for cadets to gain new learning points. In future, perhaps guide/facilitate <span className="emph">the cadets to set their own goals before VIA sessions</span>.</React.Fragment>),
                 icons.MEDIOCRE,
             ];
