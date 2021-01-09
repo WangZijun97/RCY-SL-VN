@@ -76,4 +76,14 @@ export const allActivities = {
     ...consts.books
 }
 
+export const motivatedAskQns = [
+    consts.ncogoals.LEARN_STORIES_BEF_RESEARCH,
+    consts.ncogoals.SOLVE_PROBLEMS_BEF_RESEARCH,
+]
+
+export const motivatedTalkToResidents = [
+    consts.ncogoals.LEARN_STORIES_BEF_RESEARCH,
+    consts.ncogoals.LEARN_STORIES_AFT_RESEARCH
+]
+
 export default consts;
