@@ -1,5 +1,6 @@
 import React from 'react';
 import consts from '../consts';
+import {getRandomEvent} from '../events';
 import NodeImg from '../NodeImg';
 
 const homeArcNodes = {
@@ -29,7 +30,7 @@ const homeArcNodes = {
 
     "H0.5": {
         img: <NodeImg src="school.jpg" alt="Chai Chee Secondary School" />,
-        text: "You are a VI attached to Chai Chee Secondary School. It is July 2021, and you unit needs to conduct one more VIA to fulfill the requirements for SL badges. Your teacher has asked you to recommend a VIA project for the unit to do.",
+        text: "It is July 2021, and you are the OIC of one of your unit's Service Learning Project. Your teacher has asked you to recommend a VIA project for the unit to do.",
         option: [
             {
                 text: "Home Visit",
@@ -44,7 +45,7 @@ const homeArcNodes = {
     "H1": {
         img: <NodeImg src="school.jpg" alt="Chai Chee Secondary School" />,
         bgm: 'mii.mp3',
-        text: "You are a VI attached to Chai Chee Secondary School. It is July 2021, and you unit needs to conduct one more VIA to fulfill the requirements for SL badges. Your teacher has asked you to recommend a VIA project for the unit to do.",
+        text: "It is July 2021, and you are the OIC of one of your unit's Service Learning Project. Your teacher has asked you to recommend a VIA project for the unit to do.",
         option: [
             {
                 text: "Home Visit",
@@ -76,12 +77,18 @@ const homeArcNodes = {
             {
                 text: consts.SESAME,
                 next: "L1",
-                fx: (flags) => { flags.name = consts.SESAME; },
+                fx: (flags) => { 
+                    flags.name = consts.SESAME;
+                    flags.midEvent = getRandomEvent();
+                },
             },
             {
                 text: consts.SUNSHINE,
                 next: "L1",
-                fx: (flags) => { flags.name = consts.SUNSHINE; },
+                fx: (flags) => { 
+                    flags.name = consts.SUNSHINE 
+                    flags.midEvent = getRandomEvent();
+                },
             }]
     },
 }

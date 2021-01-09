@@ -3,9 +3,13 @@ const consts = {
     SUNSHINE: "Sunshine Children's Home",
     ncogoals: {
         NONE: "did not set",
-        VI: "set by VIs",
         NOT_SPECIFIC: "goal set is not specific",
-        NCO: "set by NCOs"
+        NCO: "set by NCOs",
+        LEARN_STORIES_BEF_RESEARCH: "by OIC - learn stories - no research yet",
+        LEARN_STORIES_AFT_RESEARCH: "by OIC - learn stories - research already",
+        SOLVE_PROBLEMS_BEF_RESEARCH: "by OIC - solve problems - no research yet",
+        SOLVE_PROBLEMS_AFT_RESEARCH: "by OIC - solve problems - research already",
+        EXCITING_ACTIVITIES: "by OIC - exciting activities",
     },
     activities: {
         AMONG_US: "play Among Us",
@@ -56,6 +60,12 @@ const consts = {
         NCO: "NCOs debriefed only",
         CADET: "Cadets debriefed only",
         BOTH: "Both were debriefed"
+    },
+    events: {
+        MARGIN: "margin width",
+        REIMBURSEMENT: "reimbursement",
+        CHAPERONE: "chaperone",
+        ICE_CREAM: "ice cream",
     }
 };
 
@@ -64,5 +74,15 @@ export const allActivities = {
     ...consts.songs,
     ...consts.books
 }
+
+export const motivatedAskQns = [
+    consts.ncogoals.LEARN_STORIES_BEF_RESEARCH,
+    consts.ncogoals.SOLVE_PROBLEMS_BEF_RESEARCH,
+]
+
+export const motivatedTalkToResidents = [
+    consts.ncogoals.LEARN_STORIES_BEF_RESEARCH,
+    consts.ncogoals.LEARN_STORIES_AFT_RESEARCH
+]
 
 export default consts;

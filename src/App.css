@@ -145,14 +145,66 @@ a {
     }
 }
 
-.nco-speech {
-    color: #e88;
-    border-color: #e88;
+.michael-speech {
+    border-color: #ffe5b4;
+}
+
+.michael-speech .name,
+.michael-speech.dialogue {
+    color: #ffe5b4;
+}
+
+.sarah-speech {
+    border-color: #ffc0cb;
+}
+
+.sarah-speech .name,
+.sarah-speech.dialogue {
+    color: #ffc0cb;
+}
+
+.ryan-speech {
+    border-color: #008080;
+}
+
+.ryan-speech .name {
+    color: #008080;
+}
+
+.mary-speech {
+    border-color: #daa520;
+}
+
+.mary-speech .name {
+    color: #daa520;
 }
 
 .cadet-speech {
-    color: #fd0;
     border-color: #fd0;
+}
+
+.roy-speech {
+    border-color: #40c4b9;
+}
+
+.roy-speech .name {
+    color: #40c4b9;
+}
+
+.liz-speech {
+    border-color: #bb5dcc;
+}
+
+.liz-speech .name {
+    color: #bb5dcc;
+}
+
+.jack-speech {
+    border-color: #5baf6c;
+}
+
+.jack-speech .name {
+    color: #5baf6c;
 }
 
 .book-catalogue {
@@ -441,3 +493,9 @@ input[type=range]::-ms-track {
     border-radius: 2px;
     border-color: transparent;
 }
+
+.emph {
+    font-weight: bold;
+    color: #b6c6d3;
+}
+
