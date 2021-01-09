@@ -544,7 +544,7 @@ const nodes = {
             </p>
             <Dialogue
                 startOfConvo="My goal is to learn how to plan."
-                speakerClass="nco-speech"
+                speakerClass="michael-speech dialogue"
                 convos={[]}
                 name="Michael"
                 maxQns={null}

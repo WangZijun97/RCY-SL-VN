@@ -149,7 +149,8 @@ a {
     border-color: #ffe5b4;
 }
 
-.michael-speech .name {
+.michael-speech .name,
+.michael-speech.dialogue {
     color: #ffe5b4;
 }
 
