@@ -5,7 +5,12 @@ const consts = {
         NONE: "did not set",
         VI: "set by VIs",
         NOT_SPECIFIC: "goal set is not specific",
-        NCO: "set by NCOs"
+        NCO: "set by NCOs",
+        LEARN_STORIES_BEF_RESEARCH: "by OIC - learn stories - no research yet",
+        LEARN_STORIES_AFT_RESEARCH: "by OIC - learn stories - research already",
+        SOLVE_PROBLEMS_BEF_RESEARCH: "by OIC - solve problems - no research yet",
+        SOLVE_PROBLEMS_AFT_RESEARCH: "by OIC - solve problems - research already",
+        EXCITING_ACTIVITIES: "by OIC - exciting activities",
     },
     activities: {
         AMONG_US: "play Among Us",

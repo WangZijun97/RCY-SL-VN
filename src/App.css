@@ -145,13 +145,39 @@ a {
     }
 }
 
-.nco-speech {
-    color: #e88;
-    border-color: #e88;
+.michael-speech {
+    border-color: #ffe5b4;
+}
+
+.michael-speech .name {
+    color: #ffe5b4;
+}
+
+.sarah-speech {
+    border-color: #ffc0cb;
+}
+
+.sarah-speech .name {
+    color: #ffc0cb;
+}
+
+.ryan-speech {
+    border-color: #008080;
+}
+
+.ryan-speech .name {
+    color: #008080;
+}
+
+.mary-speech {
+    border-color: #daa520;
+}
+
+.mary-speech .name {
+    color: #daa520;
 }
 
 .cadet-speech {
-    color: #fd0;
     border-color: #fd0;
 }
 
@@ -446,3 +472,4 @@ input[type=range]::-ms-track {
     font-weight: bold;
     color: #b6c6d3;
 }
+

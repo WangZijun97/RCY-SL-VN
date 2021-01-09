@@ -14,4 +14,11 @@ export const ncoDebriefConvoFunc = (indicesAvailable) => {
     return [indicesAvailable.length];
 }
 
+export const ncoChatClsMap = {
+    Michael: 'michael-speech',
+    Ryan: 'ryan-speech',
+    Mary: 'mary-speech',
+    Sarah: 'sarah-speech'
+}
+
 export default ncoDebriefConvo;
