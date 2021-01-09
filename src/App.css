@@ -181,6 +181,30 @@ a {
     border-color: #fd0;
 }
 
+.roy-speech {
+    border-color: #40c4b9;
+}
+
+.roy-speech .name {
+    color: #40c4b9;
+}
+
+.liz-speech {
+    border-color: #bb5dcc;
+}
+
+.liz-speech .name {
+    color: #bb5dcc;
+}
+
+.jack-speech {
+    border-color: #5baf6c;
+}
+
+.jack-speech .name {
+    color: #5baf6c;
+}
+
 .book-catalogue {
     display: flex;
     flex-flow: row wrap;

@@ -4,6 +4,8 @@ import Dialogue from '../convo/Dialogue'
 import ncoDebriefConvo, {ncoDebriefConvoFunc} from '../convo/ncoDebrief'
 import vagueCadetDebriefConvos from '../convo/vagueCadetDebrief'
 import NodeImg from '../NodeImg'
+import GroupConvo from '../convo/GrpConvo';
+import {cadetChatClsMap} from '../convo/cadetDebrief'; 
 
 const reflectArcNodes = {
 
@@ -24,14 +26,14 @@ const reflectArcNodes = {
                 next: "R1.5"
             },
             {
-                text: "Conduct a debrief session with NCOs first",
+                text: "Conduct a debrief session with your committee first",
                 next: "R1.5",
                 fx: (flags) => { 
                     flags.debrief = consts.debrief.NCO;
                 }
             },
             {
-                text: "Get the NCOs to conduct a debrief session with the cadets first",
+                text: "Conduct a debrief session with the cadets first",
                 next: "R1.5",
                 fx: (flags) => {
                     flags.debrief = consts.debrief.CADET;
@@ -219,22 +221,100 @@ const reflectArcNodes = {
     },
 
     "R12": {
-        img: (<NodeImg ext="https://i.kym-cdn.com/entries/icons/original/000/018/489/nick-young-confused-face-300x256-nqlyaa.jpg" />), 
         text: () => (<React.Fragment>
-            <p>Your cadets are very confused about what they need to debrief about... What are goals? {"\u53EF\u4EE5\u5403\u7684\u5417?"} (translator note: can this be eaten?)</p>
-            <p className="informative">[Your NCOs did not set goals with the cadets.]</p>
+            <p>You ask your cadets - How did you all feel about the VIA experience?</p>
+            <GroupConvo
+                cssClassMap={cadetChatClsMap}
+                startOfConvo={[
+                    { name: "Roy", text: "I didn't know what to expect. Aren't the VIAs just for the VIA hours anyways? So that we can get our LEAPS points..." },
+                        { name: "Liz", text: "Ya, I agree... If Ms Tan didn't call our parents to get us to come, I wouldn't come as well... I was pressured into coming..." }
+                ]}
+                convos={[]}
+            />
         </React.Fragment>),
         option: [{
-            text: "Oh dear",
-            next: "R4"
+            text: "Ask another question",
+            next: "R12a"
         }]
     },
-
-    "R13": {
-        text: "Your cadets tell your NCOs that they didn't manage to solve the problems of the children :( They feel sad. At the same time they are confused over why they even need to achieve this goal in the first place...",
+    
+    "R12a": {
+        text: () => (<React.Fragment>
+            <p>Oh dear... :(</p>
+            <p>Nevertheless, you decide to still ask: Okay never mind about that then... What did you guys learn today?</p>
+            <GroupConvo
+                cssClassMap={cadetChatClsMap}
+                startOfConvo={[
+                    { name: "Jack", text: "I feel I didn't really learn anything much, because I didn't set out to learn anything in the first place..." },
+                        { name: "Roy", text: "Why do we need to learn from a VIA in the first place? Isn't it just to make the residents a bit happier?" }
+                ]}
+                convos={[]}
+            />
+        </React.Fragment>),
         option: [{
-            text: "Oh dear",
-            next: "R4"
+            text: "Oh no... this is sad... let's debrief the committee now.",
+            next: "R5"
+        }]
+    },
+    
+    "R13": {
+        text: () => (<React.Fragment>
+            <p>You ask your cadets: What did you guys learn today?</p>
+            <GroupConvo
+                cssClassMap={cadetChatClsMap}
+                startOfConvo={[
+                    {name: "Jack", text: "Oh we set goals? Uh what were they again? I only remember that I wanted to have fun, but I think my idea of fun wasn't the same as the kids' idea of fun..."},
+                        {name: "Roy", text: "I think we didn't manage to achieve the goals... we didn't put in much effort into achieving them."}
+                ]}
+                convos={[]}
+            />
+            <p>You are upset and don't understand why this happened. Do you want to ask them why this is so?</p>
+            </React.Fragment>),
+        option: [
+            {
+                text: "Yes, I want to find out!",
+                next: "R13a"
+            },
+            {
+                text: "No, I think the cadets are sad, so we should wrap up...",
+                next: "R13b"
+            }
+        ]
+    },
+
+    "R13a": {
+        text: () => (<React.Fragment>
+            <p>You ask: I don't understand, why were you all unable to achieve the goals? Didn't you all agree to these goals with me?</p>
+            <GroupConvo
+                cssClassMap={cadetChatClsMap}
+                startOfConvo={[
+                    {name: "Liz", text: "I think we felt they were a bit unreasonable, but none of us dared to voice out, because you are the OIC..."},
+                        {name: "Jack", text: "Ya, then I think the whole experience just felt a bit bad after that..."}
+                ]}
+                convos={[]}
+            />
+            </React.Fragment>),
+        option: [{
+            text: "Oh no... let's wrap up...",
+            next: "R13b"
+        }]
+    },
+    
+    "R13b": {
+        text: () => (<React.Fragment>
+            <p>You ask: So overall, how did you all feel about this VIA experience?</p>
+            <GroupConvo
+                cssClassMap={cadetChatClsMap}
+                startOfConvo={[
+                    {name: "Roy", text: "I wasn't very motivated to learn much from the VIA... I just went through the motions of talking to the residents... felt it was a waste of time."},
+                        {name: "Liz", text: "Yeah, it was boring, I wasn't very interested to put in much effort..."}
+                ]}
+                convos={[]}
+            />
+            </React.Fragment>),
+        option: [{
+            text: "Oh no... this is sad... let's debrief the committee now.",
+            next: "R5"
         }]
     },
 
