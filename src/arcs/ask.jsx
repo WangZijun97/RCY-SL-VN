@@ -156,15 +156,15 @@ const askArcNodes = {
         option: [
             {
                 text: "Yes",
+                next: "A7"
+            },
+            {
+                text: "No",
                 next: "A10",
                 fx: (flags) => { 
                     flags.cadetgoal = consts.cadetgoal.BAD;
                     flags.decisionVisibility.cadetgoal = true;
                 }
-            },
-            {
-                text: "No",
-                next: "A7"
             }
         ]
     },
