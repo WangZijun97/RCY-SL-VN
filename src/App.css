@@ -157,7 +157,8 @@ a {
     border-color: #ffc0cb;
 }
 
-.sarah-speech .name {
+.sarah-speech .name,
+.sarah-speech.dialogue {
     color: #ffc0cb;
 }
 

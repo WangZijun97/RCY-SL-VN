@@ -335,23 +335,28 @@ const serveArcNodes = {
         option: [
             {
                 text: "Speak to Home Director, Mr Scrooge",
-                next: "S20"
+                next: "S20",
+                fx: (flags) => { flags.finalSpokeToScrooge = true; }
             },
             {
                 text: "Speak to 16 year old Jonathan",
-                next: "S21"
+                next: "S21",
+                fx: (flags) => { flags.finalSpokeToResidents = true; }
             },
             {
                 text: "Speak to 14 year old Allam",
-                next: "S22"
+                next: "S22",
+                fx: (flags) => { flags.finalSpokeToResidents = true; }
             },
             {
                 text: "Speak to 10 year old Emily",
-                next: "S23"
+                next: "S23",
+                fx: (flags) => { flags.finalSpokeToResidents = true; }
             },
             {
                 text: "Speak to 9 year old Carmen",
-                next: "S24"
+                next: "S24",
+                fx: (flags) => { flags.finalSpokeToResidents = true; }
             },
             {
                 text: "Wrap up the VIA",

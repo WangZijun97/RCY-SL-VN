@@ -14,6 +14,7 @@ const initialFlags = JSON.stringify({
         brochure: false,
         email: 0,
         spokeToScrooge: false,
+        spokeToResidents: false
     },
     sessions: "",
     ncogoal: consts.ncogoals.NONE,
@@ -21,6 +22,8 @@ const initialFlags = JSON.stringify({
     rolesandgoals: consts.rolesandgoals.NONE,
     cadetgoal: consts.cadetgoal.NONE,
     finalChitChat: false,
+    finalSpokeToScrooge: false,
+    finalSpokeToResidents: false,
     result: null,
     lastNode: "",
     debrief: "",

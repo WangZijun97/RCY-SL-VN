@@ -273,19 +273,23 @@ const nodes = {
             },
             {
                 text: "Speak to 16 year old Jonathan",
-                next: "L15"
+                next: "L15",
+                fx: (flags) => { flags.research.spokeToResidents = true; }
             },
             {
                 text: "Speak to 14 year old Allam",
-                next: "L16"
+                next: "L16",
+                fx: (flags) => { flags.research.spokeToResidents = true; }
             },
             {
                 text: "Speak to 10 year old Emily",
-                next: "L17"
+                next: "L17",
+                fx: (flags) => { flags.research.spokeToResidents = true; }
             },
             {
                 text: "Speak to 9 year old Carmen",
-                next: "L18"
+                next: "L18",
+                fx: (flags) => { flags.research.spokeToResidents = true; }
             },
             {
                 text: "I'm done, let's proceed on",

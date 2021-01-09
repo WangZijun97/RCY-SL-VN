@@ -30,7 +30,8 @@ const GroupConvo = (props) => {
         cssClassMap,
         startOfConvo, 
         convos, 
-        availableQnGetter = createAvailableQnGetter(convos.length), 
+        availableQnGetter = createAvailableQnGetter(convos.length),
+        endOfConvo = ""
     } = props;
     
 
@@ -62,6 +63,7 @@ const GroupConvo = (props) => {
                 {convos[qnIndex].q}
             </button>)}
         </div>
+        { endOfConvo && availableQns.length === 0 && <p>{endOfConvo}</p> } 
     </div>)
 
 }
