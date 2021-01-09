@@ -54,10 +54,8 @@ const Dialogue = (props) => {
         {
         maxQns !== null && <p className="informative">{qnsLeft > 0 ? `You can ask ${name} ${qnsLeft} more question` + (qnsLeft === 1 ? "" : "s") : `${name} is done with your questions`}</p>
         }
-        { endOfConvo && (maxQns === null || qnsLeft === 0) && <p>{endOfConvo}</p> }  
+        { endOfConvo && (availableQns.length === 0 || (maxQns !== null && qnsLeft === 0)) && <p>{endOfConvo}</p> }  
     </div>)
-    
-    //if exceed max, add some form of im bored at the bottom
 }
 
 export default Dialogue;
