@@ -102,7 +102,7 @@ const serveArcNodes = {
 
     "S4": {
         img: <NodeImg src="NotLikeDuck.png" />,
-        text: "Oh dear, you discovered that most of the kids do not have smartphones... What should the NCOs do?",
+        text: "Oh dear, you discovered that most of the kids do not have smartphones... What should you do?",
         option: [
             {
                 text: "Let the cadets play and let the kids watch",
@@ -172,7 +172,7 @@ const serveArcNodes = {
     "S9": {
         img: (flags) => serveArcNodes["S6"].img(flags),
         text: (flags) => (<p>
-            You find that one of the kids {flags.research.recce && ", Allam,"} is really excited, and in fact sings
+            You find that one kid{flags.research.recce && ", Allam,"} is very excited, and in fact sings
             some songs that even your cadets don't know. However, the rest of the kids quickly lose interest and turn
             back to their usual activities instead...
         </p>),
@@ -238,7 +238,7 @@ const serveArcNodes = {
             <NodeImg src="snow-white.jpg" alt="Snow White"/>
             <NodeImg src="three-little-pigs.jpg" alt="Three Little Pigs"/>
         </div>),
-        text: "The youngest kids listen attentively to the cadets reading, but the older ones got bored and quickly went back to what they were doing before.",
+        text: "The youngest kids listen attentively to the cadets reading, but the older ones get bored and quickly go back to doing their work.",
         option: [
             {
                 text: "Let's continue reading",
@@ -256,7 +256,7 @@ const serveArcNodes = {
             <NodeImg src="geronimo-stilton.jpg" alt="Geronimo Stilton"/>
             <NodeImg src="enid-blyton.jpg" alt="Enid Blyton"/>
         </div>),
-        text: "The younger kids listen to the cadets reading, but the older ones got bored and went back to what they were doing previously.",
+        text: "The younger kids listen to the cadets reading, but the older ones get bored and go back to doing their work.",
         option: [
             {
                 text: "Let's continue reading",
@@ -274,7 +274,7 @@ const serveArcNodes = {
             <NodeImg src="harry-potter.jpg" alt="Harry Potter"/>
             <NodeImg src="percy-jackson.jpg" alt="Percy Jackson"/>
         </div>),
-        text: "Some of the older kids listen to the cadets reading, but the rest get bored and went back to doing their own things. The younger kids are quite confused about the story and frequently interrupt the cadets reading.",
+        text: "Some of the older kids listen to the cadets reading, but the rest get bored and go back to doing their work. The younger kids are quite confused about the story and frequently interrupt the cadets reading.",
         option: [
             {
                 text: "Let's continue reading",
@@ -289,7 +289,7 @@ const serveArcNodes = {
 
     "S16": {
         img: <NodeImg src="hard-truths.jpg" alt="Hard Truths"/>,
-        text: "The kids looked very confused during the reading session and they went back to what they were doing previously quickly.",
+        text: "The kids look very confused during the reading session and they go back to doing their work.",
         option: [
             {
                 text: "Let's continue reading",
@@ -304,7 +304,7 @@ const serveArcNodes = {
 
     "S17": {
         img: <NodeImg src="soccer.png" alt="Soccer" />,
-        text: "Many (but not all) of the kids are very excited to play soccer. The NCOs organized them into various age groups and the kids are having a great time. During the breaks in between some of the games, you start talking to some of the kids from the home...",
+        text: "Many (but not all) of the kids are very excited to play soccer. Your committee organized them into various age groups and the kids are having a great time. During the breaks in between some of the games, you start talking to some of the kids from the home...",
         option: [{
             text: "Continue...",
             next: "S19",
@@ -457,12 +457,12 @@ const makeDescription = (isSesame, activity, score) => {
         // Chit chat
     } else if (activity === consts.activities.CHIT_CHAT) {
         str += isSesame ? "" : " Nevertheless, they warmed up to the cadets.";
-        str += " You see many of the kids and the cadets were talking animatedly with each other.";
+        str += " You see that many of the kids and the cadets were talking animatedly with each other.";
 
         // Soccer
     } else if (activity === consts.activities.SOCCER) {
-        str += isSesame ? "" : " Nevertheless,";
-        str += " most of the kids and the cadets were enjoying themselves greatly playing soccer, and many of them bonded closely over the fun that they are having.";
+        str += isSesame ? " M" : " Nevertheless, m";
+        str += "ost of the kids and the cadets were enjoying themselves greatly playing soccer, and many of them bonded closely over the fun that they are having.";
 
         // Kite-fighting
     } else if (activity === consts.activities.KITE) {
@@ -480,7 +480,7 @@ const makeDescription = (isSesame, activity, score) => {
     }
 
     if (score === 7) {
-        str += " This VIA has been an incredible success and you are extremely proud of your NCOs for that!";
+        str += " This VIA has been an incredible success and you are extremely proud of your committee and your cadets for that!";
     } else if (score > 4 && score < 7) {
         str += " This VIA has been rather successful. Nevertheless, you can't help but wonder what you could have done to make it even better...";
     } else if (score < 5 && score > 2) {
