@@ -120,11 +120,11 @@ const Timeline = (props) => {
         <Entry arc="VIA Choice" type="Service" keyword="Sustainability" title={locationChoiceTitle} icon={locationChoiceIcon}>
             {locationChoiceEntry}
         </Entry>
-        <Entry arc="1. Learn" type="Service" keyword="Meaningful Service" title={researchTitle} icon={researchIcon}>
-            {researchEntry}
-        </Entry>
         <Entry arc="1. Learn" type="Learning" keyword="Individual Learning" title={ncoGoalTitle} icon={ncoGoalIcon}>
             {ncoGoalEntry}
+        </Entry>
+        <Entry arc="1. Learn" type="Service" keyword="Meaningful Service" title={researchTitle} icon={researchIcon}>
+            {researchEntry}
         </Entry>
         <Entry arc="2. Plan" type="Service" keyword="Meaningful Service" title={`Your unit decided to ${flags.activity}.`} icon={activityIcon}>
             {activityEntry}
