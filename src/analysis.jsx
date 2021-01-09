@@ -70,7 +70,11 @@ export const getNcoGoalTitleAndEntry = (ncoGoalState) => {
                 icons.BAD,
             ];
 
-        case consts.ncogoals.VI:
+        case consts.ncogoals.LEARN_STORIES_BEF_RESEARCH:
+        case consts.ncogoals.LEARN_STORIES_AFT_RESEARCH:
+        case consts.ncogoals.SOLVE_PROBLEMS_BEF_RESEARCH:
+        case consts.ncogoals.SOLVE_PROBLEMS_AFT_RESEARCH:
+        case consts.ncogoals.EXCITING_ACTIVITIES:
             return [
                 "You set learning goals for your committee before you started planning.",
                 (<React.Fragment>While it is great that there are goals, <span className="emph">people are unlikely to take ownership of goals they are uninterested in</span>. It would be difficult for new learning points from this project to take root. It would have been beneficial to <span className="emph">let your committee set their own goals before planning begins</span>.</React.Fragment>),

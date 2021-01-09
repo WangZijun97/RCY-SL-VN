@@ -12,6 +12,7 @@ const planArcNodes = {
             <p>Time to get some planning done - here are some activities that your Sec 2s proposed! Pick one to conduct.</p>
             {(flags.research.brochure || flags.research.freeTime || flags.research.soccer) && <p className="informative">[You have unlocked additional options because of your research.]</p>}
             {(flags.research.recce) && <p className="informative">[You have unlocked additional options because of your physical recce to the home.]</p>}
+            {(flags.ncogoal === consts.ncogoals.EXCITING_ACTIVITIES) && <p className="informative">[You have unlocked additional options because you told your committee members to think of exciting activities. The more boring options have been excluded.]</p>}
             </React.Fragment>),
         option: [
             {
@@ -25,7 +26,8 @@ const planArcNodes = {
             },
             {
                 text: "Book Reading",
-                next: "P2"
+                next: "P2",
+                condition: (flags) => flags.ncogoal !== consts.ncogoals.EXCITING_ACTIVITIES,
             },
             {
                 text: "Play soccer",
@@ -36,6 +38,7 @@ const planArcNodes = {
             {
                 text: "Chit Chat",
                 next: "P3",
+                condition: (flags) => flags.ncogoal !== consts.ncogoals.EXCITING_ACTIVITIES,
                 fx: (flags) => { flags.activity = consts.activities.CHIT_CHAT }
             },
             {
@@ -47,6 +50,38 @@ const planArcNodes = {
                 next: "P3",
                 fx: (flags) => { flags.activity = consts.activities.KITE },
                 condition: (flags) => flags.research.recce,
+            },
+            {
+                text: "Waveboarding",
+                next: "P30",
+                condition: (flags) => flags.ncogoal === consts.ncogoals.EXCITING_ACTIVITIES,
+            },
+            {
+                text: "Muay Thai",
+                next: "P31",
+                condition: (flags) => flags.ncogoal === consts.ncogoals.EXCITING_ACTIVITIES,
+            },
+        ]
+    },
+
+    "P30": {
+        img: <NodeImg src="rip-on-gravestone.jpg" alt="RIP"/>,
+        text: "Your teachers have feedbacked that waveboarding is too unsafe for the VIA. Looks like you have to pick another activity...",
+        option: [
+            {
+                text: "Oh well...",
+                next: "P1",
+            }
+        ]
+    },
+
+    "P31": {
+        img: <NodeImg src="rip-on-gravestone.jpg" alt="RIP"/>,
+        text: "Your teachers have feedbacked that Muay Thai is too unsafe for the VIA. Looks like you have to pick another activity...",
+        option: [
+            {
+                text: "Oh well...",
+                next: "P1",
             }
         ]
     },
@@ -262,7 +297,7 @@ const planArcNodes = {
                 fx: (flags) => { flags.rolesandgoals = consts.rolesandgoals.YO_SCOLD }
             },
             {
-                text: "Complain to the unit chairperson Meiling.",
+                text: "Just tank the project.",
                 next: (flags) => doP9Check(flags, "P14"),
                 fx: (flags) => { flags.rolesandgoals = consts.rolesandgoals.OIC }
             },
@@ -346,7 +381,9 @@ const planArcNodes = {
     },
 
     "P10": {
-        text: "Alright! Your committee has created a beautiful proposal which the teacher approves, with just a week to spare! All seems to be going well :D",
+        text: (flags) => (
+            <p>Alright! Your committee has created a beautiful proposal, with a week to spare! {flags.ncogoal === consts.ncogoals.SOLVE_PROBLEMS_AFT_RESEARCH ? "With the exception of the fundraising component, which your teacher rejected as there wasn't enough time, the rest of your proposal was approved." : "Your teacher approved the proposal too!"} All seems to be going well.</p>
+            ),
         option: [{
             text: "Nice ^__^",
             next: doP15Check
@@ -354,7 +391,7 @@ const planArcNodes = {
     },
 
     "P14": {
-        text: "Your committee finally finished the proposal two nights before the VIA. It's not the best, but at least it's before the VIA, let's hope the teachers find this OK...",
+        text: (flags) => (<p>Your committee finally finished the proposal two nights before the VIA. {flags.ncogoal === consts.ncogoals.SOLVE_PROBLEMS_AFT_RESEARCH && "You had to scrap the fundraising component of the VIA as there wasn't enough time."} It's not the best, but at least it's before the VIA, let's hope the teachers find this OK... </p>),
         option: [{
             text: "Fingers crossed...",
             next: doP15Check

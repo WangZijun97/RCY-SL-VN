@@ -3,7 +3,6 @@ const consts = {
     SUNSHINE: "Sunshine Children's Home",
     ncogoals: {
         NONE: "did not set",
-        VI: "set by VIs",
         NOT_SPECIFIC: "goal set is not specific",
         NCO: "set by NCOs",
         LEARN_STORIES_BEF_RESEARCH: "by OIC - learn stories - no research yet",
@@ -75,5 +74,15 @@ export const allActivities = {
     ...consts.songs,
     ...consts.books
 }
+
+export const motivatedAskQns = [
+    consts.ncogoals.LEARN_STORIES_BEF_RESEARCH,
+    consts.ncogoals.SOLVE_PROBLEMS_BEF_RESEARCH,
+]
+
+export const motivatedTalkToResidents = [
+    consts.ncogoals.LEARN_STORIES_BEF_RESEARCH,
+    consts.ncogoals.LEARN_STORIES_AFT_RESEARCH
+]
 
 export default consts;

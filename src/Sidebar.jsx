@@ -36,8 +36,8 @@ const Sidebar = (props) => {
                 <div className="timeline">
                     <SimpleEntry>Start</SimpleEntry>
                     {flags.name === "default" || <SimpleEntry>{getLocationChoiceText(flags.name)[0]}</SimpleEntry>}
-                    {flags.decisionVisibility.research && <SimpleEntry>{getResearchTitleAndEntry(flags.research)[0]}</SimpleEntry>}
                     {flags.decisionVisibility.ncogoal && <SimpleEntry>{getNcoGoalTitleAndEntry(flags.ncogoal)[0]}</SimpleEntry>}
+                    {flags.decisionVisibility.research && <SimpleEntry>{getResearchTitleAndEntry(flags.research)[0]}</SimpleEntry>}
                     {flags.activity && <SimpleEntry>Your unit chose to {flags.activity}.</SimpleEntry>}
                     {flags.sessions && <SimpleEntry>Your unit chose to have {flags.sessions}.</SimpleEntry>}
                     {flags.decisionVisibility.rolesandgoals && <SimpleEntry>{getNcoRnGTitleAndEntry(flags.rolesandgoals)[0]}</SimpleEntry>}
