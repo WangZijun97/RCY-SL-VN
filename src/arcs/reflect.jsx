@@ -141,6 +141,13 @@ const reflectArcNodes = {
                 } else if (flags.ncogoal === consts.ncogoals.NCO) {
                     return "R10" //no routing change
                 }
+            },
+            fx: (flags) => {
+                if (flags.debrief === consts.debrief.CADET) {
+                    flags.debrief = consts.debrief.BOTH
+                } else if (flags.debrief === consts.debrief.NONE) {
+                    flags.debrief = consts.debrief.NCO
+                }
             }
         }]
     },
@@ -160,7 +167,14 @@ const reflectArcNodes = {
                     return "R14"
                 }
             }
-        }]
+        }],
+        fx: (flags) => {
+            if (flags.debrief === consts.debrief.NONE) {
+                flags.debrief = consts.debrief.CADET
+            } else if (flags.debrief === consts.debrief.NCO) {
+                flags.debrief = consts.debrief.BOTH
+            }
+        }
     },
 
     "R7": {
