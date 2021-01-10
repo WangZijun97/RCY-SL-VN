@@ -44,7 +44,7 @@ const askArcNodes = {
             </table>
             ),
         text: (flags) => (<React.Fragment>
-            <p>The home visit is soon approaching. You have requested your NCOs to prepare the unit for the VIA. This is their plan for the training right before the VIA. What feedback do you have for the training plan?</p>
+            <p>The home visit is soon approaching, and you need to prepare the unit for the VIA. Currently, this is the plan for the training <em>right before the VIA</em>. What feedback do you have for the training plan?</p>
             <p className="informative">[Reminder: your unit has chosen to {flags.activity}.]</p>
             </React.Fragment>),
         option: [
