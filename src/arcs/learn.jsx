@@ -37,7 +37,7 @@ const nodes = {
         text: (flags) => (
             <div>
                 <p>How would you like to intervene?</p>
-                {flags.ncogoal !== consts.ncogoals.NONE && <p className="informative">[You have already set goals for the NCOs.]</p>}
+                {flags.ncogoal !== consts.ncogoals.NONE && <p className="informative">[You have already set goals for the committee.]</p>}
             </div>
         ),
         option: [
