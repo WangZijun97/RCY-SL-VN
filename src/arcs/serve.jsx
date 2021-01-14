@@ -1,5 +1,5 @@
 import React from 'react'
-import consts from '../consts'
+import consts, {motivatedTalkToResidents} from '../consts'
 import NodeImg from '../NodeImg'
 import Dialogue from '../convo/Dialogue'
 import scroogeConvos from '../convo/scrooge'
@@ -172,7 +172,7 @@ const serveArcNodes = {
     "S9": {
         img: (flags) => serveArcNodes["S6"].img(flags),
         text: (flags) => (<p>
-            You find that one kid{flags.research.recce && ", Allam,"} is very excited, and in fact sings
+            You find that one kid{flags.research.recce && ", Allan,"} is very excited, and in fact sings
             some songs that even your cadets don't know. However, the rest of the kids quickly lose interest and turn
             back to their usual activities instead...
         </p>),
@@ -344,7 +344,7 @@ const serveArcNodes = {
                 fx: (flags) => { flags.finalSpokeToResidents = true; }
             },
             {
-                text: "Speak to 14 year old Allam",
+                text: "Speak to 14 year old Allan",
                 next: "S22",
                 fx: (flags) => { flags.finalSpokeToResidents = true; }
             },
@@ -374,6 +374,7 @@ const serveArcNodes = {
             startOfConvo={`Hope you are having a great time here at ${flags.name}! I am Ebenzer Scrooger, the Home Director. Feel free to ask me anything about this place!`}
             speakerClass="scrooge-speech"
             convos={scroogeConvos}
+            maxQns={motivatedTalkToResidents.includes(flags.ncogoal) ? 6 : 5}
             name="Mr. Scrooge" />),
         option: [{
             text: "Go back to talk to the others",
@@ -382,11 +383,13 @@ const serveArcNodes = {
     },
 
     "S21": {
-        text: () => (<Dialogue
+        img: (<NodeImg src="jonathan.png" alt="jonathan" />),
+        text: (flags) => (<Dialogue
             startOfConvo="Hi... I'm Jonathan, and I'm 16 years old."
             speakerClass="jon-speech"
             convos={jonConvos}
             name="Jonathan"
+            maxQns={motivatedTalkToResidents.includes(flags.ncogoal) ? 4 : 3}
         />),
         option: [
             {
@@ -396,11 +399,13 @@ const serveArcNodes = {
     },
 
     "S22": {
-        text: () => (<Dialogue 
-            startOfConvo="Sup. I'm Allam, and I'm 14."
+        img: (<NodeImg src="allan.png" alt="allan" />),
+        text: (flags) => (<Dialogue 
+            startOfConvo="Sup. I'm Allan, and I'm 14."
             speakerClass="allam-speech"
             convos={allamConvos}
-            name="Allam"
+            name="Allan"
+            maxQns={motivatedTalkToResidents.includes(flags.ncogoal) ? 4 : 3}
         />),
         option: [
             {
@@ -410,11 +415,13 @@ const serveArcNodes = {
     },
 
     "S23": {
-        text: () => (<Dialogue 
+        img: (<NodeImg src="emily.png" alt="emily" />),
+        text: (flags) => (<Dialogue 
             startOfConvo="Umm... hello! I'm Emily!"
             speakerClass="emily-speech"
             convos={emilyConvos}
             name="Emily"
+            maxQns={motivatedTalkToResidents.includes(flags.ncogoal) ? 4 : 3}
         />),
         option: [
             {
@@ -424,11 +431,13 @@ const serveArcNodes = {
     },
 
     "S24": {
-        text: () => (<Dialogue 
+        img: (<NodeImg src="carmen.png" alt="carmen" />),
+        text: (flags) => (<Dialogue 
             startOfConvo="I'm Carmen..."
             speakerClass="carmen-speech"
             convos={carmenConvos}
             name="Carmen"
+            maxQns={motivatedTalkToResidents.includes(flags.ncogoal) ? 4 : 3}
         />),
         option: [
             {

@@ -179,7 +179,7 @@ const nodes = {
     },
 
     "L8": {
-        img: (<NodeImg src="scrooge.jpg" alt="scrooge" />),
+        img: (<NodeImg src="scrooge.png" alt="scrooge" />),
         text: "Upon calling the home, you were able to speak to the Home Director, Mr Scrooge.",
         option: [
             {
@@ -277,7 +277,7 @@ const nodes = {
                 fx: (flags) => { flags.research.spokeToResidents = true; }
             },
             {
-                text: "Speak to 14 year old Allam",
+                text: "Speak to 14 year old Allan",
                 next: "L16",
                 fx: (flags) => { flags.research.spokeToResidents = true; }
             },
@@ -298,7 +298,7 @@ const nodes = {
     },
 
     "L14": {
-        img: (flags) => nodes["L8"].img,
+        img: () => nodes["L8"].img,
         text: (flags) => (<Dialogue
             startOfConvo={`Welcome to ${flags.name}! I am Ebenzer Scrooge, the Home Director. Feel free to ask me anything about the home!`}
             speakerClass="scrooge-speech"
@@ -313,6 +313,7 @@ const nodes = {
     },
 
     "L15": {
+        img: (<NodeImg src="jonathan.png" alt="jonathan" />),
         text: (flags) => (<Dialogue 
             startOfConvo="Hi... I'm Jonathan, and I'm 16 years old."
             speakerClass="jon-speech"
@@ -328,11 +329,12 @@ const nodes = {
     },
 
     "L16": {
+        img: (<NodeImg src="allan.png" alt="allan" />),
         text: (flags) => (<Dialogue 
-            startOfConvo="Sup. I'm Allam, and I'm 14."
+            startOfConvo="Sup. I'm Allan, and I'm 14."
             speakerClass="allam-speech"
             convos={allamConvos}
-            name="Allam"
+            name="Allan"
             maxQns={motivatedAskQns.includes(flags.ncogoal) ? 3 : 2}
             />),
         option: [
@@ -343,6 +345,7 @@ const nodes = {
     },
 
     "L17": {
+        img: (<NodeImg src="emily.png" alt="emily" />),
         text: (flags) => (<Dialogue 
             startOfConvo="Umm... hello! I'm Emily!"
             speakerClass="emily-speech"
@@ -358,6 +361,7 @@ const nodes = {
     },
 
     "L18": {
+        img: (<NodeImg src="carmen.png" alt="carmen" />),
         text: (flags) => (<Dialogue 
             startOfConvo="I'm Carmen..."
             speakerClass="carmen-speech"
