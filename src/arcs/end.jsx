@@ -146,7 +146,7 @@ const endNodes = {
             return (<div className="analysis">
                 <h3>Major decisions made</h3>
                 <Timeline flags={flags} />
-                <p>You have come to the end of the game. We recommend that you play the game at least twice! After your second playthrough, we would also love to hear your feedback at <a href="https://tinyurl.com/viadvfeedback" target="_blank" rel="noreferrer">tinyurl.com/viadvfeedback</a>!</p>
+                <p>You have come to the end of the game.{/*We recommend that you play the game at least twice! After your second playthrough, we would also love to hear your feedback at <a href="https://tinyurl.com/viadvfeedback" target="_blank" rel="noreferrer">tinyurl.com/viadvfeedback</a>!*/}</p>
             </div>)
         },
         option: [{
