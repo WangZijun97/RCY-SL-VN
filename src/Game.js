@@ -77,6 +77,8 @@ const Game = (props) => {
         } else if (touchEnd - touchStart > threshold) {
             onSidebarChange(false);
         }
+
+        setTouchEnd(null);
     }
 
     React.useEffect(() => {
