@@ -120,7 +120,7 @@ const Timeline = (props) => {
         <Entry arc="VIA Choice" type="Service" keyword="Sustainability" title={locationChoiceTitle} icon={locationChoiceIcon}>
             {locationChoiceEntry}
         </Entry>
-        <Entry arc="1. Learn" type="Learning" keyword="Individual Learning" title={ncoGoalTitle} icon={ncoGoalIcon}>
+        <Entry arc="1. Learn" type="Learning" keyword="Individual Learning / Reciprocity" title={ncoGoalTitle} icon={ncoGoalIcon}>
             {ncoGoalEntry}
         </Entry>
         <Entry arc="1. Learn" type="Service" keyword="Meaningful Service" title={researchTitle} icon={researchIcon}>
@@ -135,13 +135,13 @@ const Timeline = (props) => {
         <Entry arc="VIA Choice" type="Service" keyword="Sustainability" title={sessionsTitle} icon={sessionsIcon}>
             {sessionsEntry}
         </Entry>
-        <Entry arc="3. Ask" type="Learning" keyword="Individual Learning" title={cadetGoalTitle} icon={cadetGoalIcon}>
+        <Entry arc="3. Ask" type="Learning" keyword="Individual Learning / Reciprocity" title={cadetGoalTitle} icon={cadetGoalIcon}>
             {cadetGoalEntry}
         </Entry>
         <Entry arc="4. Serve" type="Service" keyword="Meaningful Service" title={chitChatTitle} icon={chitChatIcon}>
             {chitChatEntry}
         </Entry>
-        <Entry arc="5. Reflect" type="Learning" keyword="Reciprocity" title={debriefTitle} icon={debriefIcon}>
+        <Entry arc="5. Reflect" type="Learning" keyword="Individual Learning / Reciprocity" title={debriefTitle} icon={debriefIcon}>
             {debriefEntry}
         </Entry>
     </div>);
