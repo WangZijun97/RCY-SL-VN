@@ -92,7 +92,7 @@ const endNodes = {
     
     "END": {
         img: (<img />),
-        text: "The VIA is finally over! What a long journey it has been. As you start to walk home from school, you can't help but think about how your cadets and NCOs have done...",
+        text: "The VIA is finally over! What a long journey it has been. As you start to walk home from school, you can't help but think about how the committee and the participants have done...",
         option: [{
             text: "Did they learn?",
             next: (flags) => {
@@ -120,7 +120,7 @@ const endNodes = {
     
     "end1": {
         img: (flags) => (<Stars label="Learning" rating={calculateLearningScore(flags)} />),
-        text: "The VIA was definitely an interesting and fruitful experience for you and your unit. You could tell that your NCOs and cadets have grown much. However, you can't help but wonder - how can you push them to be even clearer and active in their learning?",
+        text: "The VIA was definitely an interesting and fruitful experience for you and your unit. You could tell that your committee and the participants have grown much. However, you can't help but wonder - how can you push them to be even clearer and active in their learning?",
         option: [{
             text: "End game and view results",
             next: "ANALYSIS"

@@ -430,7 +430,7 @@ const reflectArcNodes = {
     },
     
     "R8": {
-        text: "Your NCOs tell you that they have put in their best and have learnt more about the stories, but they ask you why is there a need to even learn about the stories of the beneficaries.",
+        text: "Your committee tells you that they have put in their best and have learnt more about the stories, but they ask you why is there a need to even learn about the stories of the beneficaries.",
         option: [
             {
                 text: "Time to debrief the cadets",

@@ -180,7 +180,7 @@ export const getChitChatTitleAndEntry = (activity, chitChatAfter) => {
     ]
 }
 
-const debriefPerhapsClause = <React.Fragment>VIAs aren't just for our cadets to serve the community; they are also for our cadets to learn new skills and better understand and empathize with others in our society. <span className="emph">Consider debriefing both cadets and NCOs after each VIA session in the future</span>.</React.Fragment>
+const debriefPerhapsClause = <React.Fragment>VIAs aren't just for our cadets to serve the community; they are also for our cadets to learn new skills and better understand and empathize with others in our society. <span className="emph">Consider debriefing both participants and the committee after each VIA session in the future</span>.</React.Fragment>
 
 export const getDebriefTitleAndEntry = (debriefState) => {
     switch (debriefState) {

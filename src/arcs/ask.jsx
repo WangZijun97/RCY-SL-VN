@@ -75,7 +75,7 @@ const askArcNodes = {
             ),
         option: [
             {
-                text: "The NCOs should tell the cadets what they should try and learn from the VIA",
+                text: "We should tell the cadets what they should try and learn from the VIA",
                 next: "A3",
                 fx: (flags) => flags.cadetgoal = consts.cadetgoal.NCO
             },
